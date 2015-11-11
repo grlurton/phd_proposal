@@ -145,7 +145,7 @@
  				\pgftext[x=0cm,y=25.37cm,bottom,left]{\includegraphics[width=21cm]{images/dgh_banner.png}};
  				\pgftext[x=1.1cm,y=24cm,bottom,left]{\fontsize{20}{20}{\textbf{\program}}};
  				\pgftext[x=1.1cm,y=23.2cm,bottom,left]{\fontsize{18}{18}{\textbf{\textcolor{grisfonce}\track}}};
- 				\pgftext[x=10.5cm,y=16.5cm,bottom,center]{\fontsize{30}{30}{\textbf{\reporttitle}}};
+ 				\pgftext[x=10.5cm,y=16.5cm,bottom,center]{\fontsize{30}{30}{\textbf{Problems in HMIS \\ in Developing Countries}}};%\reporttitle
  				\pgftext[x=10.5cm,y=15.5cm,bottom,center]{\scalebox{0.77}[1]{\fontsize{20}{20}{\fontfamily{phv}\selectfont{}\textcolor{grisfonce}{\reportauthors}}}};
  				\pgftext[x=5.5cm,y=13.1cm,bottom,left]{\scalebox{0.6}[1]{\fontsize{18}{18}{\fontfamily{phv}\selectfont{}\textbf{\today}}}};
  				\pgftext[x=1.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm]{images/ihme_logo.png}};
@@ -246,6 +246,8 @@ We contend that the difficulty of designing and implementing HMIS that deliver u
 
 M\&E = version la plus degradee
 
+SUBSYSTEMS : cf document liberia
+
 data coll : qu'est-ce qu'on apprend de metadonnees. comment peut aider comprehension du fonctionnement
 data man : interoperability, data management
 data analyse : quelle approche innovante ? qu'est-ce qu'on peut lire ?
@@ -332,9 +334,7 @@ Another approach to HMIS is a consideration of the stated goals of these informa
     \draw[name intersections={of=AC and horiz,by=P},
           name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
           node[align = center,above] at (0,\txtHigh){\A};
-          }
-
-          
+          }         
 \end{tikzpicture}
 \caption{Objectives of HMIS}
 \label{HMISGoals}
@@ -397,25 +397,44 @@ This distinction is essential at many levels. The whole debate around the level 
 In other dimensions, how can civil society help for HMIS design and evaluation
 
 
-	\subsection{RHMIS problematics overview}
-
-Definitions et graphiques de \textsc{hmn}.
-
-	\subsection{Description of RHMIS and its constituents}
-
-ATTENTION : Gerer la difference \textsc{hmis} vs EMR. S'eloigner de la question technologique. 
-
-	\subsection{Using RHMIS}
-
-		\subsubsection{Individual health}
-
-		\subsubsection{Program Management}
-		
-		\subsubsection{Policy Design}
-
 \section{Problems with HMIS}
 
 	\subsection{Care improvement}
+	
+	\begin{figure}[htp]
+\begin{minipage}{.4\textwidth}
+\begin{tikzpicture}[node distance=.8cm,  start chain=going below,]
+     \node[punktchain, join] (DataCollection) {Data Collection};
+     \node[punktchain, join] (DataManagement) {Data Transmission and Management};
+     \node[punktchain, join] (DataAnalysis)   {Data Analysis};
+     \node[punktchain, join] (DataUse) 		  {Data Use};
+     \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-2.2,-.7) -- (-2.2,.7) -- (2.2,.7) -- (2.2,-.7) -- (-2.2,-.7) ;
+\end{tikzpicture}	
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[node distance=2cm]
+\coordinate (A) at (-4.5,0) {};
+\coordinate (B) at ( 4.5,0) {};
+\coordinate (C) at ( 0,7.7942) {};
+\draw[name path=AC] (A) -- (C);
+\draw[name path=BC] (B) -- (C);
+\draw (1.1,5.8971)--(3.5,5.8971) ;
+\draw(3.5,5.8971)--(3.5,3) ;
+\draw [->](3.5,3)--(2.77,3) ;
+\node at (4.4,4.25) {Feedback};
+\foreach \y/\A/\txtHigh in {0/Patients Care/0.8 ,2/Facility Administration \\ and Reporting/2.5,4/Planning \\ Monitoring \\ \& Evaluation /4.8}{
+    \path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
+    \draw[name intersections={of=AC and horiz,by=P},
+          name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
+          node[align = center,above] at (0,\txtHigh){\A};
+          }         
+    \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-4.7,-.2) -- (-4.7,2.2) -- (4.7,2.2) -- (4.7,-.2) -- (-4.7,-.2) ;
+\end{tikzpicture}
+\caption{Objectives of HMIS}
+
+\end{minipage}
+\label{Paper One}
+\end{figure}
 
 A first question we want to ask 
 
@@ -449,8 +468,6 @@ Data Analysis &  &  &  \\
 
 TABLE : Intersection of the two types of problems
 	
-	\subsection{Work performed}	
-	
 	\subsection{Pending questions}
 
 Ici on selectionne les questions a regarder et eclairer dans le cadre de la these.
@@ -465,15 +482,19 @@ Data from ITech
 
 	\subsection{Interoperability }
  
-Follow-up on a project with Bluesquare 
+Follow-up on a project with Bluesquare  / try grouping indicators based on actual series
  
 	\subsection{Analysis}  
   
-Estimation of coverage 
+Evaluation of facility performance / screening / prediction of quality
 
 	\subsection{Data Use}
   
-Reflections on social conditions of HMIS data usage  / politics of administrative statistics
+Reflections on social conditions of HMIS data usage  / politics of administrative statistics.
+
+Data is not produced to create knowledge, but to implement disciplinary monitoring. Thinking mainly in terms of indicators. 
+
+Case study : analyse de textes M\&E / projets de reforme de systemes hmis, et analyse de la vision des HMIS qu'ils proposent. quelle place pour la societe civile ? inversion des priorites. 
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 			BIBLIOGRAPHY
