@@ -17,10 +17,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Loading Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[francais,english]{babel}
+\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{mathpazo} % add possibly `sc` and `osf` options
+\usepackage{mathpazo}
 \usepackage{eulervm}
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 \usepackage{setspace}
@@ -29,16 +29,15 @@
 \usepackage{lastpage}
 \usepackage{fancyhdr}
 \usepackage[table]{xcolor}
-\usepackage{tikz}
 \usepackage{lmodern}
-\usepackage{amsmath,amsthm} 
+\usepackage{amsmath,amsthm,amscd,amssymb} 
 \usepackage{eulervm}
 
-\usetikzlibrary{automata,positioning,
-	calc,trees,positioning,arrows,chains,shapes.geometric,%
-    decorations.pathreplacing,decorations.pathmorphing,%
-    matrix,shapes.symbols,matrix,fit,calc,trees,positioning,
-    arrows,chains,shapes.geometric,shapes,arrows,intersections}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing , chains , intersections}
+
+\usepackage{pgfgantt}
+\usepackage{pgfcalendar}
 
 %%%%%%%%%%%%%%
 \tikzset{
@@ -130,7 +129,7 @@
 
 
 % Get Bulleted Lists Working
-\renewcommand{\FrenchLabelItem}{\textbullet}
+%\renewcommand{\FrenchLabelItem}{\textbullet}
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -221,6 +220,16 @@ In my dissertation, I would like to explore tools and approaches that can correc
 \section{Introduction}
 
 \subsection{Information in health systems}
+
+"Les outils statistiques permettent de découvrir ou de créer des êtres sur lesquels prendre appui pour décrire le monde et agir sur lui" - citation sur la decision rationnelle. mais on sait que c'est un construit. Social et technique. Cas spécifique, statistique sanitaire.3
+
+tension entre valeur de l'etat et de la science se retrouve jouer à plein dans les HMIS
+
+decrire c'est gérer . role de description et de prescription
+
+construction d'un espace politique d'équivalence et de codage
+
+
 
 The use of statistical information in the design, the implementation and the evaluation of public policies is of growing interest in different domain of public life. Different trends in the thoughts and traditions of public life have led to this strengthened importance. 
 
@@ -315,6 +324,7 @@ Data collected in facilities can be individual patient data collected in patient
 
 
 	\subsection{Goal approach}
+	\label{sec_goal}
 
 Another approach to HMIS is a consideration of the stated goals of these information systems. Figure \ref{HMISGoals} shows what these goals are. The pyramidal representation of these needs is used to show that these goals fill data needs at different levels of health systems.
 
@@ -349,9 +359,7 @@ Another approach to HMIS is a consideration of the stated goals of these informa
 
 \subsection{Problematization and problem analysis}
 
-POSIT THE PROBLEM
-
-Using this framework, we identify important issues in the way HMIS are designed, implemented and used in developing countries. Our analysis is looking at the adequacy of HMIS methods and practices with the aims of these systems. We posit there is an overemphasis that is put on data collection in a lot of systems, which jeopardizes the way health information systems perform.
+Using the framework we presented in sections \ref{sec_function} and \ref{sec_goal}, we identify important issues in the way HMIS are designed, implemented and used in developing countries. Our analysis is looking at the adequacy of HMIS methods and practices with the aims of these systems. We posit there is an overemphasis that is put on data collection in a lot of systems, which jeopardizes the way health information systems perform.
 
 The reasons for this overemphasis can be traced to the intellectual frameworks that has surrounded the design and development of statistical systems in developing countries, and the evolution of what collecting data for organizations means.
 
@@ -432,10 +440,14 @@ Theory of change for HMIS ?
 	
 	\subsection{Main objective}
 
-Our main objective is to explore methods that can be used in 
+Our main objective is to explore methods and approaches that can be used to improve the comprehension and the operations of HMIS in developing countries. Looking at different angles of HMIS, we aim at understanding how each of the different functions of HMIS can be leverage to improve the outcomes of HMIS operations.
+
+The dissertation will be built in four parts, each part being a look at a specific function of HMIS. For each of these functions, we aim at providing a better understanding of the challenges met, or to offer solutions to improve outcomes of HMIS.
 	
 	\subsection{Specific aims}
 	\subsubsection{EMR and individual health}
+
+A first aim 
 
 \begin{figure}[htp]
 \begin{minipage}{.4\textwidth}
@@ -471,7 +483,53 @@ Our main objective is to explore methods that can be used in
 \label{Paper One}
 \end{figure}
 
-Data from ITech
+
+\paragraph{Setting}
+
+\paragraph{Data}
+
+\paragraph{Analysis}
+
+\paragraph{Timeline}
+
+\begin{figure}[h]
+\begin{ganttchart}[vgrid,hgrid]{1}{24}
+\gantttitle{2016}{12}
+\gantttitle{2017}{12} \\
+\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,12}{1}\\
+%\ganttgroup{Group 1}{1}{7} \\
+\ganttbar{Data Extraction}{1}{3} \\
+\ganttbar{Data Cleaning}{2}{4} \\
+\ganttbar{Data Analysis 1}{5}{6} \\
+\ganttmilestone{Sharing First Results}{6} \\
+\ganttbar{Data Analysis 2}{7}{9} \\
+\ganttmilestone{Sharing Final Results}{9} \\
+\ganttbar{Paper Writing}{9}{11} \\
+\ganttmilestone{Paper Submission}{11}
+\end{ganttchart}
+\caption{Gantt Chart for Paper 1}
+\end{figure}
+
+
+\begin{ganttchart}[
+vgrid,
+hgrid,
+bar/.append style={fill=green},
+bar incomplete/.append style={fill=red},
+progress=today,
+today=6,
+group progress label node/.append style={below=3pt}
+]{1}{12}
+\gantttitle{Title}{12} \\
+\ganttgroup{Group 1}{1}{10} \\
+\ganttbar[
+bar progress label font=\color{green!25!black}\sffamily
+]{Subtask 1}{1}{3} \\
+\ganttbar[
+progress label text={$\displaystyle\frac{#1}{100}$}
+]{Subtask 2}{5}{12}
+\end{ganttchart}
+
 
 	\subsubsection{Interoperability }
  
@@ -510,6 +568,15 @@ Data from ITech
 \end{figure} 
  
 Follow-up on a project with Bluesquare  / try grouping indicators based on actual series
+
+\paragraph{Setting}
+
+\paragraph{Data}
+
+\paragraph{Analysis}
+
+\paragraph{Timeline}
+
  
 	\subsubsection{Analysis}  
 
@@ -548,6 +615,15 @@ Follow-up on a project with Bluesquare  / try grouping indicators based on actua
 \end{figure} 
 
 Evaluation of facility performance / screening / prediction of quality
+
+\paragraph{Setting}
+
+\paragraph{Data}
+
+\paragraph{Analysis}
+
+\paragraph{Timeline}
+
 
 	\subsubsection{Data Use}
 
@@ -592,6 +668,15 @@ Reflections on social conditions of HMIS data usage  / politics of administrativ
 Data is not produced to create knowledge, but to implement disciplinary monitoring. Thinking mainly in terms of indicators. 
 
 Case study : analyse de textes M\&E / projets de reforme de systemes hmis, et analyse de la vision des HMIS qu'ils proposent. quelle place pour la societe civile ? inversion des priorites. 
+
+\paragraph{Setting}
+
+\paragraph{Data}
+
+\paragraph{Analysis}
+
+\paragraph{Timeline}
+
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 			BIBLIOGRAPHY
