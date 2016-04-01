@@ -79,7 +79,7 @@
 %% Paper's Information -- TO TWEAK
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TITLE
-\newcommand{\reporttitle}{Problems in HMIS in Developing Countries}
+\newcommand{\reporttitle}{Methods and Issues for the valorization of HMIS Data}
 
 %AUTHORS
 \newcommand{\reportauthors}{Grégoire Lurton}
@@ -144,9 +144,10 @@
  				\pgftext[x=0cm,y=25.37cm,bottom,left]{\includegraphics[width=21cm]{images/dgh_banner.png}};
  				\pgftext[x=1.1cm,y=24cm,bottom,left]{\fontsize{20}{20}{\textbf{\program}}};
  				\pgftext[x=1.1cm,y=23.2cm,bottom,left]{\fontsize{18}{18}{\textbf{\textcolor{grisfonce}\track}}};
- 				\pgftext[x=10.5cm,y=16.5cm,bottom,center]{\fontsize{30}{30}{\textbf{Problems in HMIS \\ in Developing Countries}}};%\reporttitle
- 				\pgftext[x=10.5cm,y=15.5cm,bottom,center]{\scalebox{0.77}[1]{\fontsize{20}{20}{\fontfamily{phv}\selectfont{}\textcolor{grisfonce}{\reportauthors}}}};
- 				\pgftext[x=5.5cm,y=13.1cm,bottom,left]{\scalebox{0.6}[1]{\fontsize{18}{18}{\fontfamily{phv}\selectfont{}\textbf{\today}}}};
+ 				\pgftext[x=10.5cm,y=16.5cm,bottom,center]{\fontsize{30}{30}{\textbf{Methods and Issues for }}};%\reporttitle
+                \pgftext[x=10.5cm,y=15.2cm,bottom,center]{\fontsize{30}{30}{\textbf{ the valorization of HMIS Data}}};
+ 				\pgftext[x=10.5cm,y=14.3cm,bottom,center]{\scalebox{0.77}[1]{\fontsize{20}{20}{\fontfamily{phv}\selectfont{}\textcolor{grisfonce}{\reportauthors}}}};
+ 				%\pgftext[x=5.5cm,y=13.1cm,bottom,left]{\scalebox{0.6}[1]{\fontsize{18}{18}{\fontfamily{phv}\selectfont{}\textbf{\today}}}};
  				\pgftext[x=1.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm]{images/ihme_logo.png}};
                 \pgftext[x=17cm,y=1.8cm,bottom,left]{\includegraphics[width=3cm]{images/hai_logo.png}};
                 \fill[fill=grisclair] (21cm,1cm) rectangle(0cm,0cm);
@@ -463,17 +464,14 @@ Theory of change for HMIS ?
 \end{center}
 \end{figure}
 
-\section{Objectives}
-
-	\subsection{Main objective}
+    \subsection{Objectives}
 
 Our main objective is to explore methods and approaches that can be used to improve the comprehension and the operations of HMIS in developing countries. Looking at different angles of HMIS, we aim at understanding how each of the different functions of HMIS can be leverage to improve the outcomes of HMIS operations.
 
 The dissertation will be built in four parts, each part being a look at a specific function of HMIS. For each of these functions, we aim at providing a better understanding of the challenges met, or to offer solutions to improve outcomes of HMIS.
 
-    \subsection{Specific aims}
 
-	   \subsubsection{EMR and individual health}
+\section{EMR and individual health}
 
 A first aim will be to understand how data collection itself impacts quality of care. As we postulate that data collection is not a neutral activity, we want to look into how primary data collected in HIV care setting can impact the outcome of care and organizational capabilities of HIV services. The case we will explore for this project is provided through a project implemented by ITech in Kenya.
 
@@ -512,13 +510,18 @@ A first aim will be to understand how data collection itself impacts quality of 
 \end{figure}
 
 
-\paragraph{Setting} In Kenya, I-TECH has implemented an EMR for HIV care, called KenyaEMR, in 341 facilities. The evaluation of this program is currently being carried out. One objective of this evaluation is to assess the effectiveness of KenyaEMR implementation. This effectiveness will be evaluated on two dimensions:
+    \subsection{Setting}
+
+In Kenya, I-TECH has implemented an EMR for HIV care, called KenyaEMR, in 341 facilities. The evaluation of this program is currently being carried out. One objective of this evaluation is to assess the effectiveness of KenyaEMR implementation. This effectiveness will be evaluated on two dimensions:
+
 \begin{enumerate}
 \item	Improvement of reporting quality in facilities after KenyaEMR implementation
 \item	Improvement of quality of care metrics after KenyaEMR implementation
 \end{enumerate}
 
-\paragraph{Data} Kenya’s legal framework for protection of confidentiality of personal health information prohibit transfer of individual patient-level data from any health care facility, even if the data is de-identified. For this reason, the data we will use for this evaluation will be indicators of quality of care, aggregated monthly at facility level, and used for Continuous Quality Improvement (CQI) (see section 4). These indicators will be aggregated on site in Kenya and transmitted for data analysis.
+    \subsection{Data}
+
+Kenya’s legal framework for protection of confidentiality of personal health information prohibit transfer of individual patient-level data from any health care facility, even if the data is de-identified. For this reason, the data we will use for this evaluation will be indicators of quality of care, aggregated monthly at facility level, and used for Continuous Quality Improvement (CQI) (see section 4). These indicators will be aggregated on site in Kenya and transmitted for data analysis.
 
 To monitor the maturity of implementation of KenyaEMR (see section 2), we will measure the delay in data entry using metadata stored with KenyaEMR forms, with time stamps for form creation. We will also trace utilization of reporting features of KenyaEMR by using time stamps linked to the use of reports generation. All this data will be extracted and transmitted in raw form for analysis.
 
@@ -534,11 +537,11 @@ In the remaining of this document, we will thus use the following terms:
 \item RDQA Data refers to raw data collected during RDQA exercises.
 \end{itemize}
 
-\paragraph{Implementation maturity}
+    \subsection{Implementation maturity}
 
 We distinguish three different periods in the implementation of the EMR. Each of these periods is characterized by different ways the data is collected, entered, analyzed or used. For each of these periods, we will also have access to different types of data. We will describe the characteristics of each of these periods, and present a strategy to categorize the available data in each of these periods, using DHIS and CQI reports and metadata.
 
-2.1	Paper Based
+        \subsubsection{Paper Based}
 
 In the first period, no patient data entry is made in the facility. Patient data is collected in paper files, and reports are computed manually using these files. In the meantime, health workers can only use paper data to follow their patients.
 
@@ -548,7 +551,7 @@ The data we will be able to access from this period is:
 \item	The paper reports that will have been entered in DHIS2 or other reports available from health districts administrations
 \end{itemize}
 
-2.2	Retrospective Data Entry
+        \subsubsection{Retrospective Data Entry}
 
 In a second period, data entry has been implemented in the facility. The backlog of paper patient data has to be retrospectively entered, and current patient data is also entered in KenyaEMR after a delay. During this period, health workers will still refer to paper data to follow their patients. This is the Routine Data Entry phase (RDE).
 
@@ -561,7 +564,7 @@ The data we will be able to access from this period is:
 \item	Evaluations of data quality from RDQA
 \end{itemize}
 
-2.3	Point of Care
+        \subsubsection{Point of Care}
 
 In a third period, the patient data is entered either by the health worker or by a specialized data clerk based on patient data collected on paper by the health worker, in quasi real time with the medical consultation. We call this phase the Point of Care (POC) phase.
 
@@ -574,7 +577,7 @@ The data we will be able to access from this period is:
 \item	Evaluations of data quality from RDQA
 \end{itemize}
 
-2.4	Transition periods
+        \subsubsection{Transition periods}
 
 There may be some overlaps between different periods. For example, the limit between the paper collection and routine data entry may not be clear cut, as some facilities may have tried to start entering more recent patient forms during the RDE period, to be on top of the work quickly. Similarly, some facilities may have been at the same time doing retrospective data entry for some forms, and POC data entry for some others, depending on the organization of care.
 
@@ -604,17 +607,18 @@ Table 1 presents a summary of the different periods described. Based on this per
 %Quality of care	Stage 1	Stage 2	Stage 3
 %Table 1 - Different period of implementation and stages of evaluative outcomes
 
-2.5	Methods for periodization
+        \subsubsection{Methods for periodization}
+
 For each facility included in this analysis, we will have to define when they enter or exit each of these periods. To do this, we will use programmatic data collected by I-TECH staff to monitor the implementation of KenyaEMR, and time stamps associated with forms entered in KenyaEMR, and Building on the characteristics of the different periods, we will categorize the different dimensions of the data collection and use separately:
 \begin{enumerate}
-\item    Data Quality: The passage between stage 1 and stage 2 of data collection will be tracked looking at the delay of data entry of forms . Looking at the distribution of this delay, and using I-TECH monitoring data for confirmation, we will define a threshold to define stage 2 data entry. We will also use comparison of data completeness between different periods.
+\item    Data Quality: The passage between stage 1 and stage 2 of data collection will be tracked looking at the delay of data entry of forms. Looking at the distribution of this delay, and using I-TECH monitoring data for confirmation, we will define a threshold to define stage 2 data entry. We will also use comparison of data completeness between different periods.
 \item	Report Computation: The passage between stage 1 and stage 2 of report computation will be tracked looking at the source of the reports available for the facility. Existence of reports from DHIS2 or similar source that were not produced using KenyaEMR computation will lead to the categorization of the stage of report computation as stage 1. Reports computed with KenyaEMR will lead to a categorization of the period as a stage 2 for report computation. The categorization will be validated with data from I-TECH monitoring, and by a comparison of results reported in DHIS2 and results computed for the same month from KenyaEMR.
 \item	Data usage: The passage between stage 1 and stage 2 for data usage will be used considering metadata from different reports, and delay of data entry. A different threshold as the one used for data quality will be used to categorize a facility as stage 1 or 2 for quality of care.
 \end{enumerate}
 
 Using available data to explore this different dimensions, we will be able to categorize each facilities’ reports into its corresponding period. As we anticipate some exceptions due to unclear transition periods, we will design a continuous index of maturity of implementation of KenyaEMR, to be included in latter stages of the analysis. Depending on the results of the exploratory work, we will use a continuous index or a discrete periodization of the intervention.
 
-\paragraph{Reporting quality}
+\subsection{Reporting quality}
 To estimate the impact of KenyaEMR on the quality of reporting, we will compare aggregated monthly reports on HIV activities in facilities produced before and after implementation of KenyaEMR. Evolution of reporting quality involves two evolutions: amelioration of primary data quality, and amelioration of report computation quality.
 
 
@@ -642,7 +646,7 @@ We will compare reports generated for the same facilities and same months, in Pe
 
 Based on these two dimensions of reporting quality, we will finally design an index of reporting quality that will be used in subsequent analysis. Quality of reporting will then be modelled using, using facility characteristics as covariate, and the index of maturity of implementation. The coefficient associated to maturity of implementation will be considered as the measure of the impact of KenyaEMR on reporting quality (see section Quality of Care and patient health outcome4 for presentation of the modeling strategy).
 
-\paragraph{Quality of Care and patient health outcome}
+\subsection{Quality of Care and patient health outcome}
 
 Using existing aggregate-level longitudinal data from KenyaEMR sites, we will retrospectively compare quality of care and patient health outcome indicators during each period of the EMR transition. The specific quality of care and patient health outcome indicators to be examined will be determined in collaboration with CDC and the MOH, based on commonly-used indicators within Kenya and globally. A list of these indicators can be found in Annex C.
 
@@ -657,7 +661,7 @@ To model the association between using KenyaEMR and the level of each quality of
 \end{itemize}
 The coefficient estimated for KenyaEMR implementation maturity index in this model will be considered as the measure of the impact of KenyaEMR on the quality of care and the health outputs of HIV patients. The index will be introduced in continuous form or in dichotomized form. Alternative proxy of KenyaEMR implementation will also be tested such as period of implementation as defined for quality of care in table 1.
 
-\paragraph{Timeline}
+\subsection{Timeline} Figure XXX presents a timeline for the realization of this objective. Even though the data collection process could be a sort of blackbox, we expect this paper to be finished by DDDD.
 
 \begin{figure}[h]
 \begin{ganttchart}[vgrid,hgrid]{1}{24}
@@ -678,17 +682,16 @@ The coefficient estimated for KenyaEMR implementation maturity index in this mod
 \end{figure}
 
 
-        \subsubsection{Interoperability }
+\section{Data Management}
 
-The second approach of this dissertation regards the management of data collected in hospitals in developing countries. Many systems have been developped to store this data and use it in different situations. Meanwhile, some problems are frequently found, that prevent statisticians and public health scientists to use this data.
+The second approach of this dissertation regards the management of data collected in hospitals in developing countries. Many systems have been developed to store this data and use it in different situations. Meanwhile, some problems are frequently found, that prevent statisticians and public health scientists to use this data. Issues regarding data completeness and data quality are of primary importance. An issue regarding these questions is the lack of validation frameworks for data systems. Data coming from one system is seldom confronted, or even less validated with data from a different system. As a result, monitoring and definition of data quality is usually mainly a procedural concept for data producing entities, and a critical and often restrictive aspect of data analysis.
 
-One important limitation is the difficulty that different data management have to exchange data between each others. If interoperability (define interoperability) comes from different aspects, semantic interoperability appears to be one of the most challenging, as it involves actors who are not involved in technical / technological discussions but much more operate according to managerial logics. Thus, using data comming from different systems can be difficult when definitions are different, and one can have a hard time comparing data from different systems. Developing standards and method that can be used to ensure interoperability between systems is essential to liberating the potential of different data systems to inform decision making. -> TO MAKE ANALYSIS AND INFORM DECISION MAKING
+We aim at offering a set of methods that allow the use of different existing data sources in order to enforce better data quality and data completeness. This entails two main aspect :
 
-POINT SUR INTEROPERABILITY BRAA / SAHAY / EXPLICATION TRAVAIL DEJA FAIT
-
-A prototype for doing has been proposed that allows easy tagging and mapping of indicators from different systems \[REF BLUSQUARE\]. A test realized with DHIS2 data from Bénin and with Results Based Funding indicators list allowed matching. XX
-
-\paragraph{Data control through interoperability}
+\begin{enumerate}
+\item A framework for interoperability of different data systems
+\item A framework for validation of data
+\end{enumerate}
 
 \begin{figure}[ht]
 \begin{minipage}{.4\textwidth}
@@ -724,28 +727,71 @@ A prototype for doing has been proposed that allows easy tagging and mapping of 
 \label{Paper Two}
 \end{figure}
 
-\paragraph{Setting} Plusieurs situations. comparer la performance. differents modes d'implementation.
-Aspect politique ? mise en place d'un systeme par partie minimale utile.
+\subsection{Interoperability framework}
 
-\paragraph{Data}
+POINT SUR INTEROPERABILITY BRAA / SAHAY / EXPLICATION TRAVAIL DEJA FAIT
 
-\paragraph{Analysis} We aim at multiple end points :
-\begin{itemize}
-    \item What is a minimal actionable workload ?
-    \item Can we guide the norming and tagging of indicators through machine learning approaches
-    \item at the same time analytic and software problem
-\end{itemize}
+Our aim will be to define and test these two frameworks, building on some work currently happening around interoperability frameworks. In this project, conducted with health information startup Bluesquare, we aim at defining a tagging based approach to interoperability. With this approach, each health service indicator in a given facility reporting framework is defined based on three dimensions : health issue, population target and type of service provided. A first level of testing has already implemented in Bénin, matching DHIS2 indicators with OpenRBF indicators. Using this simple method, it was possible to match correctly XX\% of GG indicators from the OpenRBF framework with a subset of YY\% indicators from the DHIS2 framework.
 
-\begin{itemize}
-    \item A set of
-\end{itemize}
+One of the biggest benefits of this approach is its ability to define a notion of \textit{distance} between indicators. Indicators that related by one dimension will be farther apart from each other than indicators that are related by two dimensions. Also, for dimensions that are not defined on a discrete basis (for example age boundaries for a population), incomplete correspondence can be quantified.
 
-\paragraph{Timeline}
+Building on this flexibility, it is possible to automatically map datasets between each other, and to offer possibilities of joint analysis between data sets. A first level of analysis is the validation of data, informed by comparison of different data sets.
+
+\subsection{Research questions}
+
+\begin{enumerate}
+\item Define and test an algorithmic approach to assert data credibility from a given data set
+\item Define and test an approach to compare and complete data missingness using imputation and external data
+\end{enumerate}
+
+\begin{enumerate}
+\item What is the performance of different approaches
+\item What is a good metric to assert data quality and completeness of a given data set
+\item What is a good metric to assert comparability of two indicators or data sets.
+\end{enumerate}
+
+\subsection{Validation framework}
+
+The data validation work will be conducted using data from OpenRBF Bénin, with data values entered and verified being recorded. Our main aim will be to predict the validity of a given data value.
+
+DEFINITIONS ON DATA VALUES AND OTHER RELATED CONCEPTS
+
+Using the validation dataset from OpenRBF, we will try and predict error using a simple predictive approach bagging different Machine Learning Classification methods. Result of this approach will be a probabilistic assessment of data quality for each indicator value. This, in turn, will be turned in a facility level dashboard, tracking estimated quality of reporting in time. A district level dashboard could also be created, to track average data quality in different districts.
+
+PRECISER MODELES ET METHODES
+
+In predicting data validity, we will test the introduction of weighting of different predictors, based on their estimated distance from a given indicator. This will be made for each indicator, internally and externally, and testing different definitions of inter-indicator distance.
+
+Finally, we will use similar methods as previously to impute true values of missing or false indicaotrs. Validation of these will be made using standard validation techniques (k-Fold, etc...)
+
+\subsection{timeline}
+
+Figure XXX presents a timeline for the realization of this objective. Even though the data collection process could be a sort of blackbox, we expect this paper to be finished by DDDD.
+
+\begin{figure}[h]
+\begin{ganttchart}[vgrid,hgrid]{1}{24}
+\gantttitle{2016}{12}
+\gantttitle{2017}{12} \\
+\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,12}{1}\\
+%\ganttgroup{Group 1}{1}{7} \\
+\ganttbar{Data Extraction}{1}{3} \\
+\ganttbar{Data Cleaning}{2}{4} \\
+\ganttbar{Data Analysis 1}{5}{6} \\
+\ganttmilestone{Sharing First Results}{6} \\
+\ganttbar{Data Analysis 2}{7}{9} \\
+\ganttmilestone{Sharing Final Results}{9} \\
+\ganttbar{Paper Writing}{9}{11} \\
+\ganttmilestone{Paper Submission}{11}
+\end{ganttchart}
+\caption{Gantt Chart for Paper 2}
+\end{figure}
+
+\section{Data Analysis}
+
+Data from HMIS, when available, is hard to analyze. A reason for this is the perceived weak quality of the data, and the high dimensinality of the collected data. Both these difficulties imply the need for at least some statistical approach of this data before it is used. We thus aim at defining a generic framework for statistical use of HMIS data, and at providing an example of how HMIS data could be use for facility quality benchmarking in a health system.
 
 
-        \subsubsection{Analysis}
 
-Data from HMIS, when avalaible, is hard to analyze. A reason for this is the perceived weak quality of the data, and the high dimensinality of the collected data. Both these difficulties imply the need for at least some statistical approach of this data before it is used. We thus aim at defining a generic framework for statistical use of HMIS data, and at providing an example of how HMIS data could be use for facility quality benchmarking in a health system.
 
 \begin{figure}[ht]
 \begin{minipage}{.4\textwidth}
@@ -781,16 +827,16 @@ Data from HMIS, when avalaible, is hard to analyze. A reason for this is the per
 \label{Paper Three}
 \end{figure}
 
-\paragraph{Setting}
+    \subsection{Setting}
 
-\paragraph{Data}
+    \subsection{Data}
 
-\paragraph{Analysis}
+    \subsection{Analysis}
 
-\paragraph{Timeline}
+    \subsection{Timeline}
 
 
-	   \subsubsection{Data Use}
+\section{Data Use}
 
 Finally, recognizing even an excellent technical framework can not ensure the proper use of statistical information in a health system, we want to reflect on the culture of data use in developing countries health systems. To do so, we want to adopt a post colonial approach, and understand how a vision of statistics resulting from colonial rule and neo-liberal management results in a deficit of data using for health systems related decisions.
 
@@ -836,13 +882,13 @@ Data is not produced to create knowledge, but to implement disciplinary monitori
 
 Case study : analyse de textes M\&E / projets de reforme de systemes hmis, et analyse de la vision des HMIS qu'ils proposent. quelle place pour la societe civile ? inversion des priorites.
 
-\paragraph{Setting}
+    \subsection{Setting}
 
-\paragraph{Data}
+    \subsection{Data}
 
-\paragraph{Analysis}
+    \subsection{Analysis}
 
-\paragraph{Timeline}
+    \subsection{Timeline}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
