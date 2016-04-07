@@ -608,8 +608,8 @@ Table 1 presents a summary of the different periods described. Based on this per
 %Table 1 - Different period of implementation and stages of evaluative outcomes
 
         \subsubsection{Methods for periodization}
-
 For each facility included in this analysis, we will have to define when they enter or exit each of these periods. To do this, we will use programmatic data collected by I-TECH staff to monitor the implementation of KenyaEMR, and time stamps associated with forms entered in KenyaEMR, and Building on the characteristics of the different periods, we will categorize the different dimensions of the data collection and use separately:
+
 \begin{enumerate}
 \item    Data Quality: The passage between stage 1 and stage 2 of data collection will be tracked looking at the delay of data entry of forms. Looking at the distribution of this delay, and using I-TECH monitoring data for confirmation, we will define a threshold to define stage 2 data entry. We will also use comparison of data completeness between different periods.
 \item	Report Computation: The passage between stage 1 and stage 2 of report computation will be tracked looking at the source of the reports available for the facility. Existence of reports from DHIS2 or similar source that were not produced using KenyaEMR computation will lead to the categorization of the stage of report computation as stage 1. Reports computed with KenyaEMR will lead to a categorization of the period as a stage 2 for report computation. The categorization will be validated with data from I-TECH monitoring, and by a comparison of results reported in DHIS2 and results computed for the same month from KenyaEMR.
@@ -737,7 +737,13 @@ One of the biggest benefits of this approach is its ability to define a notion o
 
 Building on this flexibility, it is possible to automatically map datasets between each other, and to offer possibilities of joint analysis between data sets. A first level of analysis is the validation of data, informed by comparison of different data sets.
 
+Used for data validation, imputation / completion.
+
+
 \subsection{Research questions}
+
+DEFINITIONS ON DATA VALUES AND OTHER RELATED CONCEPTS
+
 
 \begin{enumerate}
 \item Define and test an algorithmic approach to assert data credibility from a given data set
@@ -752,17 +758,30 @@ Building on this flexibility, it is possible to automatically map datasets betwe
 
 \subsection{Validation framework}
 
-The data validation work will be conducted using data from OpenRBF Bénin, with data values entered and verified being recorded. Our main aim will be to predict the validity of a given data value.
+Our main aim will be to gauge the credibility of a data value or of a dataset.  We can anticipate different situation we would like to investigate :
+\begin{description}
+\item[simple outlier] are situations when an isolated data value in a dataset is wrong, for one facility once. These are the situations that are the most commonly considered outliers. This may be the most straightforward situation.
+\item[outlying report] are situations when all values of one report appear to be off. This may be due to an update in the tools or methods for some indicators, or to the training of a new Health Worker in the facility who does not fully comply with usual ways to compute indicators.
+\item[outlying facility] are situations when one facility is consistently reporting numbers that are different from surrounding facilities. This may happen when structural conditions in one facility are leading to discrepancies in data collection, or in data computation.
+\end{description}
 
-DEFINITIONS ON DATA VALUES AND OTHER RELATED CONCEPTS
+We want to attach to each value a probabilistic value for the credibility of a data value, or of a data set. The combination and comparison of the credibility of multiple data points or reports at multiple levels in turn gives a fine grained picture of data credibility, and orients actions to be taken.
+
+%% ie ce qu'on propose n'est pas orienté pour corriger les données mais pour construire un meilleurs système par la suite. Plus orienté développement et value l'utilisation des données plus que leur perfection. Imputation pour données fausses.
+
+The data validation work will be conducted using data from OpenRBF Bénin, with data values entered and verified being recorded.
+
+\paragraph{Estimation} Multiple models
+
+\paragraph{Description} Dashboarding
+
+\paragraph{Decision} Decision
 
 Using the validation dataset from OpenRBF, we will try and predict error using a simple predictive approach bagging different Machine Learning Classification methods. Result of this approach will be a probabilistic assessment of data quality for each indicator value. This, in turn, will be turned in a facility level dashboard, tracking estimated quality of reporting in time. A district level dashboard could also be created, to track average data quality in different districts.
 
-PRECISER MODELES ET METHODES
-
 In predicting data validity, we will test the introduction of weighting of different predictors, based on their estimated distance from a given indicator. This will be made for each indicator, internally and externally, and testing different definitions of inter-indicator distance.
 
-Finally, we will use similar methods as previously to impute true values of missing or false indicaotrs. Validation of these will be made using standard validation techniques (k-Fold, etc...)
+Finally, we will use similar methods as previously to impute true values of missing or false indicators. Validation of these will be made using standard validation techniques (k-Fold, etc...)
 
 \subsection{timeline}
 
@@ -788,8 +807,24 @@ Figure XXX presents a timeline for the realization of this objective. Even thoug
 
 \section{Data Analysis}
 
-Data from HMIS, when available, is hard to analyze. A reason for this is the perceived weak quality of the data, and the high dimensinality of the collected data. Both these difficulties imply the need for at least some statistical approach of this data before it is used. We thus aim at defining a generic framework for statistical use of HMIS data, and at providing an example of how HMIS data could be use for facility quality benchmarking in a health system.
+HMIS data is most often very highly dimensional. A high number of indicators is collected on a regular basis in a host of facilities. Classic data analysis methods used in Public Health are not always suited to explore this type of data, especially due to the average low quality and completeness of the data. We aim at defining methods that can help make better use of this type of data for policy and decision making purposes. Mainly, we want to orient our work on reducing dimensionality of the HMIS data for analysts and policy makers.
 
+A consequence of this is that policy makers usually concentrate on issues that are not dictated by what they see in their own data but concentrate on issues dictated at higher, natioanl or international levels. This is akin to the classic story of the economist looking for his keys under a lamppost while he lost them somewhere else. Analysis is only directed at variables for which there is external light.
+
+Reducing dimensionality may come in different ways. Most important ones we have easy access to are :
+
+\begin{itemize}
+\item Reduce interesting indicators
+\item Reduce organizational unit to concentrate on
+\item Reduce data values to concentrate on
+\end{itemize}
+
+Building on literature of quality control in the industrial realm, we want to define observed norms and standards and simply identify units that differ from these norms and standards.
+
+
+1. Indicator wise standardization
+2. Spatial smoothing and validation
+3. Temporal modeling and validation
 
 
 
