@@ -12,7 +12,7 @@
 %% v3.0 - 07/2015 : adaptation de la page de titre pour UW DGH
 %% v3.1 - 07/2015 : inclusion de packages pour equations et test pour compilation knitr
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[a4paper,11pt,final,twoside]{article}
+\documentclass[a4paper,11pt,draft,twoside]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Loading Packages
@@ -24,7 +24,7 @@
 \usepackage{eulervm}
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 \usepackage{setspace}
-\usepackage[colorlinks=true]{hyperref}
+\usepackage[colorlinks=true , final]{hyperref}
 \usepackage[french]{varioref}
 \usepackage{lastpage}
 \usepackage{fancyhdr}
@@ -38,6 +38,10 @@
 
 \usepackage{pgfgantt}
 \usepackage{pgfcalendar}
+
+
+
+
 
 %%%%%%%%%%%%%%
 \tikzset{
@@ -131,6 +135,15 @@
 % Get Bulleted Lists Working
 %\renewcommand{\FrenchLabelItem}{\textbullet}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% WATERMARK
+
+\usepackage{draftwatermark}
+\SetWatermarkText{DRAFT}
+%\SetWatermarkScale{5}
+
+
+
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Title Page
@@ -141,16 +154,16 @@
 		\node at (current page.south west)
 			{
             \begin{tikzpicture}[remember picture,overlay]
- 				\pgftext[x=0cm,y=25.37cm,bottom,left]{\includegraphics[width=21cm]{images/dgh_banner.png}};
+ 				\pgftext[x=0cm,y=25.37cm,bottom,left]{\includegraphics[width=21cm, draft = false]{images/dgh_banner.png}};
  				\pgftext[x=1.1cm,y=24cm,bottom,left]{\fontsize{20}{20}{\textbf{\program}}};
  				\pgftext[x=1.1cm,y=23.2cm,bottom,left]{\fontsize{18}{18}{\textbf{\textcolor{grisfonce}\track}}};
  				\pgftext[x=10.5cm,y=16.5cm,bottom,center]{\fontsize{30}{30}{\textbf{Methods and Issues for }}};%\reporttitle
                 \pgftext[x=10.5cm,y=15.2cm,bottom,center]{\fontsize{30}{30}{\textbf{ the valorization of HMIS Data}}};
  				\pgftext[x=10.5cm,y=14.3cm,bottom,center]{\scalebox{0.77}[1]{\fontsize{20}{20}{\fontfamily{phv}\selectfont{}\textcolor{grisfonce}{\reportauthors}}}};
  				%\pgftext[x=5.5cm,y=13.1cm,bottom,left]{\scalebox{0.6}[1]{\fontsize{18}{18}{\fontfamily{phv}\selectfont{}\textbf{\today}}}};
- 				\pgftext[x=1.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm]{images/ihme_logo.png}};
-                \pgftext[x=9.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm]{images/itech_logo.png}};
-                \pgftext[x=17.1cm,y=1.8cm,bottom,left]{\includegraphics[width=3cm]{images/bluesquare_logo.png}};
+ 				\pgftext[x=1.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm , draft = false]{images/ihme_logo.png}};
+                \pgftext[x=9.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm, draft = false]{images/itech_logo.png}};
+                \pgftext[x=17.1cm,y=1.8cm,bottom,left]{\includegraphics[width=3cm, draft = false]{images/bluesquare_logo.png}};
                 \fill[fill=grisclair] (21cm,1cm) rectangle(0cm,0cm);
 	\end{tikzpicture}
 				};
@@ -220,7 +233,7 @@ The complexity of designing and operating well performing national HMIS comes fr
 
 Finally, HIS have to be able to adapt rapidly to changing epidemiological, organizational or political situations. They have to be able to produce relevant information on emerging health issues, and to adapt to the entry of new actors or to a modification in the mode of management of health systems.
 
-In rich countries, the issue surrounding health information is often one of regulation and standardization. The  existence of well performing and well established data sources on populations, and the relative ease of collecting massive amounts of data on individuals pose questions that are mainly related to the protection of privacy, and to the definition of standards for interoperability. The definition of what information should or can be produced is usually a legislative and matter, handled by dedicated entities.
+In richer countries, the issue surrounding health information is often one of regulation and standardization. The  existence of well performing and well established data sources on populations, and the relative ease of collecting massive amounts of data on individuals pose questions that are mainly related to the protection of privacy, and to the definition of standards for interoperability. The definition of what information should or can be produced is usually a legislative and matter, handled by dedicated entities.
 
 In developing countries, where population data is scarce and data collection can be much more of a challenge, the issues are much different. Health policies depend heavily on the financial, political and technical support of international actors, with differing orientations and priorities. As a consequence, developing countries HIS strengthening programs can be classified into two great families : technology based solutions and institutional reforms. The first family is mainly targeted towards improvement of data collection and relies on solutions relying on the revolution in  data collection capabilities. The second family relies on the adequation of health information produces to policy makers needs, and usually promotes a top-down and normative approach to Information Systems.
 
@@ -335,43 +348,40 @@ Depending on the HMIS model that is used, programs will implement different type
 
 We argue these two approaches focus on the most expensive ways to strengthening HMIS (data collection and systemic reforms), and are emphasizing the design of systems and tools that are specific to precisely defined data needs, thus limiting the possibility to implement secondary data usage and the positive externalities of their interventions. The archetype of these pitfalls are the well known parallel and siloed data systems present in many developing countries health systems.
 
-Meanwhile, some of the most significant successes in the strengthening of health information systems in developing countries have been reached precisely through the strengthening of their middle tier. The District Health Information System (DHIS2) project has become a pervasive system to store and organize data collected in developing countries health systems. The DHIS2 approach to health information is based on the organization and storage of multiple data types and sources in a generic data warehousing approach. Its versatility and its ability to adapt to different contexts and data has made it increasingly used in multiple context, thus arguably improving the storage and the availability of health data in low resources countries.
+Meanwhile, some of the most significant successes in the strengthening of health information systems in developing countries have been reached precisely through the strengthening of their middle tier. The District Health Information System (DHIS2) project has become a pervasive system to store and organize data collected in developing countries health systems. The DHIS2 approach to health information is based on the organization and storage of multiple data types and sources in a generic data warehousing approach. Its versatility and its ability to adapt to different contexts and data has made it increasingly used in multiple context, thus arguably improving the storage and the availability of health data in low resources countries. Other approaches geared towards the promotion of interoperability of different dimensions of data systems, such as the Open Health Information Exchange framework are also gaining traction.
+
+If these approach have provided efficient solutions to organize and access HMIS data, there is still a lack of solutions to analyze and use HMIS data. Indeed, the high dimensionality of HMIS data and its average low quality make it essentially hard to analyze using standard methods available in developing countries health systems. We will now describe the research project developed to explore ways to analyze this data.
 
 
 \subsection{Approach and research questions}
 
 
-
-
-This proposal relies on an approach of information systems as complex systems. We want to explore and evaluate methods and approaches that look outside the domain of technological and institutional solutions for health information systems. Our approach recognizes that limitations of health information systems come from technical as well as cultural and political reasons. Authors like Alain Desrosières and Ted Porter have shown how statistics and computation have come from and generated different cultures of public action in modern societies. The ambivalence of numbers as descriptors or norms has an influence on how information systems are thought as top-down normative systems. We aim at providing evidence on how this normative approach can be relaxed and what benefits can be drawn from this relaxation.
-
-More specifically, we will present evidence on how various sources of data can be integrated in what is considered the health information system, and thus create a "data space" from which various actors can benefit. The hypothesis we make is that even in situations where HIS are deemed weak, a lot of information can be produced using innovative approaches to questions such as interoperability and analysis of low quality data. Using both a technical approach using innovative methods from the data science field, and a critical analysis of health information systems as social objects, we will explore how data currently produced in different health systems can be used and analyzed to produce valuable information.
-
-More specifically, we will ask three main questions :
+This project aims at exploring methods to improve the analysis of HMIS data by using innovative approaches to this data. Using both a technical approach using innovative methods from the data science field, and a critical analysis of health information systems as social objects, we will explore how data currently produced in different health systems can be used and analyzed to produce valuable information. More precisely, we will ask three data main analysis questions :
 \begin{itemize}
-\item How can metadata collected in an EMR be used to evaluate the impact of  a data system ?
-\item How can non standardized HMIS sources be mapped and jointly analyzed ?% TODO justifier plus haut
-\item How can multiple data source be integrated and analyzed to inform decision making at local level ?% TODO Justifier plus le secondary data usage
+\item How can metadata collected in an EMR be used in EMR data analysis ?
+\item How can different non standardized HMIS sources be mapped and jointly analyzed ?
+\item How can multiple data source be integrated to HMIS and analyzed to provide information at local level ?
+\item How do decision makers in health systems consider HMIS generated data, and how does it influence the way HMIS are engineered ?
 \end{itemize}
 
+Each of these questions explores a different aspect of how standard HMIS data analysis can be expanded to produce useful information with HMIS data. Metadata like the times of creation and savings of EMR forms are indeed seldom used. Meanwhile they provide useful information on how data is collected, and on the working patterns inside health facilities. Our second question explore a different problem, which is often taken as a question of interoperability. Indeed the multiplicity of programs and actors working in many health systems generates a multiplicity of indicators used, that are often related but not identical. There is a need for simple and effective methods to map and conjointly analyze data from different HMIS systems. Finally, HMIS should be useful for local level analysis and decision making. Meanwhile, HMIS data is seldom useful on its own and has to be integrated in larger analysis frameworks to produce interesting information. This integrating can be difficult at national level, but it is even more complicated at local levels, has mapping precisely different data becomes more and more of a challenge at small scale.
 
-To answer this quesrtion %TODO delqyer un peu
-We will conduct this research in four distinct aims :
+We also aim at providing a critical evaluation of the way HMIS are thought of in developping countries societies. Authors like Alain Desrosières and Ted Porter have shown how statistics and computation have come from and generated different cultures of public action in modern societies. The ambivalence of numbers as descriptors or norms has an influence on how information systems are thought of as top-down normative systems instead of knowledge systems. We aim at interrogating how this perception has its roots in long term local historical trends as well as in the tradition and methods of quantitative public health.
+
+To answer these question, we will conduct four distinct research projects.
 \begin{description}
-    \item[Aim 1] Evaluate the benefit of improved data collection for patient care ?
-    \item[Aim 2] Explore a pragmatic approach to semantic interoperability
-    \item[Aim 3] Explore an innovative approach to data quality for malaria evaluation
-    \item[Aim 4] Develop a critical framework to analyze the theory and practices of Health Information Systems.
+    \item[Aim 1] Evaluation of the benefits of improved data collection for HIV patient care in Kenya.
+    \item[Aim 2] Test of multiple semantic approaches to interoperability in Bénin.
+    \item[Aim 3] Definition and test of a local malaria elimination metric in Namibia.
+    \item[Aim 4] Analyze of the theory and practices of Health Information Systems for national decision makers in Mali.
 \end{description}
 
+These aims have been designed to provide insights on the problematics posed for each HMIS goal and function. We will now describe each of these aims in more details.
 
 
+\section[EMR and individual health]{EMR and individual health\footnote{This section is heavily based on KenyaEMR evaluation protocol.}}
 
-\section{EMR and individual health}
-
-% IDEA Develop the use and need for the use of metadata for evaluation of programs
-
-A first aim will be to understand how data collection itself impacts quality of care. As we postulate that data collection is not a neutral activity, we want to look into how primary data collected in HIV care setting can impact the outcome of care and organizational capabilities of HIV services. The case we will explore for this project is provided through a project implemented by ITech in Kenya.
+A first aim will be to understand how data collection itself impacts quality of care. As we postulate that data collection is not a neutral activity, we want to look into how primary data collected in HIV care setting can impact the outcome of care and organizational capabilities of HIV services. The case we will explore for this project is provided through a project implemented by ITECH in Kenya.
 
 \begin{figure}[ht]
 \begin{minipage}{.4\textwidth}
