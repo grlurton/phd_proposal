@@ -1,0 +1,135 @@
+\section{Conceptual framework}
+
+We will first look at a representation of HMIS through the goals they are meant to fulfill. Once we will have understood why HMIS are used, we will look at a representation of how they are organized.
+
+    \subsection{HMIS definitions}
+        \subsubsection{Goal approach}
+        \label{sec_goal}
+
+A first approach to HMIS is a consideration of the stated goals of these information systems. Figure \ref{HMISGoals} shows what these main goals are.
+\begin{figure}[htp]
+\centering
+\begin{tikzpicture}[node distance=2cm]
+\coordinate (A) at (-4.5,0) {};
+\coordinate (B) at ( 4.5,0) {};
+\coordinate (C) at ( 0,7.7942) {};
+\draw[name path=AC] (A) -- (C);
+\draw[name path=BC] (B) -- (C);
+\draw (1.1,5.8971)--(3.5,5.8971) ;
+\draw(3.5,5.8971)--(3.5,3) ;
+\draw [->](3.5,3)--(2.77,3) ;
+\node at (4.4,4.25) {Feedback};
+\foreach \y/\A/\txtHigh in {0/Patients Care/0.8 ,2/Facility Administration \\ and Reporting/2.5,4/Planning \\ Monitoring \\ \& Evaluation /4.8}{
+\path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
+\draw[name intersections={of=AC and horiz,by=P},
+  name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
+  node[align = center,above] at (0,\txtHigh){\A};
+  }
+\end{tikzpicture}
+\caption{Information needs for HMIS}
+\label{HMISGoals}
+\end{figure}
+
+\begin{description}
+\item[Patients Care] Taking care of patients is the primary goal of a health facility. To do so, it is necessary to collect data on these patient, data that will be transmitted (to other services), stored and reused during further follow-ups.
+\item[Facility Administration and Reporting] At facility level, HMIS data is used in daily activities to quantify and forecast needs in health inputs, and to create reports for higher levels of the health system.
+\item[Planning, Monitoring \& Evaluation] People in charge of the administration of health systems at local or national also need data to monitor activities in the health system, to evaluate the results of interventions, to report to funders or to plan later interventions.
+\end{description}
+
+The pyramidal representation of these needs is used to show that these goals fill data needs at different levels of health systems. The different needs for information can roughly thought as being the needs of different type of actors of the health system. Meanwhile, this understanding is not fully true, as at local level, actors will often hold multiple roles and will thus have to use information in different situations. For example, a physician may also be in charge of managing his health facility, and will thus need to plan activities and report on them.
+
+
+
+	   \subsubsection{Functional approach}
+	    \label{sec_function}
+
+A first way to approach HMIS is to describe the four principal functions that are necessary to have a HMIS to run. Figure \ref{HMISFunctions} presents a simplified sketch of the principal functions that are to be filled in order for HMIS to produce useful information.
+
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}[node distance=.8cm,  start chain=going below,]
+     \node[punktchain, join] (DataCollection) {Data Collection};
+     \node[punktchain, join] (DataManagement) {Data Transmission and Management};
+     \node[punktchain, join] (DataAnalysis)   {Data Analysis};
+     \node[punktchain, join] (DataUse) 		  {Data Use};
+\end{tikzpicture}
+\end{center}
+\caption{Different functions inside the Health Information Systems}
+\label{HMISFunctions}
+\end{figure}
+
+\begin{description}
+\item[Data Collection] Primary data collection is essential to the production of any information system. In the case of HMIS, data collection happens in health facilities, and is made by health professionals. Data collected in health facilities can be individual patient data collected in patients files or cards. It can also be a first level of aggregation of this data, as for indicators that are reported on a regular basis by facilities to higher levels of the health system. This reporting usually happens through standardized reports, that are then transmitted by successive aggregation to the top of the health pyramid.
+
+\item[Data Management] Data collected in health facilities has to be stored and archived, to be later accessed and reused. Data management work can encompass managing paper data, or managing computerized data. Individual patient data will be computerized in Electronic Medical Records (EMR) whereas aggregated indicators are stored in data-warehouses, like the DHIS2 software.
+
+\item[Data Analysis] Data that is collected and stored in HMIS can then be analyzed. Analysis can be defined as the transformation of data into information. The results of data analysis can be varied, from collection of graphs and maps that can constitute dashboards, to the results of complex models that provide evidences of causality.
+
+\item[Data Usage] Information is the end product of the HMIS, and is used by decision makers or health workers to achieve their tasks. For example, a nurse in a health post may need the monthly consumption of a health product to place an order. A District Health Officer may consider the evolution of monthly number of cases of malaria in his district to plan malaria prevention activities. At national level, a worker at the Ministry of Health may use the number of patients tested positive for HIV to design grant applications for the Global Fund.
+\end{description}
+
+Even though the schematic representation of this functions is linear, it should be noted that this linearity is not true in practice. Even once data has been analyzed the results of this analysis has to be archived, and transmitted to the information end users. In some situations, data can be used in its raw form. For example, a physician may use a biological result that he has received in a raw form. Finally, for some data, data collection won't happen inside the health  facility. For example, population survey results may be used to plan and target some interventions, but primary data collection will have happened outside of the health system, and the first function to be used in the HMIS will be the data management function.
+
+The way a program considers and plans each of these functions will define how a specific HMIS will work. We will now present three common approaches to HMIS.
+
+        \subsubsection{Three HMIS archetypes}
+
+Functions of HMIS (cf. section \ref{sec_function}) are not independent of each other. Defining the relative importance of different functions of HMIS in the overall systems can change greatly the way a HMIS functions, and the output it produces. We differentiate three paradigmatic types of HMIS, varying on the respective influence of different functions. Building on the idea that a HMIS is used to provide an image of the activities and performances of a health system, we describe each function as a different way of making an image.
+
+\paragraph{Jigsaw Puzzle HMIS} - A common way to design HMIS in developing countries can be considered as a Jigsaw Puzzle approach. A series of indicators are designed by program managers. These indicators are deemed to be \textit{sensitive} and \textit{specific}, and are supposed to allow managers to track and identify precisely the performance of health systems, and to provide important information on health system's results. The HMIS will then be organized to produce carefully designed indicators at facility level, and to transmit these indicators to higher levels for aggregation.
+
+In these types of system, a lot of importance given to data collection functions, as the quality of this primary data collection is key to the rest of the work in the system. Data management in these system is often limited to aggregating some data and transmitting it to different actors in the health systems. Data analysis is usually mainly descriptive and is limited to presentation of time series values or mapping of indicators along administrative boundaries.
+
+These systems are similar to jigsaw puzzles, made of very specific pieces, to compose a predetermined picture. When they are well designed, these systems can provide very useful information on health systems. Meanwhile, they are very vulnerable to any variation in primary data collection. As for jigsaw puzzles having a piece missing will jeopardize the possibility to get the whole picture right.
+
+\paragraph{Pixel HMIS} - Another way to conceive HMIS is built on the collection and use of a multitude of individual data collected through Electronic Medical Records (EMR). Once the data is collected, program managers can query different indicators on different levels of aggregation, that can be extracted from different EMRs. In the best situations, interoperability of multiple EMRs present in a country allow for a central analysis of the data \cite{pugliese2009large}.
+
+These systems allow a great variety of analysis, with a great variety of approaches. Analysis can be led varying geographic and time focus, or changing definitions of computed quantities. It also allows longitudinal analysis that are more difficult to perform with other approaches.
+
+This approach thus involves a great investment in primary data collection and management, and allows elaborate data analysis. Meanwhile, it requires a technological investment and maturity that is seldom achieved in rich countries, and thus is very rare in developing countries.
+
+\paragraph{Tangram HMIS} - Between the two extremes that are puzzle and pixel HMIS is a third, less prevalent approach to HMIS. This approach will be compared to the tangram game, in which simple forms are used and reused to draw different pictures. In this approach, the emphasis is put on the management functions of HMIS. Simple data elements are collected and stored, and are used and combined in different ways depending on the analysis that is done.
+
+A key component of this model is thus the ability to store and reuse data, thus putting an emphasis on the middle tiers of data management. The use of data warehouses for computerized data is thus a characteristic of this approach. Meanwhile, it also requires an emphasis on data analysis in order to provide relevant information to end users.
+
+    \subsection{HMIS strengthening strategies}
+
+Depending on the HMIS model that is used, programs will implement different type of HMIS strengthening approaches. Programs who privilegy a jigsaw puzzle approach to HMIS will tend to focus on standardizing procedures and methods for data collection and data analysis. Meanwhile, programs who privilegy a pixel approach to HMIS will tend to favour solutions geared towards the implementation of new and performant data collection tools.
+
+\begin{description}
+\item[The institutional approach] operates under the assumption that all functions of information systems should be geared towards and submitted to the end information users. This approach tends to be extremely normative as any activity in the information system has to be oriented towards one main predefined goal. In doing so, this approach undervalues the benefits of both the integration of external data, and the positive externalities data collection and analysis may have on multiple users.
+
+\item[The technological approach] relies on the assumption that collecting data and making it available is a sufficient enabler for all other functions of information systems to operate. In this sense, a direct link is made between an information need and a data gap. This approach comes at a cost, and provides only limited benefits if it is not supported by improved data analysis. These solutions tend to provide highly specialized and siloed data collection systems.
+\end{description}
+
+We argue these two approaches focus on the most expensive ways to strengthening HMIS (data collection and systemic reforms), and are emphasizing the design of systems and tools that are specific to precisely defined data needs, thus limiting the possibility to implement secondary data usage and the positive externalities of their interventions. The archetype of these pitfalls are the well known parallel and siloed data systems present in many developing countries health systems.
+
+Meanwhile, some of the most significant successes in the strengthening of health information systems in developing countries have been reached precisely through the strengthening of their middle tier. The District Health Information System (DHIS2) project has become a pervasive system to store and organize data collected in developing countries health systems. The DHIS2 approach to health information is based on the organization and storage of multiple data types and sources in a generic data warehousing approach. Its versatility and its ability to adapt to different contexts and data has made it increasingly used in multiple context, thus arguably improving the storage and the availability of health data in low resources countries. Other approaches geared towards the promotion of interoperability of different dimensions of data systems, such as the Open Health Information Exchange framework are also gaining traction.
+
+If these approach have provided efficient solutions to organize and access HMIS data, there is still a lack of solutions to analyze and use HMIS data. Indeed, the high dimensionality of HMIS data and its average low quality make it essentially hard to analyze using standard methods available in developing countries health systems. We will now describe the research project developed to explore ways to analyze this data.
+
+
+\subsection{Approach and research questions}
+
+
+This project aims at exploring methods to improve the analysis of HMIS data by using innovative approaches to this data. Using both a technical approach using innovative methods from the data science field, and a critical analysis of health information systems as social objects, we will explore how data currently produced in different health systems can be used and analyzed to produce valuable information. More precisely, we will ask three data main analysis questions :
+\begin{itemize}
+\item How can metadata collected in an EMR be used in EMR data analysis ?
+\item How can different non standardized HMIS sources be mapped and jointly analyzed ?
+\item How can multiple data source be integrated to HMIS and analyzed to provide information at local level ?
+\item How do decision makers in health systems consider HMIS generated data, and how does it influence the way HMIS are engineered ?
+\end{itemize}
+
+Each of these questions explores a different aspect of how standard HMIS data analysis can be expanded to produce useful information with HMIS data. Metadata like the times of creation and savings of EMR forms are indeed seldom used. Meanwhile they provide useful information on how data is collected, and on the working patterns inside health facilities. Our second question explore a different problem, which is often taken as a question of interoperability. Indeed the multiplicity of programs and actors working in many health systems generates a multiplicity of indicators used, that are often related but not identical. There is a need for simple and effective methods to map and conjointly analyze data from different HMIS systems. Finally, HMIS should be useful for local level analysis and decision making. Meanwhile, HMIS data is seldom useful on its own and has to be integrated in larger analysis frameworks to produce interesting information. This integrating can be difficult at national level, but it is even more complicated at local levels, has mapping precisely different data becomes more and more of a challenge at small scale.
+
+We also aim at providing a critical evaluation of the way HMIS are thought of in developping countries societies. Authors like Alain Desrosières and Ted Porter have shown how statistics and computation have come from and generated different cultures of public action in modern societies. The ambivalence of numbers as descriptors or norms has an influence on how information systems are thought of as top-down normative systems instead of knowledge systems. We aim at interrogating how this perception has its roots in long term local historical trends as well as in the tradition and methods of quantitative public health.
+
+To answer these question, we will conduct four distinct research projects.
+\begin{description}
+    \item[Aim 1] Evaluation of the benefits of improved data collection for HIV patient care in Kenya.
+    \item[Aim 2] Test of multiple semantic approaches to interoperability in Bénin.
+    \item[Aim 3] Definition and test of a local malaria elimination metric in Namibia.
+    \item[Aim 4] Analyze of the theory and practices of Health Information Systems for national decision makers in Mali.
+\end{description}
+
+These aims have been designed to provide insights on the problematics posed for each HMIS goal and function. We will now describe each of these aims in more details.

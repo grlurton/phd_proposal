@@ -1,0 +1,213 @@
+\section[EMR and individual health]{EMR and individual health\footnote{This section is heavily based on KenyaEMR evaluation protocol.}}
+
+A first aim will be to understand how data collection itself impacts quality of care. As we postulate that data collection is not a neutral activity, we want to look into how primary data collected in HIV care setting can impact the outcome of care and organizational capabilities of HIV services. The case we will explore for this project is provided through a project implemented by ITECH in Kenya.
+
+\begin{figure}[ht]
+\begin{minipage}{.4\textwidth}
+\begin{tikzpicture}[node distance=.8cm,  start chain=going below,]
+     \node[punktchain, join] (DataCollection) {Data Collection};
+     \node[punktchain, join] (DataManagement) {Data Transmission and Management};
+     \node[punktchain, join] (DataAnalysis)   {Data Analysis};
+     \node[punktchain, join] (DataUse) 		  {Data Use};
+     \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-2.2,-.7) -- (-2.2,.7) -- (2.2,.7) -- (2.2,-.7) -- (-2.2,-.7) ;
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[node distance=2cm]
+\coordinate (A) at (-4.5,0) {};
+\coordinate (B) at ( 4.5,0) {};
+\coordinate (C) at ( 0,7.7942) {};
+\draw[name path=AC] (A) -- (C);
+\draw[name path=BC] (B) -- (C);
+\draw (1.1,5.8971)--(3.5,5.8971) ;
+\draw(3.5,5.8971)--(3.5,3) ;
+\draw [->](3.5,3)--(2.77,3) ;
+\node at (4.4,4.25) {Feedback};
+\foreach \y/\A/\txtHigh in {0/Patients Care/0.8 ,2/Facility Administration \\ and Reporting/2.5,4/Planning \\ Monitoring \\ \& Evaluation /4.8}{
+    \path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
+    \draw[name intersections={of=AC and horiz,by=P},
+          name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
+          node[align = center,above] at (0,\txtHigh){\A};
+          }
+    \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-4.7,-.2) -- (-4.7,2.2) -- (4.7,2.2) -- (4.7,-.2) -- (-4.7,-.2) ;
+\end{tikzpicture}
+\end{minipage}
+\caption{Objective one definition}
+\label{Paper One}
+\end{figure}
+
+
+    \subsection{Setting}
+
+In Kenya, I-TECH has implemented an EMR for HIV care, called KenyaEMR, in 341 facilities. The evaluation of this program is currently being carried out. One objective of this evaluation is to assess the effectiveness of KenyaEMR implementation. This effectiveness will be evaluated on two dimensions:
+
+\begin{enumerate}
+\item	Improvement of reporting quality in facilities after KenyaEMR implementation
+\item	Improvement of quality of care metrics after KenyaEMR implementation
+\end{enumerate}
+
+    \subsection{Data}
+
+Kenya’s legal framework for protection of confidentiality of personal health information prohibit transfer of individual patient-level data from any health care facility, even if the data is de-identified. For this reason, the data we will use for this evaluation will be indicators of quality of care, aggregated monthly at facility level, and used for Continuous Quality Improvement (CQI) (see section \ref{sec:qual_of_care}). These indicators will be aggregated on site in Kenya and transmitted for data analysis.
+
+To monitor the maturity of implementation of KenyaEMR (see section \ref{sec:maturity}), we will measure the delay in data entry using metadata stored with KenyaEMR forms, with time stamps for form creation. We will also trace utilization of reporting features of KenyaEMR by using time stamps linked to the use of reports generation. All this data will be extracted and transmitted in raw form for analysis.
+
+To measure the quality of the reports produced for different periods (see section \ref{sec:rep_quality}), we will consider counts of number of forms entered for a given period, and mean completeness of entered forms. These will be aggregated on site and transmitted for data analysis. We will also use results from Routine Data Quality Assessments (RDQA) that have been conducted in different sites with KenyaEMR implementation. Data for these RDQA are collected in Excel format, and will be used as an external measure of the quality of data entered in KenyaEMR.
+In the remaining of this document, we will thus use the following terms:
+\begin{itemize}
+\item Patient data refers to the data collected by health workers during patients’ visits. They are stored in paper patients’ files, or entered in KenyaEMR forms. We will thus refer to paper patient data or to electronic patient data. This data will not be directly used for analysis in this project.
+\item CQI indicators refers to aggregated indicators used to measure quality of care.
+\item CQI Report refers to a set of CQI indicators computed for a specific month for a specific facility.
+\item DHIS Report refers to the MOH 731 and MOH 711 reports. We will differentiate between paper reports for which the data and the computation of indicators have been made without any digitalization of patients’ data, and electronic reports for which patients’ data has been digitalized. We will be able to use the paper reports as they have been entered in DHIS2 or other data collected by health districts administrations.
+\item Patient Forms Metadata refers to the metadata generated by KenyaEMR when patient forms are entered. The metadata used should mainly be timestamps related to time of data entry.
+\item Reporting Metadata refers to timestamps generated by KenyaEMR when different types of report are generated.
+\item RDQA Data refers to raw data collected during RDQA exercises.
+\end{itemize}
+
+    \subsection{Implementation maturity}
+    \label{sec:maturity}
+
+We distinguish three different periods in the implementation of the EMR. Each of these periods is characterized by different ways the data is collected, entered, analyzed or used. For each of these periods, we will also have access to different types of data. We will describe the characteristics of each of these periods, and present a strategy to categorize the available data in each of these periods, using DHIS and CQI reports and metadata.
+
+        \subsubsection{Paper Based}
+
+In the first period, no patient data entry is made in the facility. Patient data is collected in paper files, and reports are computed manually using these files. In the meantime, health workers can only use paper data to follow their patients.
+
+The data we will be able to access from this period is:
+\begin{itemize}
+\item	The patient data that will have been retrospectively entered in KenyaEMR
+\item	The paper reports that will have been entered in DHIS2 or other reports available from health districts administrations
+\end{itemize}
+
+        \subsubsection{Retrospective Data Entry}
+
+In a second period, data entry has been implemented in the facility. The backlog of paper patient data has to be retrospectively entered, and current patient data is also entered in KenyaEMR after a delay. During this period, health workers will still refer to paper data to follow their patients. This is the Routine Data Entry phase (RDE).
+
+The data we will be able to access from this period is:
+\begin{itemize}
+\item	The patient data entered in KenyaEMR
+\item	The metadata for patient data entered in KenyaEMR
+\item	The CQI and DHIS reports computed from this data
+\item	The reporting data metadata
+\item	Evaluations of data quality from RDQA
+\end{itemize}
+
+        \subsubsection{Point of Care}
+
+In a third period, the patient data is entered either by the health worker or by a specialized data clerk based on patient data collected on paper by the health worker, in quasi real time with the medical consultation. We call this phase the Point of Care (POC) phase.
+
+The data we will be able to access from this period is:
+\begin{itemize}
+\item	The patient data retrospectively entered in KenyaEMR
+\item	The metadata for patient data entered in KenyaEMR
+\item	The CQI and DHIS reports computed from this data
+\item	The reporting data metadata
+\item	Evaluations of data quality from RDQA
+\end{itemize}
+
+        \subsubsection{Transition periods}
+
+There may be some overlaps between different periods. For example, the limit between the paper collection and routine data entry may not be clear cut, as some facilities may have tried to start entering more recent patient forms during the RDE period, to be on top of the work quickly. Similarly, some facilities may have been at the same time doing retrospective data entry for some forms, and POC data entry for some others, depending on the organization of care.
+
+To take this into account, we will need to consider overlapping periods for different aspects of the data.
+\begin{itemize}
+\item	Data quality: the process to collect and enumerate patient data is identical in paper based period and RDE period. Meanwhile, in the POC period, data is possibly directly entered in KenyaEMR, without using a paper form. Also, rapid data entry may allow to go back to the HW to complete missing data, or to correct unclear information.
+\item	Report computation quality: Once the data entered in KenyaEMR, the reports can be computed automatically. Thus, the quality of computation of reports will be identical in POC and RDE, but will likely differ from the Paper Based period (see Section \ref{sec:rep_quality} for more details on Reporting Quality).
+\item	Quality of care: in the paper based period as in the RDE period, HW can only access patient data through paper files. They thus can’t use automated reminders, or summary information offered by KenyaEMR. Meanwhile, starting in the RDE period, some reports can be edited through Kenya EMR that would allow health worker to better track late and defaulting patients, and thus would allow them to pass reminders calls, or plan lab tests. We would thus anticipate to see a slightly improved quality of care for RDE period compared to Paper Based period, and to see an additional improvement for POC period compared to RDE period.
+\end{itemize}
+
+Based on this periodization, we will want to test three main hypothesis:
+\begin{enumerate}
+\item	Observed data quality is similar in paper and RDE period, and better in POC period.
+\item	Computation quality is bad in paper-based period but then improved in RDE and POC periods.
+\item	Quality of care is worst in paper-based period, improves in RDE and is best in POC period.
+\end{enumerate}
+
+%Table 1 presents a summary of the different periods described.
+%	Paper Based	RDE	POC
+%Data Collection	Paper Based	Paper Based	Computer Based
+%Data Entry	No	Retrospective	Real Time
+%Data Analysis	Paper Based	Computer Based	Computer Based
+%Data Use	Paper Based	Paper Based	Computer Based
+
+%Data Quality	Stage 1	Stage 2
+%Computation Quality	Stage 1	Stage 2
+%Quality of care	Stage 1	Stage 2	Stage 3
+%Table 1 - Different period of implementation and stages of evaluative outcomes
+
+        \subsubsection{Methods for periodization}
+For each facility included in this analysis, we will have to define when they enter or exit each of these periods. To do this, we will use programmatic data collected by I-TECH staff to monitor the implementation of KenyaEMR, and time stamps associated with forms entered in KenyaEMR, and Building on the characteristics of the different periods, we will categorize the different dimensions of the data collection and use separately:
+
+\begin{enumerate}
+\item    Data Quality: The passage between stage 1 and stage 2 of data collection will be tracked looking at the delay of data entry of forms. Looking at the distribution of this delay, and using I-TECH monitoring data for confirmation, we will define a threshold to define stage 2 data entry. We will also use comparison of data completeness between different periods.
+\item	Report Computation: The passage between stage 1 and stage 2 of report computation will be tracked looking at the source of the reports available for the facility. Existence of reports from DHIS2 or similar source that were not produced using KenyaEMR computation will lead to the categorization of the stage of report computation as stage 1. Reports computed with KenyaEMR will lead to a categorization of the period as a stage 2 for report computation. The categorization will be validated with data from I-TECH monitoring, and by a comparison of results reported in DHIS2 and results computed for the same month from KenyaEMR.
+\item	Data usage: The passage between stage 1 and stage 2 for data usage will be used considering metadata from different reports, and delay of data entry. A different threshold as the one used for data quality will be used to categorize a facility as stage 1 or 2 for quality of care.
+\end{enumerate}
+
+Using available data to explore this different dimensions, we will be able to categorize each facilities’ reports into its corresponding period. As we anticipate some exceptions due to unclear transition periods, we will design a continuous index of maturity of implementation of KenyaEMR, to be included in latter stages of the analysis. Depending on the results of the exploratory work, we will use a continuous index or a discrete periodization of the intervention.
+
+\subsection{Reporting quality}
+\label{sec:rep_quality}
+To estimate the impact of KenyaEMR on the quality of reporting, we will compare aggregated monthly reports on HIV activities in facilities produced before and after implementation of KenyaEMR. Evolution of reporting quality involves two evolutions: amelioration of primary data quality, and amelioration of report computation quality.
+
+
+%%Figure reporting Quality
+
+We will measure data quality by looking at specific metrics:
+\begin{itemize}
+\item	Proportion of data fields used to compute reports that have contain valid data
+\item	Mean monthly number of visits by active patients
+\end{itemize}
+
+We will also use RDQA data to evaluate the quality of the data. Using RDQA results as training results, we will explore systematic classification of data quality based on reports indicators and patient forms metadata distribution.
+
+We will then measure the evolution of data quality between RDE and POC data in KenyaEMR and we will perform simple comparisons to evaluate changes in data quality when entering data directly in computerized form.
+
+Also, we expect computation quality to have multiple measurable impacts:
+\begin{itemize}
+\item	Greater coherence of indicators involving longitudinal data analysis,
+\item	Greater coherence of indicators involving multiple data sources
+\item	Greater coherence of indicators evolution in time, as computerized computation will be exactly the same in time
+\item	Greater coherence of indicators between facilities, as computerized computation will be exactly the same in all facilities.
+\end{itemize}
+
+We will compare reports generated for the same facilities and same months, in Period 1 and Period 2, and we will perform simple comparisons to evaluate changes when using standardized computation methods.
+
+Based on these two dimensions of reporting quality, we will finally design an index of reporting quality that will be used in subsequent analysis. Quality of reporting will then be modelled using, using facility characteristics as covariate, and the index of maturity of implementation. The coefficient associated to maturity of implementation will be considered as the measure of the impact of KenyaEMR on reporting quality (see section Quality of Care and patient health outcome4 for presentation of the modeling strategy).
+
+\subsection{Quality of Care and patient health outcome}
+\label{sec:qual_of_care}
+
+Using existing aggregate-level longitudinal data from KenyaEMR sites, we will retrospectively compare quality of care and patient health outcome indicators during each period of the EMR transition. The specific quality of care and patient health outcome indicators to be examined will be determined in collaboration with CDC and the MOH, based on commonly-used indicators within Kenya and globally. A list of these indicators can be found in Annex C.
+
+To model the association between using KenyaEMR and the level of each quality of care and patient health outcome indicators, we will use Generalized Estimating Equations (GEE) that will allow us to take into account the temporal correlation of observations. Covariates that we will introduce in this model include:
+\begin{itemize}
+\item	Facility type
+\item	KenyaEMR implementation maturity index
+\item	Reporting quality index
+\item	Number of patients followed for HIV in the facility
+\item	Number of HW involved in HIV care in the facility
+\item	Time trend
+\end{itemize}
+The coefficient estimated for KenyaEMR implementation maturity index in this model will be considered as the measure of the impact of KenyaEMR on the quality of care and the health outputs of HIV patients. The index will be introduced in continuous form or in dichotomized form. Alternative proxy of KenyaEMR implementation will also be tested such as period of implementation as defined for quality of care in table 1.
+
+\subsection{Timeline} Figure  \ref{GanttPaper1} presents a timeline for the realization of this objective. Even though the data collection process could be a sort of blackbox, we expect this paper to be finished by February 2017.
+
+\begin{figure}[h]
+\begin{ganttchart}[vgrid,hgrid]{1}{24}
+\gantttitle{2016}{12}
+\gantttitle{2017}{12} \\
+\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,12}{1}\\
+%\ganttgroup{Group 1}{1}{7} \\
+\ganttbar{Data Extraction}{4}{7} \\
+\ganttbar{Data Cleaning}{6}{8} \\
+\ganttbar{Data Analysis 1}{8}{10} \\
+\ganttmilestone{Sharing First Results}{10} \\
+\ganttbar{Data Analysis 2}{10}{13} \\
+\ganttmilestone{Sharing Final Results}{13} \\
+\ganttbar{Paper Writing}{13}{15} \\
+\ganttmilestone{Paper Submission}{15}
+\end{ganttchart}
+\caption{Gantt Chart for Paper 1}
+\label{GanttPaper1}
+\end{figure}

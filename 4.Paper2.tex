@@ -1,0 +1,140 @@
+\section{Semantic approaches to HMIS interoperability for external data validation}
+
+The second approach of this dissertation regards the management of data collected in hospitals in developing countries. The lack of standardization of indicators computed in different places or by different HMIS makes is indeed mentioned as an issue that makes the use of HMIS data a complicated task. This issue is often handled under the denomination of interoperability.
+
+
+\begin{figure}[ht]
+\begin{minipage}{.4\textwidth}
+\begin{tikzpicture}[node distance=.8cm,  start chain=going below,]
+     \node[punktchain, join] (DataCollection) {Data Collection};
+     \node[punktchain, join] (DataManagement) {Data Transmission and Management};
+     \node[punktchain, join] (DataAnalysis)   {Data Analysis};
+     \node[punktchain, join] (DataUse) 		  {Data Use};
+     \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-2.2,-2.7) -- (-2.2,-1.3) -- (2.2,-1.3) -- (2.2,-2.7) -- (-2.2,-2.7) ;
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[node distance=2cm]
+\coordinate (A) at (-4.5,0) {};
+\coordinate (B) at ( 4.5,0) {};
+\coordinate (C) at ( 0,7.7942) {};
+\draw[name path=AC] (A) -- (C);
+\draw[name path=BC] (B) -- (C);
+\draw (1.1,5.8971)--(3.5,5.8971) ;
+\draw(3.5,5.8971)--(3.5,3) ;
+\draw [->](3.5,3)--(2.77,3) ;
+\node at (4.4,4.25) {Feedback};
+\foreach \y/\A/\txtHigh in {0/Patients Care/0.8 ,2/Facility Administration \\ and Reporting/2.5,4/Planning \\ Monitoring \\ \& Evaluation /4.8}{
+    \path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
+    \draw[name intersections={of=AC and horiz,by=P},
+          name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
+          node[align = center,above] at (0,\txtHigh){\A};
+          }
+    \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-3.6,1.9) -- (-3.6,8) -- (3.45,8) -- (3.45,1.9) -- (-3.6,1.9) ;
+\end{tikzpicture}
+\end{minipage}
+\caption{Objective two definition}
+\label{Paper Two}
+\end{figure}
+
+\subsection{Introduction to Interoperability work}
+
+There are multiple reasons why interoperability between HMIS systems could be interesting.
+\begin{description}
+\item[Comparison ] Being able to compare the results of different health systems is essential to be able to benchmark these results, or to make different systems benefit from each others' experiences.
+\item[Validation / Completion] When multiple systems are operating in the same place, one can wish to compare results from different system in order to validate the data, or to fill missing data from another system.
+\item[Co-analysis] Finally, pooling results from different systems provides higher power for analysis that can be made on different subjects.
+\end{description}
+
+It should be noted that the exigencies of interoperability can be seen in different ways for each of these uses. If comparison of results necessitate that measured indicators have quasi identical definitions and methods, it is less the case for validation and completion, where a set of indicators can be used as a proxy to check the coherence or impute values of another data set. Finally, co-analysis may or may not require an exact mapping of indicators from different systems, depending of the subject matter.
+
+There are multiple levels at which interoperability of data systems  has to be enforced \cite{braa_sahay_book}. The Syntactic-Technical level, protocols have to be designed and implemented, to ensure that different data-systems can communicate. At the Organizational level, processes have to be implemented to allow the exchange and to define the condition of usage and aggregation of different data systems. Finally, at the semantic level, qualitative meaning and understanding of the nature of the data being exchanged and compared has to be enforced.
+
+We will be interested in considering the semantic level of interoperability. Indeed, we will make the hypothesis that perfect standardization of HMIS indicators across contexts and platforms is an elusive goal, and may not even be desirable, as it is a factor of rigidity for HMIS, which should be able to evolve rapidly. We will thus be interested in defining methods to ensure ex-post semantic interoperability between different HMIS systems, in order to map indicators and with an objective of data validation and missing data imputation.
+
+\subsection{Research questions}
+
+This project aims at defining a simple framework to validate data from an HMIS system using data from a comparable system. This includes two steps. First, we will have to test different methods for semantic data interoperability. We will thus have two principal aims for this project :
+
+\begin{enumerate}
+\item Test different methods for indicators mapping between two HMIS systems.
+\item Define and test an approach to validate data and complete data missingness using mapped data
+\end{enumerate}
+
+
+These aims will be reached by answering the following queastions :
+
+\begin{enumerate}
+\item What is the performance of different approaches to semantic interoperability ?
+\item What is a good metric to assert comparability of two indicators or data sets ?
+\item What is the performance of different approaches to HMIS data validation ?
+\item What is a good metric to assert data quality and completeness of a given data set ?
+\end{enumerate}
+
+
+\subsection{Data}
+
+This work will be conducted in collaboration with the Belgian startup Bluesquare. Bluesquare has developed a data system for management and validation of Results Based Financing indicators, called OpenRBF. This solution has been implemented in Bénin in XX facilities in YY départements. Indicators are collected on a monthly bassi in OpenRBF, and a data validation system is in place, to check the accuracy of reported indicators.
+
+In the meantime has been implementing and using DHIS2 nationwide since AAAA. There is considerable interest in mapping indicators from the two systems, and using the two systems as validation and completion solutions.
+
+We will train different approaches for interoperability and validation using OpenRBF data base and track of data validation, and DHIS2 data.
+
+\subsection{Semantic interoperability framework}
+
+We will first test different approaches to semantic interoperability. This project is building on an existing project in which we have been defining and testing a structure tagging approach to interoperability. With this approach, each health service indicator in a given facility reporting framework is defined based on three dimensions : health issue, population target and type of service provided. A first level of testing has already implemented in Bénin, matching DHIS2 indicators with OpenRBF indicators. Using this simple method, it was possible to match correctly 15 of 21 indicators from the OpenRBF framework with a subset of 500 indicators from the DHIS2 framework.
+
+One of the biggest benefits of this approach is its ability to define a notion of \textit{distance} between indicators. Indicators that are related by one dimension will be farther apart from each other than indicators that are related by two dimensions. Also, for dimensions that are not defined on a discrete basis (for example age boundaries for a population), incomplete correspondence can be quantified. This notion of distance can in a later stage be used as a weight in comparison of different indicators. In the currently tested version, this distance is linearly additive, but other formulation of this distance can be tested.
+
+We will also test alternative approaches, such as Latent Semantic Indexing, and completely blind indicators matching based on values and trends.
+
+\subsection{Data Validation framework}
+
+Our main aim will be to gauge the credibility of a data value or a dataset.  We can anticipate different situation we would like to investigate :
+\begin{description}
+\item[simple outlier] are situations when an isolated data value in a dataset is wrong, for one facility once. These are the situations that are the most commonly considered outliers. This may be the most straightforward situation.
+\item[outlying report] are situations when all values of one report appear to be off. This may be due to an update in the tools or methods for some indicators, or to the training of a new Health Worker in the facility who does not fully comply with usual ways to compute indicators.
+\item[outlying facility] are situations when one facility is consistently reporting numbers that are different from surrounding facilities. This may happen when structural conditions in one facility are leading to discrepancies in data collection, or in data computation.
+\end{description}
+
+Our goal will be to attach to each data value a probabilistic value for the credibility of a data value, or of a data set. The combination and comparison of the credibility of multiple data points or reports at multiple levels in turn gives a fine grained picture of data credibility, and orients actions to be taken.
+
+%% ie ce qu'on propose n'est pas orienté pour corriger les données mais pour construire un meilleurs système par la suite. Plus orienté développement et value l'utilisation des données plus que leur perfection. Imputation pour données fausses.
+
+We will test two approaches to do so :
+
+\begin{description}
+\item[Error prediction] Using the validation dataset from OpenRBF, we will try and predict wrong data values using a simple predictive approach and bagging different Machine Learning Classification methods. Result of this approach will be a probabilistic assessment of data quality for each indicator value.
+\item[Variable imputation] Using all available data, we will impute all data value and get a posterior estimated distribution of the value. The probability of the actual value in this posterior distribution will be taken as the probability of the value
+\end{description}
+
+In each of these approaches, we will test the introduction of weighting of different predictors, based on their estimated distance from a given indicator. This will be made for each indicator, internally and externally, and testing different definitions of inter-indicator distance.
+
+The validity probability of each data value will be turned into a facility level dashboard, tracking estimated quality of reporting in time. A district level dashboard could also be created, to track average data quality in different districts.
+
+\subsection{Performance}
+
+Validation of these methods will be made using crossvalidation. We will first evaluate the data validation framework independently of the indicators mapping framework. We will then test the performance of the combination of different indicator mapping methods and data validation methods.
+
+\subsection{timeline}
+
+Figure \ref{Gantt2} will present a timeline for the realization of this objective.
+
+\begin{figure}[h]
+\begin{ganttchart}[vgrid,hgrid]{1}{24}
+\gantttitle{2016}{12}
+\gantttitle{2017}{12} \\
+\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,12}{1}\\
+%\ganttgroup{Group 1}{1}{7} \\
+\ganttbar{Data Extraction}{1}{3} \\
+\ganttbar{Data Cleaning}{2}{4} \\
+\ganttbar{Data Analysis 1}{5}{6} \\
+\ganttmilestone{Sharing First Results}{6} \\
+\ganttbar{Data Analysis 2}{7}{9} \\
+\ganttmilestone{Sharing Final Results}{9} \\
+\ganttbar{Paper Writing}{9}{11} \\
+\ganttmilestone{Paper Submission}{11}
+\end{ganttchart}
+\caption{Gantt Chart for Paper 2}
+\label{Gantt2}
+\end{figure}
