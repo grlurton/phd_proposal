@@ -108,6 +108,10 @@ We will test two approaches to do so :
 \item[Variable imputation] Using all available data, we will impute all data value and get a posterior estimated distribution of the value. The probability of the actual value in this posterior distribution will be taken as the probability of the value
 \end{description}
 
+
+$$ \widetilde{X}_{i,t} \~ \operatorname{Pois}\left( f(X_{j,t})\right) $$
+
+
 In each of these approaches, we will test the introduction of weighting of different predictors, based on their estimated distance from a given indicator. This will be made for each indicator, internally and externally, and testing different definitions of inter-indicator distance.
 
 The validity probability of each data value will be turned into a facility level dashboard, tracking estimated quality of reporting in time. A district level dashboard could also be created, to track average data quality in different districts.
