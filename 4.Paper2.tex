@@ -89,29 +89,32 @@ We will test two approaches to do so :
 
 \begin{description}
 \item[Error prediction] Using the validation dataset from OpenRBF, we will try and predict wrong data values using a simple predictive approach and bagging different Machine Learning Classification methods. Result of this approach will be a probabilistic assessment of data quality for each indicator value.
-\item[Variable imputation] Using all available data, we will impute all data value and get a posterior estimated distribution of the value. The probability of the actual value in this posterior distribution will be taken as the probability of the value
+\item[Variable imputation] Using all available data, we will impute all data value and get a posterior estimated distribution of the value.
 \end{description}
 
 \subsubsection{Error Prediction}
 
-For a given indicator
+For a each indicator value, we will model the probability that the value is right. We will use a logistic model specified as :
+%% TODO specification logistic model
+
+Using \textit{Forward model selection} and training models on data on verified values (cf. \ref{paper2_data}), we will find the best models to predict data value errors. We will then use this model out of sample to compute the probability a value is true on each value.
 
 \subsubsection{Variable Imputation}
 
-For a given indicator $X_{i*}$ measured at time $t*$ in facility $f*$, we will compute an imputed distribution based on all other information available in our data.
+For a given indicator $X_{i*}$ measured at time $t*$ in facility $f*$, we will compute an imputed distribution based on all other information available in our data. A general representation of this approach could be written as:
 
 $$ \widetilde{X}_{i^*,t^*,f^*} \sim \operatorname{D} \left(f\left(X_{i,t,f}\right)_{ \left(i,t,f\right) \neq \left(i^*,t^*,f*\right) } \right) $$
 
-where $\operatorname{D}$ is an unspecified posterior distribution.
+where $\operatorname{D}$ is an unspecified distribution derived from a function of all available data excluding the data point $\widetilde{X}_{i^*,t^*,f^*}$.
 
-A distribution $\operatorname{P(\widetilde{X}_{i^*,t^*,f^*} )}$.
-
-A threshold will be defined based on observed distributions.
+Using verified data as our validation set, we will define a threshold for credibility of data that we will later use as a decision rule for considering data as regular or outlying (see \ref{paper2_credib_pattern}).
 
 We will test different approaches for this model.
+% TODO Document different models I will use
 
 
 \subsection{Credibility Pattern Screening}
+\label{paper2_credib_pattern}
 
 The validity probability of each data value will be pooled at report, facility and district levels. An analysis of the distribution of credibility at each level of aggregation will be made to characterize the type of data error pattern in one of four categories : No error, Single outliers, Outlying report or Outlying facility.
 \begin{description}
@@ -126,6 +129,7 @@ The validity probability of each data value will be pooled at report, facility a
 Validation of these methods will be made using cross-validation. We will first evaluate the data validation framework independently of the indicators mapping framework. We will then test the performance of the combination of different indicator mapping methods and data validation methods.
 
 \subsection{Data}
+\label{paper2_data}
 
 This work will be conducted in collaboration with the Belgian startup Bluesquare. Bluesquare has developed a data system for management and validation of Results Based Financing indicators, called OpenRBF. This solution has been implemented in Bénin in XX facilities in YY départements. Indicators are collected on a monthly basis in OpenRBF, and a data validation system is in place, to check the accuracy of reported indicators.
 
