@@ -71,15 +71,59 @@ I will thus explore methods to validate, correct and complete data sets from rou
     \item What is the benefit of using mapped datasets on this last metric ?
 \end{enumerate}
 
-Our main aim will be to gauge the credibility of a data value or a dataset.  Additionaly, we want to provide some evidence as of what the source of error or missingness in a dataset is. There are three main situations we want to be able to differentiate between :
+Our main aim will be to gauge the credibility of a data value or a dataset.  Additionally, we want to provide some evidence as of what the source of error or missingness in a dataset is. There are three main situations we want to be able to differentiate between :
 \begin{description}
-\item[simple outlier] are situations when an isolated data value in a dataset is wrong, for one facility once. These are the situations that are the most commonly considered outliers. This may be the most straightforward situation.
-\item[outlying report] are situations when all values of one report appear to be off. This may be due to an update in the tools or methods for some indicators, or to the training of a new Health Worker in the facility who does not fully comply with usual ways to compute indicators.
+\item[simple outlier] are situations when an isolated data value in a dataset is wrong, for one facility once. These are the situations that are the most commonly recognized as outliers.
+\item[outlying report] are situations when all values of one report appear to be off. This may be due to an update in the tools or methods for some indicators, or to the training of a new Health Worker in the facility who does not fully comply with usual ways to compute indicators. To identify this type of issue, it is necessary to compare
 \item[outlying facility] are situations when one facility is consistently reporting numbers that are different from surrounding facilities. This may happen when structural conditions in one facility are leading to discrepancies in data collection, or in data computation.
 \end{description}
 
 Our general approach will be to attach to each data value a probabilistic value for its credibility. The combination of these credibility measures for a dataset will give an overall estimation of the credibility of this dataset, and the type of error it may suffer from. In a third and last step, we will explore methods for imputation of data values with low credibility or for methods with low credibility.
 
+
+\subsection{Data Validation / Method}
+
+%% ie ce qu'on propose n'est pas orienté pour corriger les données mais pour construire un meilleurs système par la suite. Plus orienté développement et value l'utilisation des données plus que leur perfection. Imputation pour données fausses.
+
+We will test two approaches to do so :
+
+\begin{description}
+\item[Error prediction] Using the validation dataset from OpenRBF, we will try and predict wrong data values using a simple predictive approach and bagging different Machine Learning Classification methods. Result of this approach will be a probabilistic assessment of data quality for each indicator value.
+\item[Variable imputation] Using all available data, we will impute all data value and get a posterior estimated distribution of the value. The probability of the actual value in this posterior distribution will be taken as the probability of the value
+\end{description}
+
+\subsubsection{Error Prediction}
+
+For a given indicator
+
+\subsubsection{Variable Imputation}
+
+For a given indicator $X_{i*}$ measured at time $t*$ in facility $f*$, we will compute an imputed distribution based on all other information available in our data.
+
+$$ \widetilde{X}_{i^*,t^*,f^*} \sim \operatorname{D} \left(f\left(X_{i,t,f}\right)_{ \left(i,t,f\right) \neq \left(i^*,t^*,f*\right) } \right) $$
+
+where $\operatorname{D}$ is an unspecified posterior distribution.
+
+A distribution $\operatorname{P(\widetilde{X}_{i^*,t^*,f^*} )}$.
+
+A threshold will be defined based on observed distributions.
+
+We will test different approaches for this model.
+
+
+\subsection{Credibility Pattern Screening}
+
+The validity probability of each data value will be pooled at report, facility and district levels. An analysis of the distribution of credibility at each level of aggregation will be made to characterize the type of data error pattern in one of four categories : No error, Single outliers, Outlying report or Outlying facility.
+\begin{description}
+    \item[No error] will be situations in which no data values will be over the fixed threshold of acceptable credibility.
+    \item[Single Outliers] will be situations in which less than 10\% of data values in a single report for a facility will be under the fixed threshold of acceptable credibility.
+    \item[Outlying report] will be situations in which more than 10\% of data values in a single report for a given facility will be under the fixed threshold of acceptable credibility.
+    \item[Outlying facilities] will be situations in which more than 10\% of data values will be under the fixed threshold of acceptable credibility in more than two consecutive reports for the same facility.
+\end{description}
+
+\subsection{Performance Metric}
+
+Validation of these methods will be made using cross-validation. We will first evaluate the data validation framework independently of the indicators mapping framework. We will then test the performance of the combination of different indicator mapping methods and data validation methods.
 
 \subsection{Data}
 
@@ -95,37 +139,6 @@ In the meantime Bénin has been implementing and using DHIS2 nationwide since AA
 
 %We will also test alternative approaches, such as Latent Semantic Indexing, and completely blind indicators matching based on values and trends.
 
-
-\subsection{Data Validation framework}
-
-%% ie ce qu'on propose n'est pas orienté pour corriger les données mais pour construire un meilleurs système par la suite. Plus orienté développement et value l'utilisation des données plus que leur perfection. Imputation pour données fausses.
-
-We will test two approaches to do so :
-
-\begin{description}
-\item[Error prediction] Using the validation dataset from OpenRBF, we will try and predict wrong data values using a simple predictive approach and bagging different Machine Learning Classification methods. Result of this approach will be a probabilistic assessment of data quality for each indicator value.
-\item[Variable imputation] Using all available data, we will impute all data value and get a posterior estimated distribution of the value. The probability of the actual value in this posterior distribution will be taken as the probability of the value
-\end{description}
-
-
-For a given indicator $X_{i*}$ measured at time $t*$, we will compute an imputed distribution based on all other information available in our data.
-
-$$ \widetilde{X}_{i^*,t^*} \sim \operatorname{D} \left(f\left(X_{i,t}\right)  \left(i,t\right) \neq \left(i^*,t^*\right) \right) $$
-
-where $\operatorname{D}$ is an unspecified posterior distribution.
-
-Different approaches will be tested for this modelling.
-
-In each of these approaches, we will test the introduction of weighting of different predictors, based on their estimated distance from a given indicator. This will be made for each indicator, internally and externally, and testing different definitions of inter-indicator distance.
-
-The validity probability of each data value will be turned into a facility level dashboard, tracking estimated quality of reporting in time. A district level dashboard could also be created, to track average data quality in different districts.
-
-\subsection{Data Imputation Framework}
-
-
-\subsection{Performance}
-
-Validation of these methods will be made using cross-validation. We will first evaluate the data validation framework independently of the indicators mapping framework. We will then test the performance of the combination of different indicator mapping methods and data validation methods.
 
 \subsection{Timeline}
 
