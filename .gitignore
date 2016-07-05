@@ -9,3 +9,5 @@ proposal.bbl
 proposal.blg
 images/
 figure/
+*.log
+proposal.fdb_latexmk
