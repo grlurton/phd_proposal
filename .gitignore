@@ -11,3 +11,10 @@ images/
 figure/
 *.log
 proposal.fdb_latexmk
+*.acn
+*.acr
+*.alg
+*.glo
+*.idx
+*.ist
+*.xdy

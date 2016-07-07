@@ -32,6 +32,14 @@
 \usepackage{lmodern}
 \usepackage{amsmath,amsthm,amscd,amssymb}
 
+%% Define Acronyms
+\usepackage[nomain,acronym,xindy,toc]{glossaries} % nomain, if you define glossaries in a file, and you use \include{INP-00-glossary}
+\makeglossaries
+\usepackage[xindy]{imakeidx}
+\makeindex
+\newacronym{who}{WHO}{World Health Organization}
+\newacronym{test}{TEST}{World Health Organization}
+
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathreplacing , chains , intersections}
 
@@ -205,7 +213,8 @@ Here the abstract will come
 \newpage
 \addcontentsline{toc}{section}{\listtablename}
 \listoftables
-
+\newpage
+\printglossaries
 \thispagestyle{fancy}
 
 % Justification moins stricte : des mots ne dépasseront pas des paragraphes
