@@ -1,84 +1,168 @@
-\section[Innovative analytic approach - data integration for malaria elimination]{Innovative analytic approach - data integration for malaria elimination\footnote{This Section is currently the adaptation of a grant proposal submuitted for this aim}}
+\section{Semantic approaches to HMIS interoperability for external data validation}
 
-Our third aim will be to explore an innovative approach to data integration, to provide an elimination metric for malaria elimination.
+The second paper of this dissertation regards the management of data collected in hospitals in developing countries. The lack of standardization of indicators computed in different places or by different HMIS makes the use of HMIS data a complicated task. This issue is often handled as an issue of interoperability between systems.
+
 
 \begin{figure}[ht]
-\begin{minipage}{.4\textwidth}
-\begin{tikzpicture}[node distance=.8cm,  start chain=going below,]
-     \node[punktchain, join] (DataCollection) {Data Collection};
-     \node[punktchain, join] (DataManagement) {Data Transmission and Management};
-     \node[punktchain, join] (DataAnalysis)   {Data Analysis};
-     \node[punktchain, join] (DataUse) 		  {Data Use};
-     \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-2.2,-4.7) -- (-2.2,-3.3) -- (2.2,-3.3) -- (2.2,-4.7) -- (-2.2,-4.7) ;
-\end{tikzpicture}
-\end{minipage}
-\begin{minipage}{.5\textwidth}
-\begin{tikzpicture}[node distance=2cm]
-\coordinate (A) at (-4.5,0) {};
-\coordinate (B) at ( 4.5,0) {};
-\coordinate (C) at ( 0,7.7942) {};
-\draw[name path=AC] (A) -- (C);
-\draw[name path=BC] (B) -- (C);
-\draw (1.1,5.8971)--(3.5,5.8971) ;
-\draw(3.5,5.8971)--(3.5,3) ;
-\draw [->](3.5,3)--(2.77,3) ;
-\node at (4.4,4.25) {Feedback};
-\foreach \y/\A/\txtHigh in {0/Patients Care/0.8 ,2/Facility Administration \\ and Reporting/2.5,4/Planning \\ Monitoring \\ \& Evaluation /4.8}{
-    \path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
-    \draw[name intersections={of=AC and horiz,by=P},
-          name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
-          node[align = center,above] at (0,\txtHigh){\A};
-          }
-    \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-4.7,1.8) -- (-4.7,8) -- (5.2,8) -- (5.2,1.8) -- (-4.7,1.8) ;
-\end{tikzpicture}
-\end{minipage}
-\caption{Objective three definition}
-\label{Paper Three}
+	\begin{minipage}{.4\textwidth}
+		\begin{tikzpicture}[node distance=.8cm,  start chain=going below,]
+			\node[punktchain, join] (DataCollection) {Data Collection};
+			\node[punktchain, join] (DataManagement) {Data Transmission and Management};
+			\node[punktchain, join] (DataAnalysis)   {Data Analysis};
+			\node[punktchain, join] (DataUse) 		  {Data Use};
+			\filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-2.2,-2.7) -- (-2.2,-1.3) -- (2.2,-1.3) -- (2.2,-2.7) -- (-2.2,-2.7) ;
+		\end{tikzpicture}
+	\end{minipage}
+	\begin{minipage}{.5\textwidth}
+		\begin{tikzpicture}[node distance=2cm]
+			\coordinate (A) at (-4.5,0) {};
+			\coordinate (B) at ( 4.5,0) {};
+			\coordinate (C) at ( 0,7.7942) {};
+			\draw[name path=AC] (A) -- (C);
+			\draw[name path=BC] (B) -- (C);
+			\draw (1.1,5.8971)--(3.5,5.8971) ;
+			\draw(3.5,5.8971)--(3.5,3) ;
+			\draw [->](3.5,3)--(2.77,3) ;
+			\node at (4.4,4.25) {Feedback};
+			\foreach \y/\A/\txtHigh in {0/Patients Care/0.8 ,2/Facility Administration \\ and Reporting/2.5,4/Planning \\ Monitoring \\ \& Evaluation /4.8}{
+				\path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
+				\draw[name intersections={of=AC and horiz,by=P},
+				name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
+				node[align = center,above] at (0,\txtHigh){\A};
+			}
+			\filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-3.6,1.9) -- (-3.6,8) -- (3.45,8) -- (3.45,1.9) -- (-3.6,1.9) ;
+		\end{tikzpicture}
+	\end{minipage}
+	\caption{Objective two definition}
+	\label{Paper Two}
 \end{figure}
 
-\subsection{Context}
+\subsection{Introduction to Interoperability work}
 
-Malaria elimination requires programs that are able to monitor and analyze big and complex amounts of data in order to make effective decisions to fight local transmission hotspots. In this situation, reducing the geographic scope to monitor and concentrating attention on areas where malaria transmission is still happening or is likely to happen in the future is essential\cite{ShrinkingMalariaMap}. By tracking and investigating any new case of malaria, programs are able to focus their action on the most at-risk zones and communities. Surveillance is thus a key element of malaria elimination programs\cite{SurvSystems} , \cite{WHOSurveillance}. Passive and active case detection systems are used to identify and characterize malaria transmission hotspots and orient preventive measures. One of the challenges of malaria elimination is in identifying cases that are increasingly scattered and rare and thus more likely to be missed\cite{ChangingEpidemiology}. Our project aims to develop a novel surveillance analysis tool to assist decision makers to strategize and prioritize their efforts towards elimination, by measuring the degree of confidence they can have that no malaria transmission happened in a given zone.
+There are multiple reasons why interoperability between HMIS datasets is a great asset :
+\begin{description}
+	\item[Comparison ] Being able to compare the results of different health systems is essential to be able to benchmark these results, or to make different systems benefit from each others' experiences.
+	\item[Validation / Completion] When multiple systems are operating in the same place, one can wish to compare results from different system in order to validate the data, or to fill missing data from another system.
+	\item[Co-analysis] Finally, pooling results from different systems provides higher power for analysis that can be made on different subjects.
+\end{description}
 
-Elimination is indeed only defined negatively as the absence of detected incidence cases. The closest we can measure is a probability that no transmission is happening. Malaria elimination specialists' work should thus be oriented towards maximizing the likelihood that malaria has been eliminated (i.e. minimizing the probability that a local malaria transmission will happen in the future), and reducing their uncertainty surrounding this probability to a minimum.  In order to do so, their portfolio of methods includes: implementing prevention strategies in order to lower the risk of transmission; improving the health sector’s supply of malaria diagnostics and treatment services in order to improve passive case detection, and thus diminish the uncertainty around untested cases and lower the risk of further transmission; launching and targeting active case detection campaigns to confirm the absence of incident cases in the population; and planning other data collection activities (ecological measures, population practices…) in order to improve the uncertainty of background models of malaria transmission risk. For example, if no malaria transmission is recorded in a community, an entomological survey may be an essential piece of information to maximize the likelihood of elimination, and may be more efficient than implementing active case detection or strengthening facility based diagnostic, but it may be hard to compare the informational benefits of each of these strategies. Conversely, in a zone with low elimination likelihood, a public health professional will be able to understand whether this low likelihood is due to a high observed incidence, necessitating improved prevention, or to low completeness of health service records, or by long overdue contextual data collection. The measure will thus allow malaria elimination strategists to target their resources on the most efficient action.
+It should be noted that the conditions for interoperability can be seen in different ways for each of these uses. If comparison of results necessitates that measured indicators have quasi identical definitions and methods, it is less the case for validation and completion, where a set of indicators can be used as a proxy to check the coherence or impute values of another data set. Finally, co-analysis may or may not require an exact mapping of indicators from different systems, depending of the subject matter.
 
-We will develop a robust method for analyzing malaria surveillance data, using a continuous metric of malaria elimination. We will define, measure and evaluate this innovative metric, combining the evidence of elimination from available data with a measure of data quality and completeness. This will provide an analysis tool to plan and measure local efforts for malaria elimination.
+There are multiple levels at which interoperability of data systems  has to be enforced \cite{braa_sahay_book}. At the Syntactic-Technical level, protocols have to be designed and implemented, to ensure that different data-systems can communicate. At the Organizational level, processes have to be implemented to allow the exchange and to define the condition of usage and aggregation of different data systems. Finally, at the Semantic level, qualitative meaning and understanding of the nature of the data being exchanged and compared has to be enforced.
 
-This project will focus on data from Namibia. Namibia has set malaria elimination as one of its priorities\cite{NamibiaElimniation}, and has fully integrated surveillance and tactical planning as its approach for the elimination\cite{StrengtheningTactical},\cite{NamStratPlan}. Moreover, the National Malaria Strategic Plan comes to an end in 2016, and if successful, our project could contribute to the design of the next strategic plan. Finally, Namibia is currently undergoing an outbreak of malaria the analysis of which will offer a good validation framework to our project. Our team has relationships with the MoH in Namibia and we are confident we will able to access most of the data we need for this project.
+%TODO Add graph on interoperaility from Saay Braa
+
+I am interested in considering the semantic level of interoperability. Indeed, I will make the hypothesis that perfect standardization of HMIS indicators across contexts and platforms is an elusive goal, and may not even be desirable, as it is a factor of rigidity for HMIS, which should be able to evolve rapidly. I am thus be interested in defining methods to ensure ex-post semantic interoperability between different HMIS systems, in order to map indicators and with an objective of data validation and missing data imputation.
+
+\subsection{Research questions}
+
+This project is in the framework of a larger project, defining an interoperability framework between different systems. As part of this project, a tagging system has been defined that allows mapping of indicators from different standard hospital indicators sets. %% BIBLIO paper bluesquare
+
+% TODO describe tagging system
+
+Meanwhile, this tagging approach, if it is effective, has an important entry cost for users. Tagging a set of multiple dozens of indicators can indeed been an harrowing task in a field where quick fixes are the gold standard. %REF conceptual framework
+We are thus working on two ways to improve this uptake. One is the definition of automatized learning methods that could help users in the tagging task. Another approach is to provide users with sufficiently strong incentives that the tagging work will be worth going through. As actors working towards interoperability of systems are likely to be middle tier actors in the information system, we think empowering them to use the benefits of interoperability for validation of data, correction of faulty data and completion of missing data would be a strong incentive.
+
+I will thus explore methods to validate, correct and complete data sets from routine HMIS, and measure the benefits of indicators matching between different dataset to improve validation, correction and completion. This will be considered looking at different intermediary questions :
+
+\begin{enumerate}
+	\item What is a good metric to assert data quality and completeness of a given HMIS data set ?
+	\item What is the performance of different approaches to HMIS data validation, correction and completion ?
+	\item What is the benefit of using mapped datasets on this last metric ?
+\end{enumerate}
+
+Our main aim will be to gauge the credibility of a data value or a dataset.  Additionally, we want to provide some evidence as of what the source of error or missingness in a dataset is. There are three main situations we want to be able to differentiate between :
+\begin{description}
+	\item[simple outlier] are situations when an isolated data value in a dataset is wrong, for one facility once. These are the situations that are the most commonly recognized as outliers.
+	\item[outlying report] are situations when all values of one report appear to be off. This may be due to an update in the tools or methods for some indicators, or to the training of a new Health Worker in the facility who does not fully comply with usual ways to compute indicators. To identify this type of issue, it is necessary to compare
+	\item[outlying facility] are situations when one facility is consistently reporting numbers that are different from surrounding facilities. This may happen when structural conditions in one facility are leading to discrepancies in data collection, or in data computation.
+\end{description}
+
+Our general approach will be to attach to each data value a probabilistic value for its credibility. The combination of these credibility measures for a dataset will give an overall estimation of the credibility of this dataset, and the type of error it may suffer from. In a third and last step, we will explore methods for imputation of data values with low credibility or for methods with low credibility.
+
+
+\subsection{Data Validation / Method}
+
+%% ie ce qu'on propose n'est pas orienté pour corriger les données mais pour construire un meilleurs système par la suite. Plus orienté développement et value l'utilisation des données plus que leur perfection. Imputation pour données fausses.
+
+We will test two approaches to do so :
+
+\begin{description}
+	\item[Error prediction] Using the validation dataset from OpenRBF, we will try and predict wrong data values using a simple predictive approach and bagging different Machine Learning Classification methods. Result of this approach will be a probabilistic assessment of data quality for each indicator value.
+	\item[Variable imputation] Using all available data, we will impute all data value and get a posterior estimated distribution of the value.
+\end{description}
+
+\subsubsection{Error Prediction}
+
+For a each indicator value, we will model the probability that the value is right. We will use a logistic model specified as :
+%% TODO specification logistic model
+
+Using \textit{Forward model selection} and training models on data on verified values (cf. \ref{paper2_data}), we will find the best models to predict data value errors. We will then use this model out of sample to compute the probability a value is true on each value.
+
+\subsubsection{Variable Imputation}
+
+For a given indicator $X_{i*}$ measured at time $t*$ in facility $f*$, we will compute an imputed distribution based on all other information available in our data. A general representation of this approach could be written as:
+
+$$ \widetilde{X}_{i^*,t^*,f^*} \sim \operatorname{D} \left(f\left(X_{i,t,f}\right)_{ \left(i,t,f\right) \neq \left(i^*,t^*,f*\right) } \right) $$
+
+where $\operatorname{D}$ is an unspecified distribution derived from a function of all available data excluding the data point $\widetilde{X}_{i^*,t^*,f^*}$.
+
+Using verified data as our validation set, we will define a threshold for credibility of data that we will later use as a decision rule for considering data as regular or outlying (see \ref{paper2_credib_pattern}).
+
+We will test different approaches for this model.
+% TODO Document different models I will use
+
+
+\subsection{Credibility Pattern Screening}
+\label{paper2_credib_pattern}
+
+The validity probability of each data value will be pooled at report, facility and district levels. An analysis of the distribution of credibility at each level of aggregation will be made to characterize the type of data error pattern in one of four categories : No error, Single outliers, Outlying report or Outlying facility.
+\begin{description}
+	\item[No error] will be situations in which no data values will be over the fixed threshold of acceptable credibility.
+	\item[Single Outliers] will be situations in which less than 10\% of data values in a single report for a facility will be under the fixed threshold of acceptable credibility.
+	\item[Outlying report] will be situations in which more than 10\% of data values in a single report for a given facility will be under the fixed threshold of acceptable credibility.
+	\item[Outlying facilities] will be situations in which more than 10\% of data values will be under the fixed threshold of acceptable credibility in more than two consecutive reports for the same facility.
+\end{description}
+
+\subsection{Performance Metric}
+
+Validation of these methods will be made using cross-validation. We will first evaluate the data validation framework independently of the indicators mapping framework. We will then test the performance of the combination of different indicator mapping methods and data validation methods.
 
 \subsection{Data}
+\label{paper2_data}
 
-We will first collate a data warehouse of all relevant data available in Namibia. This will include ecological, epidemiologic, HMIS and case detection data; socio-behavioral studies; and wide scale demographic studies. We will also access and store results from the Malaria Atlas Project. All data will be geolocalized. For data sources with no precise geolocalization, we will implement an approximate location approach. In order to assess data quality at local level, we will also keep a running list of existing data sources that we could not access. We will assess data quality of each data source, combining detailed examination, algorithmic approaches and expert advice.
+This work will be conducted in collaboration with the Belgian startup Bluesquare. Bluesquare has developed a data system for management and validation of Results Based Financing indicators, called OpenRBF. This solution has been implemented in Bénin in XX facilities in YY départements. Indicators are collected on a monthly basis in OpenRBF, and a data validation system is in place, to check the accuracy of reported indicators.
 
-\subsection{Likelihood Metric Modelization}
-Our first modelling step will be to create a measure of data quality. We will define a relative measure of available information quality for a certain time in a certain zone. This measure will be a composite of data availability and data quality of available sources, with maximum being the best observed score for any time period. We will then fit a simple model of the probability of malaria elimination, as informed by currently available data. The probability of elimination will be measured at a certain time in a certain zone as the probability of occurrence of locally transmitted cases in later periods. Covariates will include the available modelled results of malaria risk, and other localized epidemiologic and contextual data collected in the previous stage. Multiple approaches to integrating impact of data quality will be tested in this model.
+In the meantime Bénin has been implementing and using DHIS2 nationwide since AAAA. There is considerable interest in mapping indicators from the two systems, and using the two systems as validation and completion solutions.
 
-Success of the modelling stage will be evaluated using the ability of the likelihood to give a meaningful measure of malaria elimination using case detections as validation in zones where case detection is known to be most complete. Our general approach will be validated if we find a significantly lower likelihood of elimination in zones with new outbreaks than in zones with no new outbreaks.
+%\subsection{Semantic interoperability framework}
 
-We will test the sensitivity of the model to the different health officials’ decisions defined earlier, regarding additional data generation activities or public health intervention, by simulating how each decision could impact the elimination likelihood. If sufficient cost data can be accessed for each intervention, we will also cost each intervention. For different scenarios, we will consider our approach to be useful if we can recommend a clear best decision.
+%We will first test different approaches to semantic interoperability. This project is building on an existing project in which we have been defining and testing a structure tagging approach to interoperability. With this approach, each health service indicator in a given facility reporting framework is defined based on three dimensions : health issue, population target and type of service provided. A first level of testing has already implemented in Bénin, matching DHIS2 indicators with OpenRBF indicators. Using this simple method, it was possible to match correctly 15 of 21 indicators from the OpenRBF framework with a subset of 500 indicators from the DHIS2 framework.
 
-Our model could be expanded to be usable by malaria programs. We will develop a software that will generalize our data aggregation approach and will allow users to query elimination likelihood and expected results of interventions at precise locations. This surveillance analysis tool will be piloted at different levels of the Namibian health system and will be made available to other interested programs. This approach could be generalized to other geographies and public health issues (surveillance, intervention coverage).
+%One of the biggest benefits of this approach is its ability to define a notion of \textit{distance} between indicators. Indicators that are related by one dimension will be farther apart from each other than indicators that are related by two dimensions. Also, for dimensions that are not defined on a discrete basis (for example age boundaries for a population), incomplete correspondence can be quantified. This notion of distance can in a later stage be used as a weight in comparison of different indicators. In the currently tested version, this distance is linearly additive, but other formulation of this distance can be tested.
+
+%We will also test alternative approaches, such as Latent Semantic Indexing, and completely blind indicators matching based on values and trends.
 
 
-\subsection{timeline}
+\subsection{Timeline}
 
-Figure \ref{Gantt3} will present a timeline for the realization of this objective.
+Figure \ref{Gantt2} will present a timeline for the realization of this objective.
 
 \begin{figure}[h]
-\begin{ganttchart}[vgrid,hgrid]{1}{24}
-\gantttitle{2016}{12}
-\gantttitle{2017}{12} \\
-\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,12}{1}\\
-%\ganttgroup{Group 1}{1}{7} \\
-\ganttbar{Data Extraction}{1}{3} \\
-\ganttbar{Data Cleaning}{2}{4} \\
-\ganttbar{Data Analysis 1}{5}{6} \\
-\ganttmilestone{Sharing First Results}{6} \\
-\ganttbar{Data Analysis 2}{7}{9} \\
-\ganttmilestone{Sharing Final Results}{9} \\
-\ganttbar{Paper Writing}{9}{11} \\
-\ganttmilestone{Paper Submission}{11}
-\end{ganttchart}
-\caption{Gantt Chart for Paper 3}
-\label{Gantt3}
+	\begin{ganttchart}[vgrid,hgrid]{1}{24}
+		\gantttitle{2016}{12}
+		\gantttitle{2017}{12} \\
+		\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,12}{1}\\
+		%\ganttgroup{Group 1}{1}{7} \\
+		\ganttbar{Data Extraction}{1}{3} \\
+		\ganttbar{Data Cleaning}{2}{4} \\
+		\ganttbar{Data Analysis 1}{5}{6} \\
+		\ganttmilestone{Sharing First Results}{6} \\
+		\ganttbar{Data Analysis 2}{7}{9} \\
+		\ganttmilestone{Sharing Final Results}{9} \\
+		\ganttbar{Paper Writing}{9}{11} \\
+		\ganttmilestone{Paper Submission}{11}
+	\end{ganttchart}
+	\caption{Gantt Chart for Paper 2}
+	\label{Gantt2}
 \end{figure}

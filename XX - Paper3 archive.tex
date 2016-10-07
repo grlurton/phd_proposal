@@ -1,0 +1,84 @@
+\section[Innovative analytic approach - data integration for malaria elimination]{Innovative analytic approach - data integration for malaria elimination\footnote{This Section is currently the adaptation of a grant proposal submuitted for this aim}}
+
+Our third aim will be to explore an innovative approach to data integration, to provide an elimination metric for malaria elimination.
+
+\begin{figure}[ht]
+\begin{minipage}{.4\textwidth}
+\begin{tikzpicture}[node distance=.8cm,  start chain=going below,]
+     \node[punktchain, join] (DataCollection) {Data Collection};
+     \node[punktchain, join] (DataManagement) {Data Transmission and Management};
+     \node[punktchain, join] (DataAnalysis)   {Data Analysis};
+     \node[punktchain, join] (DataUse) 		  {Data Use};
+     \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-2.2,-4.7) -- (-2.2,-3.3) -- (2.2,-3.3) -- (2.2,-4.7) -- (-2.2,-4.7) ;
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[node distance=2cm]
+\coordinate (A) at (-4.5,0) {};
+\coordinate (B) at ( 4.5,0) {};
+\coordinate (C) at ( 0,7.7942) {};
+\draw[name path=AC] (A) -- (C);
+\draw[name path=BC] (B) -- (C);
+\draw (1.1,5.8971)--(3.5,5.8971) ;
+\draw(3.5,5.8971)--(3.5,3) ;
+\draw [->](3.5,3)--(2.77,3) ;
+\node at (4.4,4.25) {Feedback};
+\foreach \y/\A/\txtHigh in {0/Patients Care/0.8 ,2/Facility Administration \\ and Reporting/2.5,4/Planning \\ Monitoring \\ \& Evaluation /4.8}{
+    \path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
+    \draw[name intersections={of=AC and horiz,by=P},
+          name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
+          node[align = center,above] at (0,\txtHigh){\A};
+          }
+    \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-4.7,1.8) -- (-4.7,8) -- (5.2,8) -- (5.2,1.8) -- (-4.7,1.8) ;
+\end{tikzpicture}
+\end{minipage}
+\caption{Objective three definition}
+\label{Paper Three}
+\end{figure}
+
+\subsection{Context}
+
+Malaria elimination requires programs that are able to monitor and analyze big and complex amounts of data in order to make effective decisions to fight local transmission hotspots. In this situation, reducing the geographic scope to monitor and concentrating attention on areas where malaria transmission is still happening or is likely to happen in the future is essential\cite{ShrinkingMalariaMap}. By tracking and investigating any new case of malaria, programs are able to focus their action on the most at-risk zones and communities. Surveillance is thus a key element of malaria elimination programs\cite{SurvSystems} , \cite{WHOSurveillance}. Passive and active case detection systems are used to identify and characterize malaria transmission hotspots and orient preventive measures. One of the challenges of malaria elimination is in identifying cases that are increasingly scattered and rare and thus more likely to be missed\cite{ChangingEpidemiology}. Our project aims to develop a novel surveillance analysis tool to assist decision makers to strategize and prioritize their efforts towards elimination, by measuring the degree of confidence they can have that no malaria transmission happened in a given zone.
+
+Elimination is indeed only defined negatively as the absence of detected incidence cases. The closest we can measure is a probability that no transmission is happening. Malaria elimination specialists' work should thus be oriented towards maximizing the likelihood that malaria has been eliminated (i.e. minimizing the probability that a local malaria transmission will happen in the future), and reducing their uncertainty surrounding this probability to a minimum.  In order to do so, their portfolio of methods includes: implementing prevention strategies in order to lower the risk of transmission; improving the health sector’s supply of malaria diagnostics and treatment services in order to improve passive case detection, and thus diminish the uncertainty around untested cases and lower the risk of further transmission; launching and targeting active case detection campaigns to confirm the absence of incident cases in the population; and planning other data collection activities (ecological measures, population practices…) in order to improve the uncertainty of background models of malaria transmission risk. For example, if no malaria transmission is recorded in a community, an entomological survey may be an essential piece of information to maximize the likelihood of elimination, and may be more efficient than implementing active case detection or strengthening facility based diagnostic, but it may be hard to compare the informational benefits of each of these strategies. Conversely, in a zone with low elimination likelihood, a public health professional will be able to understand whether this low likelihood is due to a high observed incidence, necessitating improved prevention, or to low completeness of health service records, or by long overdue contextual data collection. The measure will thus allow malaria elimination strategists to target their resources on the most efficient action.
+
+We will develop a robust method for analyzing malaria surveillance data, using a continuous metric of malaria elimination. We will define, measure and evaluate this innovative metric, combining the evidence of elimination from available data with a measure of data quality and completeness. This will provide an analysis tool to plan and measure local efforts for malaria elimination.
+
+This project will focus on data from Namibia. Namibia has set malaria elimination as one of its priorities\cite{NamibiaElimniation}, and has fully integrated surveillance and tactical planning as its approach for the elimination\cite{StrengtheningTactical},\cite{NamStratPlan}. Moreover, the National Malaria Strategic Plan comes to an end in 2016, and if successful, our project could contribute to the design of the next strategic plan. Finally, Namibia is currently undergoing an outbreak of malaria the analysis of which will offer a good validation framework to our project. Our team has relationships with the MoH in Namibia and we are confident we will able to access most of the data we need for this project.
+
+\subsection{Data}
+
+We will first collate a data warehouse of all relevant data available in Namibia. This will include ecological, epidemiologic, HMIS and case detection data; socio-behavioral studies; and wide scale demographic studies. We will also access and store results from the Malaria Atlas Project. All data will be geolocalized. For data sources with no precise geolocalization, we will implement an approximate location approach. In order to assess data quality at local level, we will also keep a running list of existing data sources that we could not access. We will assess data quality of each data source, combining detailed examination, algorithmic approaches and expert advice.
+
+\subsection{Likelihood Metric Modelization}
+Our first modelling step will be to create a measure of data quality. We will define a relative measure of available information quality for a certain time in a certain zone. This measure will be a composite of data availability and data quality of available sources, with maximum being the best observed score for any time period. We will then fit a simple model of the probability of malaria elimination, as informed by currently available data. The probability of elimination will be measured at a certain time in a certain zone as the probability of occurrence of locally transmitted cases in later periods. Covariates will include the available modelled results of malaria risk, and other localized epidemiologic and contextual data collected in the previous stage. Multiple approaches to integrating impact of data quality will be tested in this model.
+
+Success of the modelling stage will be evaluated using the ability of the likelihood to give a meaningful measure of malaria elimination using case detections as validation in zones where case detection is known to be most complete. Our general approach will be validated if we find a significantly lower likelihood of elimination in zones with new outbreaks than in zones with no new outbreaks.
+
+We will test the sensitivity of the model to the different health officials’ decisions defined earlier, regarding additional data generation activities or public health intervention, by simulating how each decision could impact the elimination likelihood. If sufficient cost data can be accessed for each intervention, we will also cost each intervention. For different scenarios, we will consider our approach to be useful if we can recommend a clear best decision.
+
+Our model could be expanded to be usable by malaria programs. We will develop a software that will generalize our data aggregation approach and will allow users to query elimination likelihood and expected results of interventions at precise locations. This surveillance analysis tool will be piloted at different levels of the Namibian health system and will be made available to other interested programs. This approach could be generalized to other geographies and public health issues (surveillance, intervention coverage).
+
+
+\subsection{timeline}
+
+Figure \ref{Gantt3} will present a timeline for the realization of this objective.
+
+\begin{figure}[h]
+\begin{ganttchart}[vgrid,hgrid]{1}{24}
+\gantttitle{2016}{12}
+\gantttitle{2017}{12} \\
+\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,12}{1}\\
+%\ganttgroup{Group 1}{1}{7} \\
+\ganttbar{Data Extraction}{1}{3} \\
+\ganttbar{Data Cleaning}{2}{4} \\
+\ganttbar{Data Analysis 1}{5}{6} \\
+\ganttmilestone{Sharing First Results}{6} \\
+\ganttbar{Data Analysis 2}{7}{9} \\
+\ganttmilestone{Sharing Final Results}{9} \\
+\ganttbar{Paper Writing}{9}{11} \\
+\ganttmilestone{Paper Submission}{11}
+\end{ganttchart}
+\caption{Gantt Chart for Paper 3}
+\label{Gantt3}
+\end{figure}

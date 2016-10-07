@@ -1,168 +1,43 @@
-\section{Semantic approaches to HMIS interoperability for external data validation}
+\section[Innovative analytic approach - data integration for malaria elimination]{Innovative analytic approach - data integration for malaria elimination\footnote{This Section is currently the adaptation of a grant proposal submuitted for this aim}}
 
-The second paper of this dissertation regards the management of data collected in hospitals in developing countries. The lack of standardization of indicators computed in different places or by different HMIS makes the use of HMIS data a complicated task. This issue is often handled as an issue of interoperability between systems.
+\subsection{The challenge of local population mapping}
 
+Mapping the target population of health interventions is key to their planning or evaluation. Meanwhile, the absence of civil registration or other form of precise population registries, it is often hard to estimate the size of the population living in a given area. Some work aimed at producing local estimations of populations uses a top down approach to this problem, projecting high level estimations of populations, and defining projections of this aggregate number, as informed by multiple layers of covariates, such as geographic features or nighttime light. This approach, if it gives interesting insights into probable distributions of populations, end up displaying mainly a overlay of covariate layers, when no middle level or local population data is available.
+% TODO add illustration for Niger.
 
-\begin{figure}[ht]
-\begin{minipage}{.4\textwidth}
-\begin{tikzpicture}[node distance=.8cm,  start chain=going below,]
-     \node[punktchain, join] (DataCollection) {Data Collection};
-     \node[punktchain, join] (DataManagement) {Data Transmission and Management};
-     \node[punktchain, join] (DataAnalysis)   {Data Analysis};
-     \node[punktchain, join] (DataUse) 		  {Data Use};
-     \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-2.2,-2.7) -- (-2.2,-1.3) -- (2.2,-1.3) -- (2.2,-2.7) -- (-2.2,-2.7) ;
-\end{tikzpicture}
-\end{minipage}
-\begin{minipage}{.5\textwidth}
-\begin{tikzpicture}[node distance=2cm]
-\coordinate (A) at (-4.5,0) {};
-\coordinate (B) at ( 4.5,0) {};
-\coordinate (C) at ( 0,7.7942) {};
-\draw[name path=AC] (A) -- (C);
-\draw[name path=BC] (B) -- (C);
-\draw (1.1,5.8971)--(3.5,5.8971) ;
-\draw(3.5,5.8971)--(3.5,3) ;
-\draw [->](3.5,3)--(2.77,3) ;
-\node at (4.4,4.25) {Feedback};
-\foreach \y/\A/\txtHigh in {0/Patients Care/0.8 ,2/Facility Administration \\ and Reporting/2.5,4/Planning \\ Monitoring \\ \& Evaluation /4.8}{
-    \path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
-    \draw[name intersections={of=AC and horiz,by=P},
-          name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
-          node[align = center,above] at (0,\txtHigh){\A};
-          }
-    \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-3.6,1.9) -- (-3.6,8) -- (3.45,8) -- (3.45,1.9) -- (-3.6,1.9) ;
-\end{tikzpicture}
-\end{minipage}
-\caption{Objective two definition}
-\label{Paper Two}
-\end{figure}
+Moreover, if this top-down approach is useful to provide macro-level perspectives on population distribution, it is not useful for local level use. Local actors typically think in terms of places names, more than in terms of GPS coordinates. Additionaly, attractivity of a urban center for rural population is hard to model through macro level covariates, as it often depends on such factors as tradition, habits or administrative border drawing.
 
-\subsection{Introduction to Interoperability work}
+\subsection{Voters registration data as a demographic data source}
 
-There are multiple reasons why interoperability between HMIS datasets is a great asset :
-\begin{description}
-\item[Comparison ] Being able to compare the results of different health systems is essential to be able to benchmark these results, or to make different systems benefit from each others' experiences.
-\item[Validation / Completion] When multiple systems are operating in the same place, one can wish to compare results from different system in order to validate the data, or to fill missing data from another system.
-\item[Co-analysis] Finally, pooling results from different systems provides higher power for analysis that can be made on different subjects.
-\end{description}
+A data source that is, to our knowledge, seldom used to inform population mapping for public health purposes, is voters registration lists. There is meanwhile a case to be made for the use of voters' registration data to estimate size of populations. By definition, voters' registration should aim at being as complete as possible a register of adults in the nation. Moreover, in most democracies, some form of national elections are held at least  every five years, leading to an update at least partial of voters' registrations. In sub-Saharan Africa, between the years 2015 and 2016, 27 countries were supposed to hold national elections, leading to a theoretical registration of XX\% of the adult population of the continent. Finally, for transparency and accountability reasons, electors registries are usually supposed to be easily accessible.
 
-It should be noted that the conditions for interoperability can be seen in different ways for each of these uses. If comparison of results necessitates that measured indicators have quasi identical definitions and methods, it is less the case for validation and completion, where a set of indicators can be used as a proxy to check the coherence or impute values of another data set. Finally, co-analysis may or may not require an exact mapping of indicators from different systems, depending of the subject matter.
-
-There are multiple levels at which interoperability of data systems  has to be enforced \cite{braa_sahay_book}. At the Syntactic-Technical level, protocols have to be designed and implemented, to ensure that different data-systems can communicate. At the Organizational level, processes have to be implemented to allow the exchange and to define the condition of usage and aggregation of different data systems. Finally, at the Semantic level, qualitative meaning and understanding of the nature of the data being exchanged and compared has to be enforced.
-
-%TODO Add graph on interoperaility from Saay Braa
-
-I am interested in considering the semantic level of interoperability. Indeed, I will make the hypothesis that perfect standardization of HMIS indicators across contexts and platforms is an elusive goal, and may not even be desirable, as it is a factor of rigidity for HMIS, which should be able to evolve rapidly. I am thus be interested in defining methods to ensure ex-post semantic interoperability between different HMIS systems, in order to map indicators and with an objective of data validation and missing data imputation.
-
-\subsection{Research questions}
-
-This project is in the framework of a larger project, defining an interoperability framework between different systems. As part of this project, a tagging system has been defined that allows mapping of indicators from different standard hospital indicators sets. %% BIBLIO paper bluesquare
-
-% TODO describe tagging system
-
-Meanwhile, this tagging approach, if it is effective, has an important entry cost for users. Tagging a set of multiple dozens of indicators can indeed been an harrowing task in a field where quick fixes are the gold standard. %REF conceptual framework
-We are thus working on two ways to improve this uptake. One is the definition of automatized learning methods that could help users in the tagging task. Another approach is to provide users with sufficiently strong incentives that the tagging work will be worth going through. As actors working towards interoperability of systems are likely to be middle tier actors in the information system, we think empowering them to use the benefits of interoperability for validation of data, correction of faulty data and completion of missing data would be a strong incentive.
-
-I will thus explore methods to validate, correct and complete data sets from routine HMIS, and measure the benefits of indicators matching between different dataset to improve validation, correction and completion. This will be considered looking at different intermediary questions :
-
-\begin{enumerate}
-    \item What is a good metric to assert data quality and completeness of a given HMIS data set ?
-    \item What is the performance of different approaches to HMIS data validation, correction and completion ?
-    \item What is the benefit of using mapped datasets on this last metric ?
-\end{enumerate}
-
-Our main aim will be to gauge the credibility of a data value or a dataset.  Additionally, we want to provide some evidence as of what the source of error or missingness in a dataset is. There are three main situations we want to be able to differentiate between :
-\begin{description}
-\item[simple outlier] are situations when an isolated data value in a dataset is wrong, for one facility once. These are the situations that are the most commonly recognized as outliers.
-\item[outlying report] are situations when all values of one report appear to be off. This may be due to an update in the tools or methods for some indicators, or to the training of a new Health Worker in the facility who does not fully comply with usual ways to compute indicators. To identify this type of issue, it is necessary to compare
-\item[outlying facility] are situations when one facility is consistently reporting numbers that are different from surrounding facilities. This may happen when structural conditions in one facility are leading to discrepancies in data collection, or in data computation.
-\end{description}
-
-Our general approach will be to attach to each data value a probabilistic value for its credibility. The combination of these credibility measures for a dataset will give an overall estimation of the credibility of this dataset, and the type of error it may suffer from. In a third and last step, we will explore methods for imputation of data values with low credibility or for methods with low credibility.
-
-
-\subsection{Data Validation / Method}
-
-%% ie ce qu'on propose n'est pas orienté pour corriger les données mais pour construire un meilleurs système par la suite. Plus orienté développement et value l'utilisation des données plus que leur perfection. Imputation pour données fausses.
-
-We will test two approaches to do so :
-
-\begin{description}
-\item[Error prediction] Using the validation dataset from OpenRBF, we will try and predict wrong data values using a simple predictive approach and bagging different Machine Learning Classification methods. Result of this approach will be a probabilistic assessment of data quality for each indicator value.
-\item[Variable imputation] Using all available data, we will impute all data value and get a posterior estimated distribution of the value.
-\end{description}
-
-\subsubsection{Error Prediction}
-
-For a each indicator value, we will model the probability that the value is right. We will use a logistic model specified as :
-%% TODO specification logistic model
-
-Using \textit{Forward model selection} and training models on data on verified values (cf. \ref{paper2_data}), we will find the best models to predict data value errors. We will then use this model out of sample to compute the probability a value is true on each value.
-
-\subsubsection{Variable Imputation}
-
-For a given indicator $X_{i*}$ measured at time $t*$ in facility $f*$, we will compute an imputed distribution based on all other information available in our data. A general representation of this approach could be written as:
-
-$$ \widetilde{X}_{i^*,t^*,f^*} \sim \operatorname{D} \left(f\left(X_{i,t,f}\right)_{ \left(i,t,f\right) \neq \left(i^*,t^*,f*\right) } \right) $$
-
-where $\operatorname{D}$ is an unspecified distribution derived from a function of all available data excluding the data point $\widetilde{X}_{i^*,t^*,f^*}$.
-
-Using verified data as our validation set, we will define a threshold for credibility of data that we will later use as a decision rule for considering data as regular or outlying (see \ref{paper2_credib_pattern}).
-
-We will test different approaches for this model.
-% TODO Document different models I will use
-
-
-\subsection{Credibility Pattern Screening}
-\label{paper2_credib_pattern}
-
-The validity probability of each data value will be pooled at report, facility and district levels. An analysis of the distribution of credibility at each level of aggregation will be made to characterize the type of data error pattern in one of four categories : No error, Single outliers, Outlying report or Outlying facility.
-\begin{description}
-    \item[No error] will be situations in which no data values will be over the fixed threshold of acceptable credibility.
-    \item[Single Outliers] will be situations in which less than 10\% of data values in a single report for a facility will be under the fixed threshold of acceptable credibility.
-    \item[Outlying report] will be situations in which more than 10\% of data values in a single report for a given facility will be under the fixed threshold of acceptable credibility.
-    \item[Outlying facilities] will be situations in which more than 10\% of data values will be under the fixed threshold of acceptable credibility in more than two consecutive reports for the same facility.
-\end{description}
-
-\subsection{Performance Metric}
-
-Validation of these methods will be made using cross-validation. We will first evaluate the data validation framework independently of the indicators mapping framework. We will then test the performance of the combination of different indicator mapping methods and data validation methods.
+Due to the sensitive and political use of these data, the quality of voters registries are often described as non trustworthy. On other hand, for the same sensitivity reasons, one can argue that little data sources used in common global health practice are more scrutinized and criticized than voters registries.
 
 \subsection{Data}
-\label{paper2_data}
 
-This work will be conducted in collaboration with the Belgian startup Bluesquare. Bluesquare has developed a data system for management and validation of Results Based Financing indicators, called OpenRBF. This solution has been implemented in Bénin in XX facilities in YY départements. Indicators are collected on a monthly basis in OpenRBF, and a data validation system is in place, to check the accuracy of reported indicators.
+\subsubsection{The Niger 2016 elections voters registry}
 
-In the meantime Bénin has been implementing and using DHIS2 nationwide since AAAA. There is considerable interest in mapping indicators from the two systems, and using the two systems as validation and completion solutions.
+\subsubsection{RENALOC}
 
-%\subsection{Semantic interoperability framework}
+\subsubsection{OpenStreetMap}
 
-%We will first test different approaches to semantic interoperability. This project is building on an existing project in which we have been defining and testing a structure tagging approach to interoperability. With this approach, each health service indicator in a given facility reporting framework is defined based on three dimensions : health issue, population target and type of service provided. A first level of testing has already implemented in Bénin, matching DHIS2 indicators with OpenRBF indicators. Using this simple method, it was possible to match correctly 15 of 21 indicators from the OpenRBF framework with a subset of 500 indicators from the DHIS2 framework.
+\subsection{Methods}
 
-%One of the biggest benefits of this approach is its ability to define a notion of \textit{distance} between indicators. Indicators that are related by one dimension will be farther apart from each other than indicators that are related by two dimensions. Also, for dimensions that are not defined on a discrete basis (for example age boundaries for a population), incomplete correspondence can be quantified. This notion of distance can in a later stage be used as a weight in comparison of different indicators. In the currently tested version, this distance is linearly additive, but other formulation of this distance can be tested.
+\subsubsection{Data Mapping / Name resolution}
 
-%We will also test alternative approaches, such as Latent Semantic Indexing, and completely blind indicators matching based on values and trends.
+In order to map the Niger voters' list, we need to map voting bureaux to geolocalized entities. We will use two different data sources for geolocalization, both partial and to be completed. The RENALOC, indeed is very complete, but appears to be faulty in terms of localization. OSM, on the other hand, can be considered gold standard in terms of geolocalization, but is less complete than the RENALOC. Combining those two data sources, meanwhile, we will aim at producing an almost complete map of Niger localities.
+
+Map completion will be done in two steps :
 
 
-\subsection{Timeline}
+\paragraph{Name Resolution}
 
-Figure \ref{Gantt2} will present a timeline for the realization of this objective.
+\paragraph{RENALOC correction}
 
-\begin{figure}[h]
-\begin{ganttchart}[vgrid,hgrid]{1}{24}
-\gantttitle{2016}{12}
-\gantttitle{2017}{12} \\
-\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,12}{1}\\
-%\ganttgroup{Group 1}{1}{7} \\
-\ganttbar{Data Extraction}{1}{3} \\
-\ganttbar{Data Cleaning}{2}{4} \\
-\ganttbar{Data Analysis 1}{5}{6} \\
-\ganttmilestone{Sharing First Results}{6} \\
-\ganttbar{Data Analysis 2}{7}{9} \\
-\ganttmilestone{Sharing Final Results}{9} \\
-\ganttbar{Paper Writing}{9}{11} \\
-\ganttmilestone{Paper Submission}{11}
-\end{ganttchart}
-\caption{Gantt Chart for Paper 2}
-\label{Gantt2}
-\end{figure}
+
+
+\subsubsection{Population estimation}
+
+\subsubsection{Age distribution estimation}
+
+\subsubsection{Expected result : population access api}

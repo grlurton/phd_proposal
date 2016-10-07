@@ -12,37 +12,37 @@ construction d'un espace politique d'équivalence et de codage
 
 
 \begin{figure}[ht]
-\begin{minipage}{.4\textwidth}
-\begin{tikzpicture}[node distance=.8cm,  start chain=going below,]
-     \node[punktchain, join] (DataCollection) {Data Collection};
-     \node[punktchain, join] (DataManagement) {Data Transmission and Management};
-     \node[punktchain, join] (DataAnalysis)   {Data Analysis};
-     \node[punktchain, join] (DataUse) 		  {Data Use};
-     \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-2.2,-6.7) -- (-2.2,-5.3) -- (2.2,-5.3) -- (2.2,-6.7) -- (-2.2,-6.7) ;
-\end{tikzpicture}
-\end{minipage}
-\begin{minipage}{.5\textwidth}
-\begin{tikzpicture}[node distance=2cm]
-\coordinate (A) at (-4.5,0) {};
-\coordinate (B) at ( 4.5,0) {};
-\coordinate (C) at ( 0,7.7942) {};
-\draw[name path=AC] (A) -- (C);
-\draw[name path=BC] (B) -- (C);
-\draw (1.1,5.8971)--(3.5,5.8971) ;
-\draw(3.5,5.8971)--(3.5,3) ;
-\draw [->](3.5,3)--(2.77,3) ;
-\node at (4.4,4.25) {Feedback};
-\foreach \y/\A/\txtHigh in {0/Patients Care/0.8 ,2/Facility Administration \\ and Reporting/2.5,4/Planning \\ Monitoring \\ \& Evaluation /4.8}{
-    \path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
-    \draw[name intersections={of=AC and horiz,by=P},
-          name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
-          node[align = center,above] at (0,\txtHigh){\A};
-          }
-    \filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-4.7,1.8) -- (-4.7,8) -- (5.2,8) -- (5.2,1.8) -- (-4.7,1.8) ;
-\end{tikzpicture}
-\end{minipage}
-\caption{Objective four definition}
-\label{Paper Four}
+	\begin{minipage}{.4\textwidth}
+		\begin{tikzpicture}[node distance=.8cm,  start chain=going below,]
+			\node[punktchain, join] (DataCollection) {Data Collection};
+			\node[punktchain, join] (DataManagement) {Data Transmission and Management};
+			\node[punktchain, join] (DataAnalysis)   {Data Analysis};
+			\node[punktchain, join] (DataUse) 		  {Data Use};
+			\filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-2.2,-6.7) -- (-2.2,-5.3) -- (2.2,-5.3) -- (2.2,-6.7) -- (-2.2,-6.7) ;
+		\end{tikzpicture}
+	\end{minipage}
+	\begin{minipage}{.5\textwidth}
+		\begin{tikzpicture}[node distance=2cm]
+			\coordinate (A) at (-4.5,0) {};
+			\coordinate (B) at ( 4.5,0) {};
+			\coordinate (C) at ( 0,7.7942) {};
+			\draw[name path=AC] (A) -- (C);
+			\draw[name path=BC] (B) -- (C);
+			\draw (1.1,5.8971)--(3.5,5.8971) ;
+			\draw(3.5,5.8971)--(3.5,3) ;
+			\draw [->](3.5,3)--(2.77,3) ;
+			\node at (4.4,4.25) {Feedback};
+			\foreach \y/\A/\txtHigh in {0/Patients Care/0.8 ,2/Facility Administration \\ and Reporting/2.5,4/Planning \\ Monitoring \\ \& Evaluation /4.8}{
+				\path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
+				\draw[name intersections={of=AC and horiz,by=P},
+				name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
+				node[align = center,above] at (0,\txtHigh){\A};
+			}
+			\filldraw[ultra thick, draw=black, fill=green, opacity=0.2] (-4.7,1.8) -- (-4.7,8) -- (5.2,8) -- (5.2,1.8) -- (-4.7,1.8) ;
+		\end{tikzpicture}
+	\end{minipage}
+	\caption{Objective four definition}
+	\label{Paper Four}
 \end{figure}
 
 The use of statistical information for the management of complex organizations has evolved since the beginning of the XIXth century. Since the invention of population by XVIIIth century demographers[DESROSIERES], and the integration of numbers in the political and administrative language in the second XIXth century [PORTER], multiple types of information have been used for the orientation of public policies and the administration of public services. Meanwhile, the rise of epidemiology and the critalization of a body of knowledge around the institutions in charge of the defense of Public Health helped creating a specific Public Health oriented spin on quantitative information for health systems.
@@ -54,7 +54,7 @@ The use of data for policy making is a combination of data sources, statistical 
 %reductio ad M\&E
 
 \begin{quote}
-The first tradition is administrative, and is based on political science and the law, on the German Staatenkunde, from the time of Conring and Achenwall. It is more taxonomic than metrological: it is designed to classify facts systematically rather than measure them, which is the essence of the other tradition, the "English" tradition. The latter, inspired more by the natural sciences and by progress made in measurement and probability theories, is a distant relation of the English political arithmetic of Graunt and Petty.
+	The first tradition is administrative, and is based on political science and the law, on the German Staatenkunde, from the time of Conring and Achenwall. It is more taxonomic than metrological: it is designed to classify facts systematically rather than measure them, which is the essence of the other tradition, the "English" tradition. The latter, inspired more by the natural sciences and by progress made in measurement and probability theories, is a distant relation of the English political arithmetic of Graunt and Petty.
 \end{quote}
 
 Desrosières later shows how these two traditions have bee reconciled in the modern figure of the statistician, at the same time administrator and scientist. It is useful to keep considering this tension when thinking about maturing statistical systems like HMIS. Being able to distinguish between situations when actors of HMIS are acting as administrators, and when the position is that of a metrician is essential to understand HMIS issues and offer informed solutions.
@@ -72,23 +72,23 @@ Reflections on social conditions of HMIS data usage  / politics of administrativ
 Data is not produced to create knowledge, but to implement disciplinary monitoring. Thinking mainly in terms of indicators.
 
 
-    Figure \ref{Gantt4} will present a timeline for the realization of this objective.
+Figure \ref{Gantt4} will present a timeline for the realization of this objective.
 
-    \begin{figure}[h]
-    \begin{ganttchart}[vgrid,hgrid]{1}{24}
-    \gantttitle{2016}{12}
-    \gantttitle{2017}{12} \\
-    \gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,12}{1}\\
-    %\ganttgroup{Group 1}{1}{7} \\
-    \ganttbar{Data Extraction}{1}{3} \\
-    \ganttbar{Data Cleaning}{2}{4} \\
-    \ganttbar{Data Analysis 1}{5}{6} \\
-    \ganttmilestone{Sharing First Results}{6} \\
-    \ganttbar{Data Analysis 2}{7}{9} \\
-    \ganttmilestone{Sharing Final Results}{9} \\
-    \ganttbar{Paper Writing}{9}{11} \\
-    \ganttmilestone{Paper Submission}{11}
-    \end{ganttchart}
-    \caption{Gantt Chart for Paper 4}
-    \label{Gantt4}
-    \end{figure}
+\begin{figure}[h]
+	\begin{ganttchart}[vgrid,hgrid]{1}{24}
+		\gantttitle{2016}{12}
+		\gantttitle{2017}{12} \\
+		\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,12}{1}\\
+		%\ganttgroup{Group 1}{1}{7} \\
+		\ganttbar{Data Extraction}{1}{3} \\
+		\ganttbar{Data Cleaning}{2}{4} \\
+		\ganttbar{Data Analysis 1}{5}{6} \\
+		\ganttmilestone{Sharing First Results}{6} \\
+		\ganttbar{Data Analysis 2}{7}{9} \\
+		\ganttmilestone{Sharing Final Results}{9} \\
+		\ganttbar{Paper Writing}{9}{11} \\
+		\ganttmilestone{Paper Submission}{11}
+	\end{ganttchart}
+	\caption{Gantt Chart for Paper 4}
+	\label{Gantt4}
+\end{figure}
