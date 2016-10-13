@@ -1,4 +1,4 @@
-proposal.aux
+*.aux
 proposal.lof
 proposal.log
 proposal.lot
@@ -18,3 +18,7 @@ proposal.fdb_latexmk
 *.idx
 *.ist
 *.xdy
+*.fls
+*.ilg
+*.fdb_latexmk
+*.ind
