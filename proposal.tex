@@ -12,7 +12,8 @@
 %% v3.0 - 07/2015 : adaptation de la page de titre pour UW DGH
 %% v3.1 - 07/2015 : inclusion de packages pour equations et test pour compilation knitr
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[a4paper,11pt,draft,twoside]{article}
+%\documentclass[a4paper,11pt,draft,twoside]{article}
+\documentclass[a4paper,11pt,twoside]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Loading Packages
@@ -164,22 +165,22 @@
 \begin{titlepage}
 	\begin{tikzpicture}[remember picture,overlay]
 		\node at (current page.south west)
-			{
-            \begin{tikzpicture}[remember picture,overlay]
- 				\pgftext[x=0cm,y=25.37cm,bottom,left]{\includegraphics[width=21cm, draft = false]{images/dgh_banner.png}};
- 				\pgftext[x=1.1cm,y=24cm,bottom,left]{\fontsize{20}{20}{\textbf{\program}}};
- 				\pgftext[x=1.1cm,y=23.2cm,bottom,left]{\fontsize{18}{18}{\textbf{\textcolor{grisfonce}\track}}};
- 				\pgftext[x=10.5cm,y=16.5cm,bottom,center]{\fontsize{30}{30}{\textbf{Methods and Issues for }}};%\reporttitle
-                \pgftext[x=10.5cm,y=15.2cm,bottom,center]{\fontsize{30}{30}{\textbf{ the valorization of HMIS Data}}};
- 				\pgftext[x=10.5cm,y=14.3cm,bottom,center]{\scalebox{0.77}[1]{\fontsize{20}{20}{\fontfamily{phv}\selectfont{}\textcolor{grisfonce}{\reportauthors}}}};
- 				%\pgftext[x=5.5cm,y=13.1cm,bottom,left]{\scalebox{0.6}[1]{\fontsize{18}{18}{\fontfamily{phv}\selectfont{}\textbf{\today}}}};
- 				\pgftext[x=1.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm , draft = false]{images/ihme_logo.png}};
-                \pgftext[x=9.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm, draft = false]{images/itech_logo.png}};
-                \pgftext[x=17.1cm,y=1.8cm,bottom,left]{\includegraphics[width=3cm, draft = false]{images/bluesquare_logo.png}};
-                \fill[fill=grisclair] (21cm,1cm) rectangle(0cm,0cm);
-	\end{tikzpicture}
-				};
+		{
+			\begin{tikzpicture}[remember picture,overlay]
+				\pgftext[x=0cm,y=25.37cm,bottom,left]{\includegraphics[width=21cm, draft = false]{images/dgh_banner.png}};
+				\pgftext[x=1.1cm,y=24cm,bottom,left]{\fontsize{20}{20}{\textbf{\program}}};
+				\pgftext[x=1.1cm,y=23.2cm,bottom,left]{\fontsize{18}{18}{\textbf{\textcolor{grisfonce}\track}}};
+				\pgftext[x=10.5cm,y=16.5cm,bottom,center]{\fontsize{30}{30}{\textbf{Data Hybridation approaches }}};%\reporttitle
+				\pgftext[x=10.5cm,y=15.2cm,bottom,center]{\fontsize{30}{30}{\textbf{ in African HMIS}}};
+				\pgftext[x=10.5cm,y=14.3cm,bottom,center]{\scalebox{0.77}[1]{\fontsize{20}{20}{\fontfamily{phv}\selectfont{}\textcolor{grisfonce}{\reportauthors}}}};
+				%\pgftext[x=5.5cm,y=13.1cm,bottom,left]{\scalebox{0.6}[1]{\fontsize{18}{18}{\fontfamily{phv}\selectfont{}\textbf{\today}}}};
+				\pgftext[x=1.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm , draft = false]{images/ihme_logo.png}};
+				\pgftext[x=9.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm, draft = false]{images/itech_logo.png}};
+				\pgftext[x=17.1cm,y=1.8cm,bottom,left]{\includegraphics[width=3cm, draft = false]{images/bluesquare_logo.png}};
+				\fill[fill=grisclair] (21cm,1cm) rectangle(0cm,0cm);
 			\end{tikzpicture}
+		};
+	\end{tikzpicture}
 
 \end{titlepage}
 

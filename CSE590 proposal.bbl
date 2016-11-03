@@ -1,0 +1,76 @@
+\begin{thebibliography}{12}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Fawcett(1935)}]{fawcett1935population}
+Fawcett, C.~B. (1935).
+\newblock Population maps.
+\newblock {\em The Geographical Journal\/}, {\em 85\/}(2), 142--146.
+
+\bibitem[{Foucault(2004)}]{foucault2004securite}
+Foucault, M. (2004).
+\newblock {\em S{\'e}curit{\'e}, territoire, population: cours au Coll{\`e}ge
+  de France, 1977-1978\/}.
+\newblock Gallimard.
+
+\bibitem[{Jerven(2013)}]{jerven2013poor}
+Jerven, M. (2013).
+\newblock {\em Poor numbers: how we are misled by African development
+  statistics and what to do about it\/}.
+\newblock Cornell University Press.
+
+\bibitem[{Klawe(1973)}]{klawe_population_1973}
+Klawe, J. (1973).
+\newblock Population mapping.
+\newblock {\em Cartographica\/}, {\em 10\/}(1), 44--50.
+
+\bibitem[{Linard et~al.(2012)Linard, Gilbert, Snow, Noor, \&
+  Tatem}]{linard2012population}
+Linard, C., Gilbert, M., Snow, R.~W., Noor, A.~M., \& Tatem, A.~J. (2012).
+\newblock Population distribution, settlement patterns and accessibility across
+  africa in 2010.
+\newblock {\em PloS one\/}, {\em 7\/}(2), e31743.
+
+\bibitem[{Linard et~al.(2011)Linard, Gilbert, \& Tatem}]{linard2011assessing}
+Linard, C., Gilbert, M., \& Tatem, A.~J. (2011).
+\newblock Assessing the use of global land cover data for guiding large area
+  population distribution modelling.
+\newblock {\em GeoJournal\/}, {\em 76\/}(5), 525--538.
+
+\bibitem[{Lohl{\'e}-Tart \& Fran{\c{c}}ois(1999)}]{lohle1999etat}
+Lohl{\'e}-Tart, L., \& Fran{\c{c}}ois, M. (1999).
+\newblock {\em {\'E}tat civil et recensements en Afrique francophone: pour une
+  collecte administrative de donn{\'e}es d{\'e}mographiques\/}, vol.~10.
+\newblock Centre fran{\c{c}}ais sur la population et le d{\'e}veloppement.
+
+\bibitem[{Pelet(1902)}]{pelet1902atlas}
+Pelet, P. (1902).
+\newblock {\em Atlas des Colonies Francaises dresse par ordre du Ministere des
+  Colonies.\/}.
+\newblock Colin.
+
+\bibitem[{Rambert(1922)}]{rambert_cartographie_1922}
+Rambert, G. (1922).
+\newblock La cartographie à l'exposition coloniale de marseille.
+\newblock In {\em Annales de Géographie\/}, vol.~31, (pp. 433--448). {JSTOR}.
+
+\bibitem[{Rousseau(1929)}]{rousseau_population_1929}
+Rousseau, R. (1929).
+\newblock La population du sénégal en 1926.
+\newblock In {\em Annales de Géographie\/}, vol.~38, (pp. 399--403). {JSTOR}.
+
+\bibitem[{Stevens et~al.(2015)Stevens, Gaughan, Linard, \&
+  Tatem}]{stevens2015disaggregating}
+Stevens, F.~R., Gaughan, A.~E., Linard, C., \& Tatem, A.~J. (2015).
+\newblock Disaggregating census data for population mapping using random
+  forests with remotely-sensed and ancillary data.
+\newblock {\em PloS one\/}, {\em 10\/}(2), e0107042.
+
+\bibitem[{Zimmermann(1903)}]{zimmermann_atlas_1903}
+Zimmermann, M. (1903).
+\newblock L'atlas des colonies françaises de paul pelet.
+\newblock In {\em Annales de Géographie\/}, vol.~12, (pp. 366--369). {JSTOR}.
+
+\end{thebibliography}
