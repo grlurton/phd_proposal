@@ -1,0 +1,26 @@
+%\documentclass{standalone}
+%\usepackage{tikz}
+
+\begin{tikzpicture}
+
+\node[draw , draw = blue ,  fill= blue!80 , minimum width=4cm , rounded corners] at (0,2){\small Data Management} ;
+\node[draw , draw = green ,  fill= green!80 , minimum width=4cm , rounded corners] at (0,1) {\small Data Sources} ;
+\node[draw , draw = red ,  fill= red!80 , minimum width=4cm , rounded corners] at (0,0) {\small Indicators} ;
+\node[below] at (0,-1) {HIS Processes} ;
+
+\draw[very thick , -latex] (0, 0.25) -- +(0,0.5) ;
+\draw[very thick , -latex] (0, 1.25) -- +(0,0.5) ;
+\draw[very thick , dash dot] (3, -1.2) -- +(0, 3.7) ;
+
+
+\node[very thick] at (4,2){\small Aim 3} ;
+\node[draw , draw = blue ,  fill= blue!50 , minimum width=4cm] at (7,2){\small Data Monitoring} ;
+\node[very thick] at (4,1){\small Aim 2} ;
+\node[draw , draw = green ,  fill= green!50  , minimum width=4cm] at (7,1){\small Data Hybridization} ;
+\node[very thick] at (4,0){\small Aim 1} ;
+\node[draw , draw = red ,  fill= red!50 , minimum width=4cm] at (7,0){\small Flexible Standards} ;
+\node[below] at (6,-1) {Dissertation Aims} ;
+
+\end{tikzpicture}
+
+%\end{document}

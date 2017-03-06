@@ -1,0 +1,265 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Template Thesis DGH UW v3.0
+%%
+%% Vincent Labatut 04/2015
+%% Grégoire Lurton 07/2015
+%%
+%% v1   - 10/2014 : forme de rapport très différente
+%% v2   - 02/2015 : modèle complètement refait
+%% v2.1 - 03/2015 : définition de la page de titre
+%% v2.2 - 03/2015 : correction de quelques bugs
+%% v2.3 - 04/2015 : page de titre complétée (date, adresse postale, long titre)
+%% v3.0 - 07/2015 : adaptation de la page de titre pour UW DGH
+%% v3.1 - 07/2015 : inclusion de packages pour equations et test pour compilation knitr
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[a4paper,11pt,draft,twoside]{article}
+\documentclass[a4paper,11pt,twoside]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Loading Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{euler}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage[french]{varioref}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage[table]{xcolor}
+\usepackage{lmodern}
+\usepackage{amsmath,amsthm,amscd,amssymb}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing , chains , intersections}
+\usetikzlibrary{calc}
+
+\usepackage{relsize}
+\usepackage{pgfgantt}
+\usepackage{pgfcalendar}
+
+%% Define Acronyms
+%\usepackage[nomain,acronym,xindy,toc]{glossaries} % nomain, if you define glossaries in a file, and you use \include{INP-00-glossary}
+%\makeglossaries
+%\usepackage[xindy]{imakeidx}
+%\makeindex
+%\input{acronyms.tex}
+
+
+
+
+%%%%%%%%%%%%%%
+\tikzset{
+>=stealth',
+    fontscale/.style = {font=\relsize{#1}} ,
+    punktchain/.style={
+            rectangle,
+    rounded corners,
+    draw=black, very thick,
+    text width=10em,
+    minimum height=3em,
+    text centered,
+    on chain},
+  line/.style={draw, thick, <-},
+  element/.style={
+    tape,
+    top color=white,
+    bottom color=blue!50!black!60!,
+    minimum width=8em,
+    draw=blue!40!black!90, very thick,
+    text width=10em,
+    minimum height=3.5em,
+    text centered,
+    on chain},
+  every join/.style={->, thick,shorten >=1pt},
+  decoration={brace},
+  tuborg/.style={decorate},
+  tubnode/.style={midway, right=2pt},
+}
+
+
+%%%%%%%%%%%%%%%
+
+
+\usepackage[numbers]{natbib}
+\bibliographystyle{ieeetr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Paper's Information -- TO TWEAK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TITLE
+\newcommand{\reporttitle}{Methods for Health Data Usage in Developing Countries}
+
+%AUTHORS
+\newcommand{\reportauthors}{Grégoire Lurton}
+
+%PROGRAM
+\newcommand{\program}{PhD in Global Health}
+
+%TRACK
+\newcommand{\track}{Metrics Track}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Formatting stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\headheight}{13.6pt} % due to a warning
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% Espace entre les paragraphes
+
+% Headers and Footers
+\pagestyle{fancy}
+\fancyhf{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\cfoot{\thepage}
+\fancyhead[L]{\small\reporttitle}
+\fancyhead[R]{\small\rightmark}
+
+%%%% Define custom colors
+\definecolor{grisclair}{rgb}{0.7,0.7,0.7}
+\definecolor{grisfonce}{rgb}{0.5,0.5,0.5}
+\definecolor{green}{RGB}{22,122,48}
+\definecolor{red}{RGB}{163,45,29}
+\definecolor{blue}{RGB}{20,86,101}
+\definecolor{orange}{RGB}{163,96,29}
+\definecolor{yellow}{rgb}{0.984375, 0.7265625, 0}
+
+
+\newcommand{\sectionbreak}{\clearpage}
+
+
+%%% PDF Metadatas
+\hypersetup{
+    pdftitle={\reporttitle},
+    pdfauthor={\reportauthors},
+    pdfsubject={\reporttitle},
+    bookmarksnumbered=true,bookmarksopen=true,
+	unicode=true,colorlinks=true,linktoc=all,
+	linkcolor=blue,citecolor=blue,filecolor=blue,urlcolor=blue,
+	pdfstartview=FitH
+}
+
+%%% Font  - Get sans serif
+\renewcommand{\familydefault}{\sfdefault}
+%\fontfamily{garamond}
+
+
+
+
+
+
+% Get Bulleted Lists Working
+%\renewcommand{\FrenchLabelItem}{\textbullet}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% WATERMARK
+%\usepackage{draftwatermark}
+%\SetWatermarkText{DRAFT}
+%\SetWatermarkScale{5}
+
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Title Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\phantomsection
+\begin{titlepage}
+	\begin{tikzpicture}[remember picture,overlay]
+		\node at (current page.south west)
+		{
+			\begin{tikzpicture}[remember picture,overlay]
+				\pgftext[x=0cm,y=25.37cm,bottom,left]{\includegraphics[width=21cm, draft = false]{images/dgh_banner.png}};
+				\pgftext[x=1.1cm,y=24cm,bottom,left]{\fontsize{20}{20}{\textbf{\program}}};
+				\pgftext[x=1.1cm,y=23.2cm,bottom,left]{\fontsize{18}{18}{\textbf{\textcolor{grisfonce}\track}}};
+				\pgftext[x=10.5cm,y=16.5cm,bottom,center]{\fontsize{30}{30}{\textbf{Bottom-Up methods for}}};%\reporttitle
+				\pgftext[x=10.5cm,y=15.2cm,bottom,center]{\fontsize{30}{30}{\textbf{low resource HMIS}}};
+				\pgftext[x=10.5cm,y=14.3cm,bottom,center]{\scalebox{0.77}[1]{\fontsize{20}{20}{\fontfamily{phv}\selectfont{}\textcolor{grisfonce}{\reportauthors}}}};
+				%\pgftext[x=5.5cm,y=13.1cm,bottom,left]{\scalebox{0.6}[1]{\fontsize{18}{18}{\fontfamily{phv}\selectfont{}\textbf{\today}}}};
+				\pgftext[x=1.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm , draft = false]{images/ihme_logo.png}};
+				%\pgftext[x=9.1cm,y=1.8cm,bottom,left]{\includegraphics[width=6cm, draft = false]{images/itech_logo.png}};
+				%\pgftext[x=17.1cm,y=1.8cm,bottom,left]{\includegraphics[width=3cm, draft = false]{images/bluesquare_logo.png}};
+				\fill[fill=grisclair] (21cm,1cm) rectangle(0cm,0cm);
+			\end{tikzpicture}
+		};
+	\end{tikzpicture}
+
+\end{titlepage}
+
+%% Get the page after title empty
+\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+\newpage\null\thispagestyle{empty}\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%    	FRONT MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{plain}
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+
+
+\paragraph{Abstract}
+
+This proposal defines project for a research into data processing and analysis methods adapted to health information systems in most developing countries. I argue that HIS in developing countries have been historically marked by top-down approaches in which methods aimed at administrative monitoring have been defined by remote actors, and implemented without much local adaptation. This way of creating health information is at odds with the progressive emergence and adaptation of norms and methods in most developed countries HIS.
+
+My research aims at defining data centered methods for local adaptation of common health information methods. I will concentrate on three important dimensions of a bottom-up approach to HIS. First, I will define an approach to local indicator definition. Using EMR data from HIV care in Kenya, I will show how a generic definition of retention in HIV care is impacted by data quality and local characteristics, and I will explore robust alternatives to this definition. Second, I will use routine data from a Results Based Funding program in Bénin to define an algorithm for data quality screening and facility performance monitoring adapted to local conditions of exercise. Finally, using widely available data from Niger, I will implement a data-hybridization strategy to produce an actionable high resolution map of Niger population.
+
+This project will contribute to research in the Global Health Metrics field in different ways. It will contribute to the research, mainly from the ICTD community, on flexible standards for data collection. It will offer a framework for the analysis and use of real-world low quality data. Finally, it will contribute to statistical methods for health system data surveillance and monitoring. As a whole, it will provide important contributions to the definition of  localized approach to generate information for decision makers in health systems.
+
+% Table des matières
+\cleardoublepage
+% Dans le cas du recto verso, ajoute une page blanche si besoin
+\phantomsection
+\tableofcontents
+\addcontentsline{toc}{section}{Table of Content}
+\newpage
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+\newpage
+
+%\addcontentsline{toc}{section}{\listtablename}
+%\listoftables
+%\newpage
+%\printglossaries
+\thispagestyle{fancy}
+
+% Justification moins stricte : des mots ne dépasseront pas des paragraphes
+\sloppy
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% 	MAIN MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Set page numbering right
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+\input{0.Introduction.tex}
+\clearpage
+\input{Aim1.tex}
+\clearpage
+\input{Aim2.tex}
+\clearpage
+\input{Aim3.tex}
+\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 			BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\cleardoublepage
+\newpage
+\phantomsection\addcontentsline{toc}{section}{References}
+\bibliography{bibliographie}
+
+
+\end{document}
