@@ -1,8 +1,8 @@
-\section*[Data Monitoring]{Aim 3 - Health System Data Monitoring and Screening}
+\section[Data Monitoring]{Aim 3 - Health System Data Monitoring and Screening}
 
 The second project will be aimed at exploring methods for screening and monitoring of data collected in health systems to inform and orient supervisions. Specifically, we will consider data collected in Result Based Financing programs. Results Based Financing (RBF) is a mode of financing of health systems based on the ex-post payment of health facilities by a national financing body or program. This mode of financing alleviates the burden of planning for coordinating bodies, but transfers it to increased reporting needs for facilities. In order to receive their payment, facilities have to report monthly on a set of indicators on which this payment will be based.
 
-In a RBF system, understanding and monitoring results is thus important on two main levels. First, Program managers want to have an accurate evaluation of the activity they should be paying for, as the accurate evaluation of this amount is key to the sustainability of the program at local and aggregate level. Underfinancing facilities endangers their ability to operate in good conditions. Meanwhile overpaying some facilities may be detrimental to the overall sustainability of the project. Second, being able to measure and compare facilities performance is essential to identify weakly performing facilities, and to start implementing correcting measures.
+In a RBF system, understanding and monitoring results is thus important on two main levels. First, Program managers want to have an accurate evaluation of the activity they should be paying for, a	s the accurate evaluation of this amount is key to the sustainability of the program at local and aggregate level. Underfinancing facilities endangers their ability to operate in good conditions. Meanwhile overpaying some facilities may be detrimental to the overall sustainability of the project. Second, being able to measure and compare facilities performance is essential to identify weakly performing facilities, and to start implementing correcting measures.
 
 In Bénin, the Programme de Renforcement du Système de Santé (PRSS) has been launched in 2011 by a consortium formed by the Beninese government, the World Bank, the GAVI Alliance and the Global Fund. As part of this program, a comprehensive RBF program has been implemented in all 34 health zones of the country. To allow the management of RBF reporting data, the software OpenRBF, developed by the Belgian startup Bluesquare has been implemented.
 
@@ -25,12 +25,30 @@ This project will be aimed at developing and validating a generic framework for 
 \subsection{Data}
 \label{paper2_data}
 
-OpenRBF has been implemented in Bénin since March 2012, and has been rolled out in every departements of the country. Data is collected and validated monthly for both the \textit{Minimum Activities Package} (PMA). As of January 2017, the data consists in 16131 facilty/months of PMA data in 671 different facilities. In each report, a median of 75\% of indicators are correctly reported.
+OpenRBF has been implemented in Bénin since March 2012, and has been rolled out in every departements of the country. Data is collected and validated monthly for both the \textit{Minimum Activities Package} (PMA). As of January 2017, the data consists in 16131 facility/months of PMA data in 671 different facilities. In each report, a median of 75\% of indicators are correctly reported.
 
 \begin{center}
 \begin{figure}[ht]
 \includegraphics[width=\textwidth]{figure/correct_dist.pdf}
 \caption{Distribution of the percentage of correct indicators by report}
+\end{figure}
+\end{center}
+
+Figure \ref{fig:facility_correction_distribution} shows the distribution of the amounts by which payments have been corrected after data validation. We see that the distributions are skewed on the left, showing that most corrections lead to diminutions of the amounts. In the meantime, the distributions are very peaked around a mean close to 0, which leads me to hypothesize that most of the corrections can be attributed to situations of cases that could not be fully documented, and a can thus be understood as data quality issues more than deliberate data manipulation.
+
+\begin{center}
+\begin{figure}[ht]
+\includegraphics[width=\textwidth]{figure/facility_correction_distribution.pdf}
+\caption{Distribution of payment correction percentage for a sample of indicators}
+\label{fig:facility_correction_distribution}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[ht]
+\includegraphics[width=\textwidth]{figure/facility_correction_evolution.pdf}
+\caption{Evolution of payment correction percentage for a sample of indicators}
+\label{fig:facility_correction_evolution}
 \end{figure}
 \end{center}
 
@@ -61,22 +79,22 @@ I will approach this problem in two steps. I will first test multiple approaches
 
 \subsubsection{Data Screening}
 
-Methods for continuous data inspection and screening come from the industrial statistics domain and are increasingly applied for healthcare monitoring \cite{woodall_use_2006,woodall_current_2014}. Spiegelhalter et al. provided et nice overview of how these tools can be used for health systems, for three main functions of interest : rating, screening and surveillance \cite{spiegelhalter_statistical_2012}. These methods are based on the standardization of data distributions, and the analysis of observed data to detect values diverging from their expected distributions. This second stage, geared toward hypothesis testing, can be made using visual tools based on adaptation of classical charts like Shewart charts, Cumulative Sum control charts (CUSUM) or Exponentially Weighted Moving Average charts (EWMA). I will compare and combine three approaches to this data screening question.
+Methods for continuous data inspection and screening come from the industrial statistics domain and are increasingly applied for healthcare monitoring \citep{woodall_use_2006,woodall_current_2014}. Spiegelhalter et al. provided et nice overview of how these tools can be used for health systems, for three main functions of interest : rating, screening and surveillance \citep{spiegelhalter_statistical_2012}. These methods are based on the standardization of data distributions, and the analysis of observed data to detect values diverging from their expected distributions. This second stage, geared toward hypothesis testing, can be made using visual tools based on adaptation of classical charts like Shewart charts, Cumulative Sum control charts (CUSUM) or Exponentially Weighted Moving Average charts (EWMA). I will compare and combine three approaches to this data screening question.
 
-\paragraph{Syndromic Surveillance} A first approach is to define the expected distribution of a given series based on its past values. This approach is widely used in syndromic surveillance, and builds on a model-based CUSUM approach, where the expected count of cases for a given period is modeled based on historical data, and the CUSUM is updated at each period using the forecasting errors \cite{fricker_comparing_2008}. Fricker writes a general version of model-based CUSUM as monitoring $S(t)$ where :
+\paragraph{Syndromic Surveillance} A first approach is to define the expected distribution of a given series based on its past values. This approach is widely used in syndromic surveillance, and builds on a model-based CUSUM approach, where the expected count of cases for a given period is modeled based on historical data, and the CUSUM is updated at each period using the forecasting errors \citep{fricker_comparing_2008}. Fricker writes a general version of model-based CUSUM as monitoring $S(t)$ where :
 $$ S(t) = \max(0 , S(t-1) + x(t) - k)$$
 
 where $x(t) = \frac{Y(t) - \hat(Y)(t)}{\sigma_\epsilon}$ is a standardized prediction error for $Y(t)$ on $\sigma_\epsilon$ the variation of the model error, and $k$ is a tuning parameter that will have to be optimized to obtain detection characteristics for our model.
 
-A reference implementation of this approach was developed by Farrington et al. \cite{farrington_statistical_1996} and updated by Noufaily et al. \cite{noufaily_improved_2013}, and is implemented in $R$. I will implement this approach to test its ability to detect and differentiate between data quality issues and regime changes for certain indicators series. I may also use the Z-Score aggregation approach described in \cite{bardsley_using_2009} to aggregate multiple indicators result for a given facility month.
+A reference implementation of this approach was developed by Farrington et al. \citep{farrington_statistical_1996} and updated by Noufaily et al. \citep{noufaily_improved_2013}, and is implemented in $R$. I will implement this approach to test its ability to detect and differentiate between data quality issues and regime changes for certain indicators series. I may also use the Z-Score aggregation approach described in \citep{bardsley_using_2009} to aggregate multiple indicators result for a given facility month.
 
-\paragraph{Hierarchical Modeling} A second approach defines expected values from a facility based on a hierarchical model including all facilities. Using bayesian hypothesis testing strategies based on multiple sampling from the posterior distribution, this approach allows me to spot unlikely numbers for a given facility as well as facility level unusual performances for a given indicator\cite{ohlssen_hierarchical_2007}. A hierarchical Poisson model for each $I_i$, in a facility $f$ can be defined as :
+\paragraph{Hierarchical Modeling} A second approach defines expected values from a facility based on a hierarchical model including all facilities. Using Bayesian hypothesis testing strategies based on multiple sampling from the posterior distribution, this approach allows me to spot unlikely numbers for a given facility as well as facility level unusual performances for a given indicator\citep{ohlssen_hierarchical_2007}. A hierarchical Poisson model for each $I_i$, in a facility $f$ can be defined as :
 $$ I_{i,t^{*},f} \sim \mathrm{Poisson}(\exp{(\alpha_f + \sum_{i, t < t^{*}}{\beta_{i} I^v_{i,t,f}})})$$
 $$\alpha_f \sim \mathrm{N}(0 , \sigma^2_\alpha)$$
 $$ \forall (i , t , f) , \beta_{i,t,f} \sim \mathrm{N}(0 , \sigma^2_{\beta_{i,t,f}}) $$
-For time $t^{*}$, $\tilde{I}_{i,t^{*},f}$ will be simulated by first simulating parameters $\alpha_f$ and $\beta_i$ and second drawing from the corrsponding Poisson distribution using the different parameters.
+For time $t^{*}$, $\tilde{I}_{i,t^{*},f}$ will be simulated by first simulating parameters $\alpha_f$ and $\beta_i$ and second drawing from the corresponding Poisson distribution using the different parameters.
 
-\paragraph{Profile Monitoring} Finally, we want to be able to detect pattern variations in reports. Indeed, the methods we described until now are targeted at monitoring univariate series for which desirable variations are clearly identified. In in-control situations, number of cases of monitored diseases are expected to stay low, and mortality rates are supposed to stay low. In the monitoring of RBF data, meanwhile, there is no clear denominator to construct rates, and there is little sense of what an "in control" situation should look like for individual indicators. Profile  monitoring is an increasingly popular research area\cite{woodall_current_2014}, and has many trends and applications, but I couldn't find any application in the healthcare sector. Its main idea is to monitor how indicators in the monitored process are related by a functional relationship, instead of monitoring individual indicators themselves. This relationship can be specified in parametric\cite{mahmoud_simple_2011} or non parametric ways\cite{chicken_nonparametric_2011}, and I will explore the options offered by the latter approach for the type of data we have.
+\paragraph{Profile Monitoring} Finally, we want to be able to detect pattern variations in reports. Indeed, the methods we described until now are targeted at monitoring univariate series for which desirable variations are clearly identified. In in-control situations, number of cases of monitored diseases are expected to stay low, and mortality rates are supposed to stay low. In the monitoring of RBF data, meanwhile, there is no clear denominator to construct rates, and there is little sense of what an "in control" situation should look like for individual indicators. Profile  monitoring is an increasingly popular research area\citep{woodall_current_2014}, and has many trends and applications, but I couldn't find any application in the healthcare sector. Its main idea is to monitor how indicators in the monitored process are related by a functional relationship, instead of monitoring individual indicators themselves. This relationship can be specified in parametric\citep{mahmoud_simple_2011} or non parametric ways\citep{chicken_nonparametric_2011}, and I will explore the options offered by the latter approach for the type of data we have.
 
 \medskip
 

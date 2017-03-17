@@ -97,29 +97,61 @@ verif_data_report_plot = verif_data_report[(np.abs(verif_data_report.difference_
 verif_data_report_plot.indicator_tarif = verif_data_report_plot.indicator_tarif.astype('str').astype(
     'category').cat.set_categories(['330.0', '420.0', '3000.0', '5890.0', '15000.0', '27000.0'], ordered=True)
 
+verif_data_report_plot= verif_data_report_plot[verif_data_report_plot.perc_variation_indicateur < 2]
+plot = ["Nouvelle Consultation Curative", "Enfants completement vaccines" , "Consultation prenatale quatrieme visite standard", "Nombre d'enfants ayant reçu le Penta 3","Diagnostic et traitement des cas de paludisme simple chez les enfants" , "Accouchement eutocique assiste" ]
+verif_data_report_plot= verif_data_report_plot[(verif_data_report_plot.perc_variation_indicateur < 2) &
+                                                (verif_data_report_plot.indicator_label.isin(plot))]
 
+tarif_drop = [5890.0 , 330.0]
+verif_data_report_plot = verif_data_report[(np.abs(verif_data_report.difference_montant) < 10000000000) &
+                                           ~(verif_data_report.perc_variation_montant == np.inf) & ~(verif_data_report.perc_variation_indicateur == np.inf) & (np.abs(verif_data_report.difference_montant) < 10000000000) &
+                                           (verif_data_report.indicator_verified_value > 0) &
+                                           (verif_data_report.indicator_tarif > 0) &
+                                           ~(verif_data_report.perc_variation_indicateur == 0) &
+                                           (verif_data_report.perc_variation_indicateur < 2) &
+                                           (verif_data_report.indicator_tarif< 10000) &
+                                           ~(verif_data_report.indicator_tarif.isin(tarif_drop))]
+
+def verif_data_report_plot2_make(data):
+    return sum(data.difference_montant) / (sum(data.claimed_montant) + sum(data.difference_montant))
+
+verif_data_report_plot2 = verif_data_report.groupby(['date' , 'entity_name']).apply(verif_data_report_plot2_make)
+verif_data_report_plot2 = verif_data_report_plot2.reset_index()
+verif_data_report_plot2.columns = ['date' , 'entity_name' , 'difference_montant']
+
+commune = [ 'Dovi-Dove Csc' , 'Koussoukpa Csc' , 'Tokpota Csc']
+arrondissement = ['Csa Dekanme Cs' , 'Csa Kpasse Cs' , 'Csa Pahou Cs']
+independant = ['Bembe Di' , 'Ganlononcodji Di' , 'Zounta Mi']
+fac_to_plot = commune  + arrondissement + independant
+
+verif_data_report_plot2 = verif_data_report_plot2[verif_data_report_plot2.entity_name.isin(fac_to_plot)]
+verif_data_report_plot2 = verif_data_report_plot2[verif_data_report_plot2.difference_montant > -1]
+
+verif_data_report_plot2.loc[verif_data_report_plot2.entity_name.isin(commune) , 'fac_type'] = 'Communal'
+verif_data_report_plot2.loc[verif_data_report_plot2.entity_name.isin(arrondissement) , 'fac_type'] = 'Arrondissement'
+verif_data_report_plot2.loc[verif_data_report_plot2.entity_name.isin(independant) , 'fac_type'] = 'Independant'
+
+sns.despine(left=True)
 set_style()
 sns.set_context("paper")
-plt.figure(figsize=(20, 6))
-g = sns.FacetGrid(verif_data_report_plot, col="indicator_label", col_wrap=3,
-                  sharex=True, sharey=False, size=4)
-g.map(sns.distplot,  "perc_variation_indicateur", hist=False, rug=True)
-g.add_legend()
-g.set_titles('')
+plt.figure(figsize=(6, 3))
+g = sns.FacetGrid(verif_data_report_plot2, col = 'entity_name' , col_wrap=3 , col_order = fac_to_plot ,
+                    hue = 'fac_type' , hue_order = ['Communal' , 'Arrondissement' , 'Independant'])
+g = g.map(plt.plot , 'date' , 'difference_montant', marker="o", ms=4)
+g.add_legend(title = 'Facility Level')
+g.set_axis_labels( 'Date' , '% variation of amount paid')
+g.fig.savefig("figure/facility_correction_evolution.pdf", dpi=1200)
 
-ax.set(xlabel='Correction of payment after data validation')
-ax.figure.savefig("figure/payment_correction.pdf", dpi=1200)
 
 # Facility Examples
 sns.despine(left=True)
-
-verif_data_report_plot2 = verif_data_report_plot[verif_data_report_plot.entity_name.isin(
-    ['Csa Dekanme Cs', 'Tohoue Csc', 'Bembe Di', 'Zounta Mi'])]
-
 set_style()
 sns.set_context("paper")
 plt.figure(figsize=(6, 3))
 g = sns.FacetGrid(verif_data_report_plot2, col="entity_name",
-                  col_wrap=2, size=5, sharex=False, sharey=False)
+                  col_wrap=3, sharex=True, sharey=False  , col_order = fac_to_plot,
+                                      hue = 'fac_type' , hue_order = ['Communal' , 'Arrondissement' , 'Independant'])
 g = g.map(sns.distplot, "difference_montant")
-g.fig.savefig("figure/facility_correct.pdf", dpi=1200)
+g.add_legend(title = 'Facility Level')
+g.set_axis_labels( '% variation of amount paid' , '')
+g.fig.savefig("figure/facility_correction_distribution.pdf", dpi=1200)
