@@ -1,0 +1,600 @@
+\ifglsentryexists{me}{}%
+{%
+\gls@defglossaryentry{me}%
+{%
+name={M\&E},%
+sort={M\&E},%
+type={acronym},%
+first={Monitoring and Evaluation\glsspace (M\&E)},%
+firstplural={Monitoring and Evaluations\glsspace (M\&Es)},%
+text={M\&E},%
+plural={M\&Es},%
+description={Monitoring and Evaluation},%
+descriptionplural={Monitoring and Evaluation\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Monitoring and Evaluation},%
+longplural={Monitoring and Evaluations},%
+short={M\&E},%
+shortplural={M\&Es},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ltfu}{}%
+{%
+\gls@defglossaryentry{ltfu}%
+{%
+name={LTFU},%
+sort={LTFU},%
+type={acronym},%
+first={Lost To Follow Up\glsspace (LTFU)},%
+firstplural={Lost To Follow Ups\glsspace (LTFUs)},%
+text={LTFU},%
+plural={LTFUs},%
+description={Lost To Follow Up},%
+descriptionplural={Lost To Follow Up\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Lost To Follow Up},%
+longplural={Lost To Follow Ups},%
+short={LTFU},%
+shortplural={LTFUs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{emr}{}%
+{%
+\gls@defglossaryentry{emr}%
+{%
+name={EMR},%
+sort={EMR},%
+type={acronym},%
+first={Electronic Medical Records\glsspace (EMR)},%
+firstplural={Electronic Medical Recordss\glsspace (EMRs)},%
+text={EMR},%
+plural={EMRs},%
+description={Electronic Medical Records},%
+descriptionplural={Electronic Medical Records\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Electronic Medical Records},%
+longplural={Electronic Medical Recordss},%
+short={EMR},%
+shortplural={EMRs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ict}{}%
+{%
+\gls@defglossaryentry{ict}%
+{%
+name={ICT},%
+sort={ICT},%
+type={acronym},%
+first={Information and Communication Technologies\glsspace (ICT)},%
+firstplural={Information and Communication Technologiess\glsspace (ICTs)},%
+text={ICT},%
+plural={ICTs},%
+description={Information and Communication Technologies},%
+descriptionplural={Information and Communication Technologies\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Information and Communication Technologies},%
+longplural={Information and Communication Technologiess},%
+short={ICT},%
+shortplural={ICTs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{dhis2}{}%
+{%
+\gls@defglossaryentry{dhis2}%
+{%
+name={DHIS2},%
+sort={DHIS2},%
+type={acronym},%
+first={District Health Information Systems\glsspace (DHIS2)},%
+firstplural={District Health Information Systemss\glsspace (DHIS2s)},%
+text={DHIS2},%
+plural={DHIS2s},%
+description={District Health Information Systems},%
+descriptionplural={District Health Information Systems\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={District Health Information Systems},%
+longplural={District Health Information Systemss},%
+short={DHIS2},%
+shortplural={DHIS2s},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{spc}{}%
+{%
+\gls@defglossaryentry{spc}%
+{%
+name={SPC},%
+sort={SPC},%
+type={acronym},%
+first={Statistical Process Control\glsspace (SPC)},%
+firstplural={Statistical Process Controls\glsspace (SPCs)},%
+text={SPC},%
+plural={SPCs},%
+description={Statistical Process Control},%
+descriptionplural={Statistical Process Control\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Statistical Process Control},%
+longplural={Statistical Process Controls},%
+short={SPC},%
+shortplural={SPCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{art}{}%
+{%
+\gls@defglossaryentry{art}%
+{%
+name={ART},%
+sort={ART},%
+type={acronym},%
+first={Antiretroviral Treatment\glsspace (ART)},%
+firstplural={Antiretroviral Treatments\glsspace (ARTs)},%
+text={ART},%
+plural={ARTs},%
+description={Antiretroviral Treatment},%
+descriptionplural={Antiretroviral Treatment\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Antiretroviral Treatment},%
+longplural={Antiretroviral Treatments},%
+short={ART},%
+shortplural={ARTs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ceam}{}%
+{%
+\gls@defglossaryentry{ceam}%
+{%
+name={CEAM},%
+sort={CEAM},%
+type={acronym},%
+first={Cost Effectiveness Analysis Microsimulation\glsspace (CEAM)},%
+firstplural={Cost Effectiveness Analysis Microsimulations\glsspace (CEAMs)},%
+text={CEAM},%
+plural={CEAMs},%
+description={Cost Effectiveness Analysis Microsimulation},%
+descriptionplural={Cost Effectiveness Analysis Microsimulation\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Cost Effectiveness Analysis Microsimulation},%
+longplural={Cost Effectiveness Analysis Microsimulations},%
+short={CEAM},%
+shortplural={CEAMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{oif}{}%
+{%
+\gls@defglossaryentry{oif}%
+{%
+name={OIF},%
+sort={OIF},%
+type={acronym},%
+first={Office International de la Francophonie\glsspace (OIF)},%
+firstplural={Office International de la Francophonies\glsspace (OIFs)},%
+text={OIF},%
+plural={OIFs},%
+description={Office International de la Francophonie},%
+descriptionplural={Office International de la Francophonie\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Office International de la Francophonie},%
+longplural={Office International de la Francophonies},%
+short={OIF},%
+shortplural={OIFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ceni}{}%
+{%
+\gls@defglossaryentry{ceni}%
+{%
+name={CENI},%
+sort={CENI},%
+type={acronym},%
+first={Comission Electorale Nationale Independante\glsspace (CENI)},%
+firstplural={Comission Electorale Nationale Independantes\glsspace (CENIs)},%
+text={CENI},%
+plural={CENIs},%
+description={Comission Electorale Nationale Independante},%
+descriptionplural={Comission Electorale Nationale Independante\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Comission Electorale Nationale Independante},%
+longplural={Comission Electorale Nationale Independantes},%
+short={CENI},%
+shortplural={CENIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{renaloc}{}%
+{%
+\gls@defglossaryentry{renaloc}%
+{%
+name={RENALOC},%
+sort={RENALOC},%
+type={acronym},%
+first={R\IeC {\'e}pertoire National des Localit\IeC {\'e}s\glsspace (RENALOC)},%
+firstplural={R\IeC {\'e}pertoire National des Localit\IeC {\'e}ss\glsspace (RENALOCs)},%
+text={RENALOC},%
+plural={RENALOCs},%
+description={Répertoire National des Localités},%
+descriptionplural={Répertoire National des Localités\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={R\IeC {\'e}pertoire National des Localit\IeC {\'e}s},%
+longplural={R\IeC {\'e}pertoire National des Localit\IeC {\'e}ss},%
+short={RENALOC},%
+shortplural={RENALOCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ins}{}%
+{%
+\gls@defglossaryentry{ins}%
+{%
+name={INS},%
+sort={INS},%
+type={acronym},%
+first={Institut National de la Statistique\glsspace (INS)},%
+firstplural={Institut National de la Statistiques\glsspace (INSs)},%
+text={INS},%
+plural={INSs},%
+description={Institut National de la Statistique},%
+descriptionplural={Institut National de la Statistique\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Institut National de la Statistique},%
+longplural={Institut National de la Statistiques},%
+short={INS},%
+shortplural={INSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{renacom}{}%
+{%
+\gls@defglossaryentry{renacom}%
+{%
+name={RENACOM},%
+sort={RENACOM},%
+type={acronym},%
+first={R\IeC {\'e}pertoire National des Communes\glsspace (RENACOM)},%
+firstplural={R\IeC {\'e}pertoire National des Communess\glsspace (RENACOMs)},%
+text={RENACOM},%
+plural={RENACOMs},%
+description={Répertoire National des Communes},%
+descriptionplural={Répertoire National des Communes\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={R\IeC {\'e}pertoire National des Communes},%
+longplural={R\IeC {\'e}pertoire National des Communess},%
+short={RENACOM},%
+shortplural={RENACOMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{osm}{}%
+{%
+\gls@defglossaryentry{osm}%
+{%
+name={OSM},%
+sort={OSM},%
+type={acronym},%
+first={OpenStreetMap\glsspace (OSM)},%
+firstplural={OpenStreetMaps\glsspace (OSMs)},%
+text={OSM},%
+plural={OSMs},%
+description={OpenStreetMap},%
+descriptionplural={OpenStreetMap\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={OpenStreetMap},%
+longplural={OpenStreetMaps},%
+short={OSM},%
+shortplural={OSMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{snis}{}%
+{%
+\gls@defglossaryentry{snis}%
+{%
+name={SNIS},%
+sort={SNIS},%
+type={acronym},%
+first={Syst\IeC {\`e}me National d'Information Sanitaire\glsspace (SNIS)},%
+firstplural={Syst\IeC {\`e}me National d'Information Sanitaires\glsspace (SNISs)},%
+text={SNIS},%
+plural={SNISs},%
+description={Système National d'Information Sanitaire},%
+descriptionplural={Système National d'Information Sanitaire\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Syst\IeC {\`e}me National d'Information Sanitaire},%
+longplural={Syst\IeC {\`e}me National d'Information Sanitaires},%
+short={SNIS},%
+shortplural={SNISs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{rbf}{}%
+{%
+\gls@defglossaryentry{rbf}%
+{%
+name={RBF},%
+sort={RBF},%
+type={acronym},%
+first={Results Based Financing\glsspace (RBF)},%
+firstplural={Results Based Financings\glsspace (RBFs)},%
+text={RBF},%
+plural={RBFs},%
+description={Results Based Financing},%
+descriptionplural={Results Based Financing\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Results Based Financing},%
+longplural={Results Based Financings},%
+short={RBF},%
+shortplural={RBFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{prss}{}%
+{%
+\gls@defglossaryentry{prss}%
+{%
+name={PRSS},%
+sort={PRSS},%
+type={acronym},%
+first={Programme de Renforcement du Syst\IeC {\`e}me de Sant\IeC {\'e}\glsspace (PRSS)},%
+firstplural={Programme de Renforcement du Syst\IeC {\`e}me de Sant\IeC {\'e}s\glsspace (PRSSs)},%
+text={PRSS},%
+plural={PRSSs},%
+description={Programme de Renforcement du Système de Santé},%
+descriptionplural={Programme de Renforcement du Système de Santé\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Programme de Renforcement du Syst\IeC {\`e}me de Sant\IeC {\'e}},%
+longplural={Programme de Renforcement du Syst\IeC {\`e}me de Sant\IeC {\'e}s},%
+short={PRSS},%
+shortplural={PRSSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{pma}{}%
+{%
+\gls@defglossaryentry{pma}%
+{%
+name={PMA},%
+sort={PMA},%
+type={acronym},%
+first={Paquet Minimum d'Activit\IeC {\'e}s\glsspace (PMA)},%
+firstplural={Paquet Minimum d'Activit\IeC {\'e}ss\glsspace (PMAs)},%
+text={PMA},%
+plural={PMAs},%
+description={Paquet Minimum d'Activités},%
+descriptionplural={Paquet Minimum d'Activités\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Paquet Minimum d'Activit\IeC {\'e}s},%
+longplural={Paquet Minimum d'Activit\IeC {\'e}ss},%
+short={PMA},%
+shortplural={PMAs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{cusum}{}%
+{%
+\gls@defglossaryentry{cusum}%
+{%
+name={CUSUM},%
+sort={CUSUM},%
+type={acronym},%
+first={Cumulative Sum\glsspace (CUSUM)},%
+firstplural={Cumulative Sums\glsspace (CUSUMs)},%
+text={CUSUM},%
+plural={CUSUMs},%
+description={Cumulative Sum},%
+descriptionplural={Cumulative Sum\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Cumulative Sum},%
+longplural={Cumulative Sums},%
+short={CUSUM},%
+shortplural={CUSUMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ewma}{}%
+{%
+\gls@defglossaryentry{ewma}%
+{%
+name={EWMA},%
+sort={EWMA},%
+type={acronym},%
+first={Exponentially Weighted Moving Average\glsspace (EWMA)},%
+firstplural={Exponentially Weighted Moving Averages\glsspace (EWMAs)},%
+text={EWMA},%
+plural={EWMAs},%
+description={Exponentially Weighted Moving Average},%
+descriptionplural={Exponentially Weighted Moving Average\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Exponentially Weighted Moving Average},%
+longplural={Exponentially Weighted Moving Averages},%
+short={EWMA},%
+shortplural={EWMAs},%
+counter={page},%
+parent={},%
+%
+}%
+}%

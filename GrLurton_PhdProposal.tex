@@ -153,7 +153,11 @@
 %\SetWatermarkText{DRAFT}
 %\SetWatermarkScale{5}
 
+% Load the package with the acronym option
+\usepackage[acronym,nomain]{glossaries}
 
+% Generate the glossary
+\makeglossaries
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -195,7 +199,7 @@
 \setcounter{page}{1}
 
 
-
+\input{acronyms.tex}
 \paragraph{Abstract}
 
 This proposal defines a project for a doctoral research into data processing and analysis methods adapted to Health Information Systems (HIS) in developing countries. I argue that HIS in developing countries have been historically marked by top-down approaches in which methods are defined by remote actors such as foreign or international specialists, and implemented without much local adaptation. This way of creating health information is at odds with a history of local emergence of epidemiological and public health methods, and with the increasing flexibility of data processing and computing techniques.
@@ -218,7 +222,8 @@ This project will contribute to research in the Global Health Metrics field in d
 %\addcontentsline{toc}{section}{\listtablename}
 %\listoftables
 %\newpage
-%\printglossaries
+\addcontentsline{toc}{section}{Acronyms}
+\printglossaries
 \thispagestyle{fancy}
 
 % Justification moins stricte : des mots ne dépasseront pas des paragraphes

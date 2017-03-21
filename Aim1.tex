@@ -1,16 +1,16 @@
 \section[Flexible Standards]{Aim 1 - Flexible Standards for categories definition}
 
-The measure of retention of ART patients in treatment is a key measure of HIV programs performance. HIV being a chronic disease, the measure of success of these treatments is indeed the survival of treated patients, which is directly dependent to their adherence to ART treatment. As HIV programs have been rolled out in different countries, the importance of Lost to Follow Up patients (LTFU) in ART cohorts has been recognized, and since the early days of HIV care programs, efforts have been made to better measure and understand the how and why patients remain in care on the long term   \citep{ioannidis_predictors_1999,lebouche_incidence_2006,moh_incidence_2007}.
+The measure of retention of patients under \gls{art} is a key measure of HIV programs performance. HIV being a chronic disease, the measure of success of these treatments is indeed the survival of treated patients, which is directly dependent to their adherence to \gls{art} treatment. As HIV programs have been rolled out in different countries, the importance of \gls{ltfu} in \gls{art} cohorts has been recognized, and since the early days of HIV care programs, efforts have been made to better measure and understand the how and why patients remain in care on the long term   \citep{ioannidis_predictors_1999,lebouche_incidence_2006,moh_incidence_2007}.
 
-Initiating treatment programs, HIV practitioners used the categories that had been developed and used in clinical trials to categorize patients outcome. This definition is mainly a negative category, grouping patients who failed to attend their medical appointments and for which no definitive had been recorded. LTFU is thus defined by an absence of data about a patient more than by a positive element of information.
+Initiating treatment programs, HIV practitioners used the categories that had been developed and used in clinical trials to categorize patients outcome. This definition is mainly a negative category, grouping patients who failed to attend their medical appointments and for which no definitive had been recorded. \gls{ltfu} is thus defined by an absence of data about a patient more than by a positive element of information.
 
-As HIV programs were rolled out, it soon became clear that the LTFU category, in many settings, is a mixed bag of patients with different status \citep{kwong-leung_yu_true_2007,dalal_characteristics_2008,mcguire_vital_2010}. This poses problems for HIV programs evaluation, as the true outcome of HIV patient is often unknown, and different authors have proposed ways to correct retention measures by collecting additional data
+As HIV programs were rolled out, it soon became clear that the \gls{ltfu} category, in many settings, is a mixed bag of patients with different status \citep{kwong-leung_yu_true_2007,dalal_characteristics_2008,mcguire_vital_2010}. This poses problems for HIV programs evaluation, as the true outcome of HIV patient is often unknown, and different authors have proposed ways to correct retention measures by collecting additional data
  \citep{yiannoutsos_sampling-based_2008,geng_tracking_2010,tassie_evaluation_2010}, or by fitting correcting models \citep{brinkhof_adjusting_2010,egger_correcting_2011,van_cutsem_correcting_2011,henriques_comparison_2012,verguet_incorporating_2013}.
 Finally, some authors started paying attention to how the very metric used to measure patients retention could heavily impact the evaluation of HIV programs performance \citep{chi_empirical_2010,chi_universal_2011,fox_defining_2012,mugavero_measuring_2012,yehia_comparing_2012,grimsrud_impact_2013,shepherd_impact_2013}.
 
-An important underlying hypothesis of the use of the LTFU metric as a proxy for retention is that, if the patient had been coming to the facility for an appointment, this visit would have been recorded. This hypothesis makes sense considering the notion of LTFU comes from the clinical trial setting \citep{lebouche_incidence_2006} but it can be problematic in developing countries settings, where data quality in care setting is often difficult to guarantee. There is thus an equivalence established between patient's status and data quality in the facility. Meanwhile, assessing data quality of a database and its impact on the measure of retention is seldom made. %% TODO Citer Lurton & develop un peu
+An important underlying hypothesis of the use of the \gls{ltfu} metric as a proxy for retention is that, if the patient had been coming to the facility for an appointment, this visit would have been recorded. This hypothesis makes sense considering the notion of \gls{ltfu} comes from the clinical trial setting \citep{lebouche_incidence_2006} but it can be problematic in developing countries, where data quality in care setting is often difficult to guarantee. In these settings, the delay between a visit and the time of data entry will be important, mechanically inflating the number of \gls{ltfu} \citep{lurton_report_2012}. There is thus an equivalence established between patient's status and data quality in the facility. Meanwhile, assessing data quality of a database and its impact on the measure of retention is seldom made.
 
-With the development and rollout of Electronic Medical Records (EMR) in facilities, there is an opportunity to improve on this situation. Most computerized data collection systems collect metadata on data entry, such as the date at which a form was entered, or the role of the person doing the data entry. This metadata could be mobilized to measure the quality of the data, and to understand the impact of data quality on the measure of retention.
+With the development and rollout of \gls{emr} in facilities, there is an opportunity to improve on this situation. Most computerized data collection systems collect metadata on data entry, such as the date at which a form was entered, or the role of the person doing the data entry. This metadata could be mobilized to measure the quality of the data, and to understand the impact of data quality on the measure of retention.
 
 This project main aim is to simulate and describe the impact of data quality on the measure of retention of patients in HIV cohorts. This will be achieved through three specific aims :
 
@@ -35,7 +35,7 @@ HIV patients are visiting hospitals for regular appointments. At each visit, the
 \end{figure}
 \end{center}
 
-The time elapsed between a visit and the next scheduled appointment is set by the national norms regarding the frequency at which HIV patients should be evaluated, depending on their condition and medical history. Patients recently enrolled in care will be seen more frequently than patients with a longer follow-up and no complications. We note ($f_v^i$) the visit frequency regimen of patient $i$ at visit $v$. This unit is usually around a multiple of 28 days, as patients are likely to have a favorite week day for visit (cf. \texit{supra}). Figure \ref{fig:schedule_days} shows the distribution of $f_v^i$ in our data.
+The time elapsed between a visit and the next scheduled appointment is set by the national norms regarding the frequency at which HIV patients should be evaluated, depending on their condition and medical history. Patients recently enrolled in care will be seen more frequently than patients with a longer follow-up and no complications. We note ($f_v^i$) the visit frequency regimen of patient $i$ at visit $v$. This unit is usually around a multiple of 28 days, as patients are likely to have a favorite week day for visit (cf. \textit{supra}). Figure \ref{fig:schedule_days} shows the distribution of $f_v^i$ in our data.
 
 \begin{center}
 \begin{figure}[ht]
@@ -46,11 +46,11 @@ The time elapsed between a visit and the next scheduled appointment is set by th
 \end{center}
 
 We can finally express the time between two visits as :
-$$V_{v+1}^i - V_v^i = $f_v^i$ + l_v^i  $$
+$$V_{v+1}^i - V_v^i = f_v^i + l_v^i  $$
 
 \subsubsection{Data Entry}
 
-The date at which a visit is recorded in an EMR database is $R(V_v^i)$. By definition, $R(V_v^i) \geq V_v^i$, and the delay in data entry is noted :
+The date at which a visit is recorded in an \gls{emr} database is $R(V_v^i)$. By definition, $R(V_v^i) \geq V_v^i$, and the delay in data entry is noted :
 $$R(V_v^i) - V_v^i = \delta_v^i \geq 0$$
 
 $\delta$ may vary in a facility, depending on the workload, staffing or other factors. In some cases, the visit has not and will never be recorded. I will note this situation as $\delta \rightarrow \infty$. Figure \ref{fig:data_entry_time} shows the distribution of $\delta$ in our data.
@@ -84,32 +84,30 @@ Figure \ref{fig:timeline-followup} shows how these different parameters can play
 
 \subsubsection{Loss to Follow Up definition}
 
-A central piece of the LTFU definition is the  \textit{grace period} during which a patient, even if he did not return to a facility, is considered actively followed. This \textit{grace period} is denoted $G_0$.
+A central piece of the \gls{ltfu} definition is the  \textit{grace period} during which a patient, even if he did not return to a facility, is considered actively followed. This \textit{grace period} is denoted $G_0$.
 
-A patient $i$ is considered LTFU if he is late to his latest scheduled appointment for more than $G_0$ days.
+A patient $i$ is considered \gls{ltfu} if he is late to his latest scheduled appointment for more than $G_0$ days.
 
-$$l_{v^{*}^i} >  G_0$$
+$$l_{v^{*}}^i >  G_0$$
 
 Looking closer at this definition, we can see it regroups three different situations :
 \begin{enumerate}
-\item $l_{v^{*}^i} \rightarrow \infty$ : The patient is LTFU and will never come back to the facility.
+\item $l_{v^{*}}^i \rightarrow \infty$ : The patient is \gls{ltfu} and will never come back to the facility.
 \item $\infty > l_{v^{*},i} > G_0$ : The patient is late to his appointment but will come back in the future.
 \item  $\delta_{v^*+1} > G_0$ : The patient came for his visit $v^{*} + 1$ but data entry took longer than the grace period and the visit was not entered at the time of database closure.
 \end{enumerate}
 
-Using this definition, we can express the probability that a patient is identified as LTFU based on the data at hand. Let's $X = 1$ be the event that a patient is actively in care, and $X = 0$  the event that the patient is LTFU. We can get $p(X = 0 | l_{v^{*}i} \leq  G_0)$ as the combination of elements we can measure :
+Using this definition, we can express the probability that a patient is identified as \gls{ltfu} based on the data at hand. Let's $X = 1$ be the event that a patient is actively in care, and $X = 0$  the event that the patient is \gls{ltfu}. We can get $p(X = 0 | l_{v^{*}}^i \leq  G_0)$ as the combination of elements we can measure :
 
-$$p(X = 0 | l_{v^{*}^i} >  G_0) = 1 - p(\infty > l_{v^{*}^i} >  G_0) - p(\delta_{v^*+1} > G_0) $$
+$$p(X = 0 | l_{v^{*}}^i >  G_0) = 1 - p(\infty > l_{v^{*}}^i >  G_0) - p(\delta_{v^*+1} > G_0) $$
 
-We can understand $\infty > l_{v^{*}^i} \leq  G_0$ as an intrinsic myopia of the health system, who can not predict the future, and $\delta_{v^*+1} > G_0$ as a data quality measure. Differentiating between these two terms is  important in order to understand uncertainty in the LTFU rate and better measure retention in the cohort.
+We can understand $\infty > l_{v^{*}}^i \leq  G_0$ as an intrinsic myopia of the health system, who can not predict the future, and $\delta_{v^*+1} > G_0$ as a data quality measure. Differentiating between these two terms is  important in order to understand uncertainty in the \gls{ltfu} rate and better measure retention in the cohort.
 
 \subsection{Data}
 
-The data used for this aim are Electronic Medical Records (EMR) database obtained from the HIV programs. I currently work with an EMR from  Kenya, and part of IHME's ABCE study. In this facility, 4833 patients have been registered for HIV care, from 2005 to June 2012, totaling 69591 recorded visits. Data entry time is easily available for at least 4853 of these visits.
+The data used for this aim are \gls{emr} database obtained from the HIV programs. I currently work with an \gls{emr} from  Kenya, and part of IHME's ABCE study. In this facility, 4833 patients have been registered for HIV care, from 2005 to June 2012, totaling 69591 recorded visits. Data entry time is easily available for at least 4853 of these visits.
 
-%TODO preciser les autres donnees auxquelles je veux avoir acces
-
-I hope to obtain additional EMR databases from additional HIV programs. This would allow me to better measure variability in appointments lags and data entry issues. All the data will be analyzed anonymously and in aggregate form. For each patient, I only use visit dates and scheduled appointment dates. If scheduled appointment dates are missing, they will be imputed using observed $f^i_v$ in the data. I will also use the metadata collected in the EMR, especially the dates of data saving, to estimate data quality by measuring $\delta$ distribution.
+I hope to obtain two additional \gls{emr} databases. The ISanté EMR, used in Haïti, and multiple implementations of the FUCHIA system, developped by Médecin Sans Frontières and used by the national HIV program in Niger. This would allow me to better measure variability in appointments lags and data entry issues. All the data will be analyzed anonymously and in aggregate form. For each patient, I only use visit dates and scheduled appointment dates. If scheduled appointment dates are missing, they will be imputed using observed $f^i_v$ in the data. I will also use the metadata collected in the EMR, especially the dates of data saving, to estimate data quality by measuring $\delta$ distribution.
 
 I will not report precise data on HIV programs performance, and all the data used will be used to inform the simulation model.
 
@@ -119,11 +117,11 @@ This work will be done in three main steps. First, I will estimate the relevant 
 
 \paragraph{Modeling -} The different parameters described earlier will be modeled and estimated  from the cohort data I will have at hand, using a Bayesian approach. The two most important parameters for this work are $\delta$, the time before visit has been recorded in a database, and $l$, the time between an appointment and the actual visit.
 
-A first approach to modeling these parameters is to express $\delta$ as a Gamma distribution $\mathrm{G}(\alpha , \beta)$, with mean $\frac{\alpha}{\beta}$ representing the mean time to data entry of a visit form in the EMR. A Gamma distribution allows for a very long tail on the right, which will allow us to include data loss ($\delta  \rightarrow  \infty$).
+A first approach to modeling these parameters is to express $\delta$ as a Gamma distribution $\mathrm{G}(\alpha , \beta)$, with mean $\frac{\alpha}{\beta}$ representing the mean time to data entry of a visit form in the \gls{emr}. A Gamma distribution allows for a very long tail on the right, which will allow us to include data loss ($\delta  \rightarrow  \infty$).
 
 $l$ could be modeled using a mixture model, to take into account the multimodal nature of the $l$. I will also have to consider the hypothesis that the multimodal $l$ distribution results from unrecorded shorter term appointments, and if this is the case we may need to use a long tailed distribution as for $\delta$.
 
-\paragraph{Simulation - } Using the parameters estimated in the previous step, I will simulate an HIV patients cohort. This simulation will be made using the Cost Effectiveness Analysis Microsimulation (CEAM) framework developed at IHME to simulate epidemiological cohorts, in which I will feed draws from the posterior distributions of the previously estimated models.
+\paragraph{Simulation - } Using the parameters estimated in the previous step, I will simulate an HIV patients cohort. This simulation will be made using the \gls{ceam} framework developed at IHME to simulate epidemiological cohorts, in which I will feed draws from the posterior distributions of the previously estimated models.
 
 In a second step, I will simulate the data entry process, for any given month, by drawing a $\delta$ for each visit that will have been generated (initial or returning), and then computing the date of data entry for the information related to this visit.
 
@@ -132,19 +130,19 @@ As a result of this simulation, I will have all the information needed to estima
 \paragraph{Quantities of interest -} This simulated data will then be used to estimate our elements of interest :
 
 \begin{enumerate}
-\item \texbf{Measuring data quality impact} : From the cohort simulations, I will measure the LTFU rate using different distributions  of $\delta$. Different scenarios will be considered for data quality, varying both the mean and variance of $\delta$. Perfect data quality will be compared to situations with long delays of data entry, and situations with important data loss (high variance of $\delta$). The resulting observed variation in the LTFU rate  will be described as the impact of data quality on the measure of retention.
+\item \textbf{Measuring data quality impact} : From the cohort simulations, I will measure the LTFU rate using different distributions  of $\delta$. Different scenarios will be considered for data quality, varying both the mean and variance of $\delta$. Perfect data quality will be compared to situations with long delays of data entry, and situations with important data loss (high variance of $\delta$). The resulting observed variation in the \gls{ltfu} rate  will be described as the impact of data quality on the measure of retention.
 
-\item \textbf{Data maturity} As data is being entered in the EMR, or as missed visits are finally being made, the data for a given period will get completed, and patients actively on care are more and more considered so. As data maturity grows in the EMR, the data quality induced error is lowered. Varying $T_{close}$ can thus have an impact on the measure of retention of a patient on a given date. I will carry out the measure of retention using different closing dates for the database, and only using the data recorded before the closing date. These measures will allow me to define and test a Data Maturity metric, based on a combination of $f$, $l$ and $\delta$ that will allow us to identify the optimal minimum date of analysis to estimate retention rates in a program, and the optimal grace period $G_0$ to use for different levels of maturity.
+\item \textbf{Data maturity} As data is being entered in the \gls{emr}, or as missed visits are finally being made, the data for a given period will get completed, and patients actively on care are more and more considered so. As data maturity grows in the  \gls{emr}, the data quality induced error is lowered. Varying $T_{close}$ can thus have an impact on the measure of retention of a patient on a given date. I will carry out the measure of retention using different closing dates for the database, and only using the data recorded before the closing date. These measures will allow me to define and test a Data Maturity metric, based on a combination of $f$, $l$ and $\delta$ that will allow us to identify the optimal minimum date of analysis to estimate retention rates in a program, and the optimal grace period $G_0$ to use for different levels of maturity.
 
 \item{Robust measures of retention} Finally, we will consider more robust metrics that can be considered good proxies for retention. These metrics will include :
 \begin{itemize}
 	\item The ratio of the corrected average number of registered visits on the expected number of followed patients
 	\item The ratio of new to returning patients in the facility
-	\item The probability that the rate of LTFU is higher than a given threshold
+	\item The probability that the rate of \gls{ltfu} is higher than a given threshold
 \end{itemize}
 \end{enumerate}
 
-For each of these metrics, I will evaluate their capacity to measure retention in the cohort, by comparing with the reference measure of LTFU measured with perfect data. I will also evaluate the sensibility of these metrics to data quality and data maturity.
+For each of these metrics, I will evaluate their capacity to measure retention in the cohort, by comparing with the reference measure of \gls{ltfu}  measured with perfect data. I will also evaluate the sensibility of these metrics to data quality and data maturity.
 
 \subsection{Timeline}
 \label{timeline:aim1}
