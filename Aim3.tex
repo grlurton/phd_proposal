@@ -135,7 +135,7 @@ The first step of the work, by screening out situations that appear to be \texti
 
 I will try to solve this question by handling it as a classification problem. Using the confirmation data, I will be able to classify data as $D = 1$ or $D = 0$. Using a combination of the outputs of each data screening method  as features I will implement and test simple supervised classification methods, to differentiate between $D = 0$ and $D = 1$ in abnormal data. This second layer of classification will thus allow me to differentiate between the $D = 0$ and $D = 1 \cap Q = 0$  situations of abnormal observed data.
 
-\subsubsection{Validation and Operational fine tuning}
+\subsubsection{Validation and Supervision Planning optimization}
 
 Performing algorithmic verification comes with a risk of creating reinforcing errors. Since we fit the expected distribution of $I_i$ using only the data that was previously validated on the field, the periodic creation of such validation data points for every facilities is essential to ensure these expected distributions are still in line with reality. Meanwhile, in facilities that demonstrate good measured data quality, data will be verified less frequently than previously. This holds potential risks for our approach to be able to detect variations in performance. The question we know ask is thus, what is the minimum of validated data that has to be available in a facility to allow algorithmic validation to perform well ?
 
@@ -153,7 +153,7 @@ The comparison will be made by simulating progressively the implementation of ea
 \subsection{Timeline}
 \label{timeline:aim3}
 
-The data for this aim is already available and has been partially cleaned. I envision needing four months to implement the different data monitoring approaches, and four months for risk classification and operational fine tuning.
+The data for this aim is already available and has been partially cleaned. I envision needing four months to implement the different data monitoring approaches, and four months for risk classification and supervision planning optimization.
 
 \begin{figure}[t]
 	\begin{ganttchart}[vgrid,hgrid,
@@ -169,7 +169,7 @@ The data for this aim is already available and has been partially cleaned. I env
 		\ganttmilestone{Sharing Data Screening results}{7} \\
 		\ganttbar{Risk Classification}{8}{9} \\
 		\ganttmilestone{Risk classification results}{9} \\
-		\ganttbar{Operational Fine tuning}{10}{11} \\
+		\ganttbar{Supervision Planning optimization}{10}{11} \\
 		\ganttmilestone{Sharing Final Results}{11} \\
 		\ganttbar{Paper Writing}{12}{14} \\
 		\ganttmilestone{Paper Submission}{14}
