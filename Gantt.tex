@@ -1,0 +1,57 @@
+\documentclass{standalone}
+%\usepackage{tikz}
+\usepackage{pgfgantt}
+\usepackage{pgfcalendar}
+
+
+\begin{figure}[!ht]
+	\begin{ganttchart}[vgrid ,
+                    hgrid,
+                    y unit chart=.6cm]{1}{18}
+		\gantttitle{2017}{12}
+		\gantttitle{2018}{6} \\
+		\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,6}{1}\\
+
+        \ganttset{bar/.append style={draw=red!40 , fill=red!40},
+                    group/.append style={draw=red, fill=red}}
+		\ganttgroup{Aim 1}{1}{16} \\
+        \ganttbar{Data Extraction}{1}{4} \\
+		\ganttbar{Modeling and Model estimation}{5}{6} \\
+		\ganttbar{Cohort Simulation}{7}{9} \\
+		\ganttmilestone{Sharing Cohort simulation results}{9} \\
+		\ganttbar{Data Quality Impact}{10}{10} \\
+		\ganttbar{Data Maturity}{11}{12} \\
+		\ganttbar{Robust Measures of retention}{13}{14} \\
+		\ganttmilestone{Sharing Final Results}{14} \\
+		\ganttbar{Paper Writing}{15}{16} \\
+		\ganttmilestone{Paper Submission}{16} \\
+
+        \ganttset{bar/.append style={draw=green!40 , fill=green!40},
+                    group/.append style={draw=green, fill=green}}
+        \ganttgroup{Aim 2}{1}{16} \\
+        \ganttbar{Data Extraction}{1}{3} \\
+		\ganttbar{Name Matching}{1}{6} \\
+		\ganttbar{Locality Mapping}{7}{9} \\
+		\ganttmilestone{First complete map}{9} \\
+		\ganttbar{Population Estimation}{10}{14} \\
+		\ganttmilestone{Sharing Final Results}{14} \\
+		\ganttbar{Paper Writing}{15}{16} \\
+		\ganttbar{Dashboard Design}{15}{16} \\
+		\ganttmilestone{Paper Submission}{16}\\
+
+        \ganttset{bar/.append style={draw=blue!40 , fill=blue!40},
+                    group/.append style={draw=blue, fill=blue}}
+        \ganttgroup{Aim 3}{1}{14} \\
+        \ganttbar{Data Extraction}{1}{1} \\
+		\ganttbar{Data Screening}{2}{7} \\
+		\ganttmilestone{Sharing Data Screening results}{7} \\
+		\ganttbar{Risk Classification}{8}{9} \\
+		\ganttmilestone{Risk classification results}{9} \\
+		\ganttbar{Supervision Planning optimization}{10}{11} \\
+		\ganttmilestone{Sharing Final Results}{11} \\
+		\ganttbar{Paper Writing}{12}{14} \\
+		\ganttmilestone{Paper Submission}{14}\\
+	\end{ganttchart}
+\end{figure}
+
+\end{document}
