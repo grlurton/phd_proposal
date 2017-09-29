@@ -20,7 +20,7 @@ Each of these elements is important to design public health programs, to plan in
 Mapping the density of the population is useful for descriptive purposes, and the production of density rasters can be essential to the spatial modeling of diseases and other population phenomenons. Meanwhile, these maps do not display actual numbers of people, nor a comprehensive display of populations groupings. Moreover, being able to query places by their name is an essential feature for managers. The information needed to produce a precise and actionable map of population in Niger can be found scattered in different unrelated data sources. This  project is exploring an innovative approach to provide a population map in Niger, through the hybridization of multiple data sources and the use of Bayesian models for administrative data.
 
 \subsection{Data}
-\lable{aim2:data}
+\label{aim2:data}
 
 \paragraph{Voters list as a demographic data source} A data source that is, to my knowledge, seldom used to inform population mapping for public health purposes, is voters registration lists. This low usage can be linked to concerns regarding the completeness of this data in settings where only subsets of the population are eligible to vote, to issues regarding the regular update of this lists, or to the political purported use of these data, that could favor non-random missingness in data in some situations.
 
@@ -102,27 +102,24 @@ The output of the project will  be an interactive map, allowing the query of our
 
 \subsection{Timeline}
 \label{timeline:aim2}
-I am currently trying to obtain more detailed census data from Niger Census. Meanwhile, the name matching and locality mapping work is already well advanced as we have a first set of matched names from the unsupervised approach, and I have already explored approaches to GPS correction for \gls{renaloc}. I anticipate three more months on the name matching and one month to confirm the locality mapping and the overlay with other \textit{adhoc} layers such as health services and health administration map, and should have completed mapping data by September 2017. I plan 5 months of work for the population estimation, and should have my final results by February 2018. Figure \ref{GanttPaper3} summaries this timeline.
+I anticipate two more months on the name matching and one month to confirm the locality mapping and the overlay with other \textit{adhoc} layers such as health services and health administration map, and should have completed mapping data by december 2017. I plan 3 months of work for the population estimation, and should have my final results by February 2018. Figure \ref{GanttPaper2} summaries this timeline.
 
 \begin{figure}[t]
 	\begin{ganttchart}[vgrid,hgrid,
-	y unit chart=.6cm]{1}{18}
-		\gantttitle{2017}{12}
+	y unit chart=.6cm]{1}{9}
+		\gantttitle{2017}{3}
 		\gantttitle{2018}{6} \\
-		\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,6}{1}\\
+		\gantttitlelist{10,...,12}{1} \gantttitlelist{1,...,6}{1}\\
 
 		\ganttset{bar/.append style={draw=green!40 , fill=green!40},
                     group/.append style={draw=green, fill=green}}
-		\ganttbar{Data Extraction}{1}{3} \\
-		\ganttbar{Name Matching}{1}{6} \\
-		\ganttbar{Locality Mapping}{7}{9} \\
-		\ganttmilestone{First complete map}{9} \\
-		\ganttbar{Population Estimation}{10}{14} \\
-		\ganttmilestone{Sharing Final Results}{14} \\
-		\ganttbar{Paper Writing}{15}{16} \\
-		\ganttbar{Dashboard Design}{15}{16} \\
-		\ganttmilestone{Paper Submission}{16}
+		\ganttbar{Name Matching}{1}{2} \\
+		\ganttbar{Locality Mapping}{2}{3} \\
+		\ganttmilestone{First complete map}{3} \\
+		\ganttbar{Population Estimation}{4}{7} \\
+		\ganttmilestone{Sharing Final Results}{7} \\
+		\ganttbar{Paper Writing}{7}{9} \\
 	\end{ganttchart}
-	\caption{Gantt Chart for Aim 3}
-	\label{GanttPaper3}
+	\caption{Gantt Chart for Aim 2}
+	\label{GanttPaper2}
 \end{figure}

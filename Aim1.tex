@@ -147,27 +147,24 @@ For each of these metrics, I will evaluate their capacity to measure retention i
 \subsection{Timeline}
 \label{timeline:aim1}
 
-I am still hoping to obtain additional data for this aim. I anticipate starting to work on the estimation of the model parameters from this data in April 2017. Based on these parameters, I will be able to implement the cohort and data entry simulation and will have first results to share on this simulation in September 2017. Based on this simulation, I will estimate data quality impact, data maturity impact and I will test robust measures of retention during the last quarter of 2017 and the first quarter of 2018, and I plan on having final results by February 2018. Figure \ref{GanttPaper1} summaries this timeline.
+I have obtained the data I need for this aim and have made a first set of microsimulation and started the estimation of relevant parameters in my data. Based on this simulation, I will estimate data quality impact, data maturity impact and I will test robust measures of retention during the last quarter of 2017 and the first quarter of 2018, and I plan on having final results by March 2018. Figure \ref{GanttPaper1} summaries this timeline.
 
 \begin{figure}[!t]
-	\begin{ganttchart}[vgrid,hgrid,
-	y unit chart=.6cm]{1}{18}
-		\gantttitle{2017}{12}
-		\gantttitle{2018}{6} \\
-		\gantttitlelist{1,...,12}{1} \gantttitlelist{1,...,6}{1}\\
+	\begin{ganttchart}[vgrid,hgrid,y unit chart=.6cm]{1}{9}
+    \gantttitle{2017}{3}
+    \gantttitle{2018}{6} \\
+    \gantttitlelist{10,...,12}{1} \gantttitlelist{1,...,6}{1}\\
 
 		\ganttset{bar/.append style={draw=red!40 , fill=red!40},
 					group/.append style={draw=red, fill=red}}
-		\ganttbar{Data Extraction}{1}{4} \\
-		\ganttbar{Modeling and Model estimation}{5}{6} \\
-		\ganttbar{Cohort Simulation}{7}{9} \\
-		\ganttmilestone{Sharing Cohort simulation results}{9} \\
-		\ganttbar{Data Quality Impact}{10}{10} \\
-		\ganttbar{Data Maturity}{11}{12} \\
-		\ganttbar{Robust Measures of retention}{13}{14} \\
-		\ganttmilestone{Sharing Final Results}{14} \\
-		\ganttbar{Paper Writing}{15}{16} \\
-		\ganttmilestone{Paper Submission}{16}
+		\ganttbar{Modeling and Model estimation}{1}{2} \\
+		\ganttbar{Cohort Simulation}{1}{2} \\
+		\ganttmilestone{Sharing Cohort simulation results}{2} \\
+		\ganttbar{Data Quality Impact}{3}{3} \\
+		\ganttbar{Data Maturity}{4}{5} \\
+		\ganttbar{Robust Measures of retention}{4}{5} \\
+		\ganttmilestone{Sharing Final Results}{6} \\
+		\ganttbar{Paper Writing}{6}{8} \\
 	\end{ganttchart}
 	\caption{Gantt Chart for Aim 1}
 	\label{GanttPaper1}
